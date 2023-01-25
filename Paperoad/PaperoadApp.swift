@@ -13,5 +13,14 @@ struct PaperoadApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
+        .commands {
+            CommandGroup(after: .appInfo) {
+                EmptyView()
+            }
+        }
+        Settings {
+            EmptyView()
+        }
     }
 }
