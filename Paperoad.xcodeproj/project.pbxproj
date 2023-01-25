@@ -22,6 +22,23 @@
 		1FAF9E312981C101000C7D33 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E302981C101000C7D33 /* SearchBar.swift */; };
 		1FAF9E332981C108000C7D33 /* MenuButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E322981C108000C7D33 /* MenuButtons.swift */; };
 		1FAF9E362981C567000C7D33 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E352981C567000C7D33 /* Preference.swift */; };
+		1FAF9E392981CBCB000C7D33 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */; };
+		1FAF9E3C2981CC99000C7D33 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E3B2981CC99000C7D33 /* SettingView.swift */; };
+		1FAF9E3F2981CCFE000C7D33 /* GeneralPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E3E2981CCFE000C7D33 /* GeneralPage.swift */; };
+		1FAF9E412981CD33000C7D33 /* ScrapperPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E402981CD33000C7D33 /* ScrapperPage.swift */; };
+		1FAF9E432981CD3D000C7D33 /* CloudPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E422981CD3D000C7D33 /* CloudPage.swift */; };
+		1FAF9E452981CD47000C7D33 /* ExportPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E442981CD47000C7D33 /* ExportPage.swift */; };
+		1FAF9E472981CD59000C7D33 /* ScrapperCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E462981CD59000C7D33 /* ScrapperCheckbox.swift */; };
+		1FAF9E4A2981D3CE000C7D33 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E492981D3CE000C7D33 /* AppEnvironment.swift */; };
+		1FAF9E4C2981D3E2000C7D33 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E4B2981D3E2000C7D33 /* AppState.swift */; };
+		1FAF9E4E2981D5D8000C7D33 /* AppStateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E4D2981D5D8000C7D33 /* AppStateWrapper.swift */; };
+		1FAF9E512981D88D000C7D33 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAF9E502981D88D000C7D33 /* Realm */; };
+		1FAF9E532981D88D000C7D33 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAF9E522981D88D000C7D33 /* RealmSwift */; };
+		1FAF9E562981D92C000C7D33 /* PaperEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E552981D92C000C7D33 /* PaperEntity.swift */; };
+		1FAF9E582981D93D000C7D33 /* PaperCategorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E572981D93D000C7D33 /* PaperCategorizer.swift */; };
+		1FAF9E5A2981D94B000C7D33 /* PaperEntityCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E592981D94B000C7D33 /* PaperEntityCache.swift */; };
+		1FAF9E5C2981DB47000C7D33 /* PaperTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E5B2981DB47000C7D33 /* PaperTag.swift */; };
+		1FAF9E5E2981DB50000C7D33 /* PaperFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E5D2981DB50000C7D33 /* PaperFolder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +78,22 @@
 		1FAF9E302981C101000C7D33 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		1FAF9E322981C108000C7D33 /* MenuButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtons.swift; sourceTree = "<group>"; };
 		1FAF9E352981C567000C7D33 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		1FAF9E372981CA53000C7D33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		1FAF9E3B2981CC99000C7D33 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		1FAF9E3E2981CCFE000C7D33 /* GeneralPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPage.swift; sourceTree = "<group>"; };
+		1FAF9E402981CD33000C7D33 /* ScrapperPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapperPage.swift; sourceTree = "<group>"; };
+		1FAF9E422981CD3D000C7D33 /* CloudPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPage.swift; sourceTree = "<group>"; };
+		1FAF9E442981CD47000C7D33 /* ExportPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPage.swift; sourceTree = "<group>"; };
+		1FAF9E462981CD59000C7D33 /* ScrapperCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapperCheckbox.swift; sourceTree = "<group>"; };
+		1FAF9E492981D3CE000C7D33 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		1FAF9E4B2981D3E2000C7D33 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1FAF9E4D2981D5D8000C7D33 /* AppStateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateWrapper.swift; sourceTree = "<group>"; };
+		1FAF9E552981D92C000C7D33 /* PaperEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperEntity.swift; sourceTree = "<group>"; };
+		1FAF9E572981D93D000C7D33 /* PaperCategorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperCategorizer.swift; sourceTree = "<group>"; };
+		1FAF9E592981D94B000C7D33 /* PaperEntityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperEntityCache.swift; sourceTree = "<group>"; };
+		1FAF9E5B2981DB47000C7D33 /* PaperTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperTag.swift; sourceTree = "<group>"; };
+		1FAF9E5D2981DB50000C7D33 /* PaperFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperFolder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FAF9E532981D88D000C7D33 /* RealmSwift in Frameworks */,
+				1FAF9E512981D88D000C7D33 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +126,7 @@
 		1FAF9DE92981B9E5000C7D33 = {
 			isa = PBXGroup;
 			children = (
+				1FAF9E372981CA53000C7D33 /* README.md */,
 				1FAF9DF42981B9E5000C7D33 /* Paperoad */,
 				1FAF9E062981B9E7000C7D33 /* PaperoadTests */,
 				1FAF9E102981B9E7000C7D33 /* PaperoadUITests */,
@@ -111,12 +147,15 @@
 		1FAF9DF42981B9E5000C7D33 /* Paperoad */ = {
 			isa = PBXGroup;
 			children = (
+				1FAF9E542981D903000C7D33 /* Models */,
+				1FAF9E482981D22F000C7D33 /* Injector */,
 				1FAF9E342981C559000C7D33 /* Utilities */,
 				1FAF9E202981BC0A000C7D33 /* UI */,
 				1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */,
 				1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */,
 				1FAF9DFE2981B9E7000C7D33 /* Paperoad.entitlements */,
 				1FAF9DFB2981B9E7000C7D33 /* Preview Content */,
+				1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */,
 			);
 			path = Paperoad;
 			sourceTree = "<group>";
@@ -149,6 +188,7 @@
 		1FAF9E202981BC0A000C7D33 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1FAF9E3A2981CC86000C7D33 /* SettingView */,
 				1FAF9E2C2981C06B000C7D33 /* ToolbarView */,
 				1FAF9E272981BFB9000C7D33 /* DetailView */,
 				1FAF9E262981BFB3000C7D33 /* EntitiesView */,
@@ -209,6 +249,49 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		1FAF9E3A2981CC86000C7D33 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				1FAF9E3D2981CCF2000C7D33 /* Components */,
+				1FAF9E3B2981CC99000C7D33 /* SettingView.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
+		1FAF9E3D2981CCF2000C7D33 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1FAF9E3E2981CCFE000C7D33 /* GeneralPage.swift */,
+				1FAF9E402981CD33000C7D33 /* ScrapperPage.swift */,
+				1FAF9E422981CD3D000C7D33 /* CloudPage.swift */,
+				1FAF9E442981CD47000C7D33 /* ExportPage.swift */,
+				1FAF9E462981CD59000C7D33 /* ScrapperCheckbox.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1FAF9E482981D22F000C7D33 /* Injector */ = {
+			isa = PBXGroup;
+			children = (
+				1FAF9E492981D3CE000C7D33 /* AppEnvironment.swift */,
+				1FAF9E4B2981D3E2000C7D33 /* AppState.swift */,
+				1FAF9E4D2981D5D8000C7D33 /* AppStateWrapper.swift */,
+			);
+			path = Injector;
+			sourceTree = "<group>";
+		};
+		1FAF9E542981D903000C7D33 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FAF9E552981D92C000C7D33 /* PaperEntity.swift */,
+				1FAF9E572981D93D000C7D33 /* PaperCategorizer.swift */,
+				1FAF9E592981D94B000C7D33 /* PaperEntityCache.swift */,
+				1FAF9E5B2981DB47000C7D33 /* PaperTag.swift */,
+				1FAF9E5D2981DB50000C7D33 /* PaperFolder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,6 +308,10 @@
 			dependencies = (
 			);
 			name = Paperoad;
+			packageProductDependencies = (
+				1FAF9E502981D88D000C7D33 /* Realm */,
+				1FAF9E522981D88D000C7D33 /* RealmSwift */,
+			);
 			productName = Paperoad;
 			productReference = 1FAF9DF22981B9E5000C7D33 /* Paperoad.app */;
 			productType = "com.apple.product-type.application";
@@ -297,6 +384,9 @@
 				Base,
 			);
 			mainGroup = 1FAF9DE92981B9E5000C7D33;
+			packageReferences = (
+				1FAF9E4F2981D88D000C7D33 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 1FAF9DF32981B9E5000C7D33 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -313,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FAF9E392981CBCB000C7D33 /* .swiftlint.yml in Resources */,
 				1FAF9DFD2981B9E7000C7D33 /* Preview Assets.xcassets in Resources */,
 				1FAF9DFA2981B9E7000C7D33 /* Assets.xcassets in Resources */,
 			);
@@ -341,14 +432,28 @@
 			files = (
 				1FAF9E362981C567000C7D33 /* Preference.swift in Sources */,
 				1FAF9E332981C108000C7D33 /* MenuButtons.swift in Sources */,
+				1FAF9E432981CD3D000C7D33 /* CloudPage.swift in Sources */,
+				1FAF9E4C2981D3E2000C7D33 /* AppState.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,
+				1FAF9E4E2981D5D8000C7D33 /* AppStateWrapper.swift in Sources */,
+				1FAF9E412981CD33000C7D33 /* ScrapperPage.swift in Sources */,
 				1FAF9E252981BDD2000C7D33 /* SidebarView.swift in Sources */,
+				1FAF9E5E2981DB50000C7D33 /* PaperFolder.swift in Sources */,
 				1FAF9E222981BD6E000C7D33 /* MainView.swift in Sources */,
 				1FAF9E2B2981C025000C7D33 /* EntitiesView.swift in Sources */,
+				1FAF9E472981CD59000C7D33 /* ScrapperCheckbox.swift in Sources */,
 				1FAF9E292981BFE0000C7D33 /* DetailView.swift in Sources */,
 				1FAF9E312981C101000C7D33 /* SearchBar.swift in Sources */,
+				1FAF9E582981D93D000C7D33 /* PaperCategorizer.swift in Sources */,
+				1FAF9E562981D92C000C7D33 /* PaperEntity.swift in Sources */,
 				1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */,
+				1FAF9E5A2981D94B000C7D33 /* PaperEntityCache.swift in Sources */,
 				1FAF9E2E2981C087000C7D33 /* ToolbarView.swift in Sources */,
+				1FAF9E3C2981CC99000C7D33 /* SettingView.swift in Sources */,
+				1FAF9E452981CD47000C7D33 /* ExportPage.swift in Sources */,
+				1FAF9E5C2981DB47000C7D33 /* PaperTag.swift in Sources */,
+				1FAF9E3F2981CCFE000C7D33 /* GeneralPage.swift in Sources */,
+				1FAF9E4A2981D3CE000C7D33 /* AppEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +769,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1FAF9E4F2981D88D000C7D33 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1FAF9E502981D88D000C7D33 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FAF9E4F2981D88D000C7D33 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		1FAF9E522981D88D000C7D33 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FAF9E4F2981D88D000C7D33 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FAF9DEA2981B9E5000C7D33 /* Project object */;
 }

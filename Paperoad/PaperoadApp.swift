@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct PaperoadApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -20,7 +21,7 @@ struct PaperoadApp: App {
             }
         }
         Settings {
-            EmptyView()
+            SettingView()
         }
     }
 }
