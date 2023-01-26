@@ -17,5 +17,9 @@ struct PaperoadApp: App {
         .commands {
             SidebarCommands()
         }
+        
+        Settings {
+            PreferenceView()
+        }
     }
 }
