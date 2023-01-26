@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct SidebarView: View {
+    @State private var isExpanded: Bool = true
+    
     var body: some View {
         List {
-            Label("Books", systemImage: "book.closed")
-            Label("Tutorials", systemImage: "list.bullet.rectangle")
+            DisclosureGroup(isExpanded: $isExpanded) {
+                Label("Books", systemImage: "book.closed")
+                Label("Tutorials", systemImage: "tv")
+            } label: {
+                Label("All", systemImage: "list.bullet.rectangle")
+            }
         }
         .listStyle(SidebarListStyle())
         .toolbar {
