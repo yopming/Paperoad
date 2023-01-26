@@ -10,6 +10,7 @@
 		1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102129830C8500A6D4CD /* SidebarView.swift */; };
 		1F28102629832A6000A6D4CD /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* PreferenceView.swift */; };
 		1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102829832AEF00A6D4CD /* GeneralView.swift */; };
+		1F28102B29832CD700A6D4CD /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1F28102A29832CD700A6D4CD /* Credits.html */; };
 		1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */; };
 		1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF72981B9E6000C7D33 /* ContentView.swift */; };
 		1FAF9DFA2981B9E7000C7D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		1F28102129830C8500A6D4CD /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		1F28102529832A6000A6D4CD /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		1F28102829832AEF00A6D4CD /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		1F28102A29832CD700A6D4CD /* Credits.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		1FAF9DF22981B9E5000C7D33 /* Paperoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paperoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadApp.swift; sourceTree = "<group>"; };
 		1FAF9DF72981B9E6000C7D33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		1FAF9DE92981B9E5000C7D33 = {
 			isa = PBXGroup;
 			children = (
+				1F28102A29832CD700A6D4CD /* Credits.html */,
 				1FAF9E372981CA53000C7D33 /* README.md */,
 				1FAF9DF42981B9E5000C7D33 /* Paperoad */,
 				1FAF9E062981B9E7000C7D33 /* PaperoadTests */,
@@ -293,6 +296,7 @@
 				1FAF9E392981CBCB000C7D33 /* .swiftlint.yml in Resources */,
 				1FAF9DFD2981B9E7000C7D33 /* Preview Assets.xcassets in Resources */,
 				1FAF9DFA2981B9E7000C7D33 /* Assets.xcassets in Resources */,
+				1F28102B29832CD700A6D4CD /* Credits.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
