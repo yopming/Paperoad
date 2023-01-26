@@ -9,34 +9,13 @@ import Combine
 import SwiftUI
 
 struct ContentView: View {
-    @State private var colorTheme: String?
-    
     var body: some View {
-        MainView()
-            .frame(minWidth: 1000, minHeight: 800)
-            .preferredColorScheme(colorScheme())
-            .onReceive(colorSchemeUpdate, perform: {
-                self.colorTheme = $0
-            })
-    }
-    
-    func colorScheme() -> ColorScheme? {
-        switch colorTheme {
-        case "System Default": return nil
-        case "Light": return ColorScheme.light
-        case "Dark": return ColorScheme.dark
-        default:
-            return nil
+        NavigationView {
+            SidebarView()
+                .frame(width: 200)
+            
+            Text("Use button to toggle sidebar.")
+                .frame(minWidth: 500)
         }
-    }
-    
-    var colorSchemeUpdate: AnyPublisher<String, Never> {
-        UserDefaults.standard.publisher(for: \.preferColorTheme).eraseToAnyPublisher()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
