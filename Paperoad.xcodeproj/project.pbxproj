@@ -31,7 +31,7 @@
 		1FAF9E472981CD59000C7D33 /* ScrapperCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E462981CD59000C7D33 /* ScrapperCheckbox.swift */; };
 		1FAF9E4A2981D3CE000C7D33 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E492981D3CE000C7D33 /* AppEnvironment.swift */; };
 		1FAF9E4C2981D3E2000C7D33 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E4B2981D3E2000C7D33 /* AppState.swift */; };
-		1FAF9E4E2981D5D8000C7D33 /* AppStateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E4D2981D5D8000C7D33 /* AppStateWrapper.swift */; };
+		1FAF9E4E2981D5D8000C7D33 /* StateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E4D2981D5D8000C7D33 /* StateWrapper.swift */; };
 		1FAF9E512981D88D000C7D33 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAF9E502981D88D000C7D33 /* Realm */; };
 		1FAF9E532981D88D000C7D33 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAF9E522981D88D000C7D33 /* RealmSwift */; };
 		1FAF9E562981D92C000C7D33 /* PaperEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E552981D92C000C7D33 /* PaperEntity.swift */; };
@@ -88,7 +88,7 @@
 		1FAF9E462981CD59000C7D33 /* ScrapperCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapperCheckbox.swift; sourceTree = "<group>"; };
 		1FAF9E492981D3CE000C7D33 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		1FAF9E4B2981D3E2000C7D33 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		1FAF9E4D2981D5D8000C7D33 /* AppStateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateWrapper.swift; sourceTree = "<group>"; };
+		1FAF9E4D2981D5D8000C7D33 /* StateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateWrapper.swift; sourceTree = "<group>"; };
 		1FAF9E552981D92C000C7D33 /* PaperEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperEntity.swift; sourceTree = "<group>"; };
 		1FAF9E572981D93D000C7D33 /* PaperCategorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperCategorizer.swift; sourceTree = "<group>"; };
 		1FAF9E592981D94B000C7D33 /* PaperEntityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperEntityCache.swift; sourceTree = "<group>"; };
@@ -123,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F2810202982133100A6D4CD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1FAF9E4D2981D5D8000C7D33 /* StateWrapper.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		1FAF9DE92981B9E5000C7D33 = {
 			isa = PBXGroup;
 			children = (
@@ -273,9 +281,9 @@
 		1FAF9E482981D22F000C7D33 /* Injector */ = {
 			isa = PBXGroup;
 			children = (
+				1F2810202982133100A6D4CD /* Components */,
 				1FAF9E492981D3CE000C7D33 /* AppEnvironment.swift */,
 				1FAF9E4B2981D3E2000C7D33 /* AppState.swift */,
-				1FAF9E4D2981D5D8000C7D33 /* AppStateWrapper.swift */,
 			);
 			path = Injector;
 			sourceTree = "<group>";
@@ -360,7 +368,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					1FAF9DF12981B9E5000C7D33 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -435,7 +443,7 @@
 				1FAF9E432981CD3D000C7D33 /* CloudPage.swift in Sources */,
 				1FAF9E4C2981D3E2000C7D33 /* AppState.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,
-				1FAF9E4E2981D5D8000C7D33 /* AppStateWrapper.swift in Sources */,
+				1FAF9E4E2981D5D8000C7D33 /* StateWrapper.swift in Sources */,
 				1FAF9E412981CD33000C7D33 /* ScrapperPage.swift in Sources */,
 				1FAF9E252981BDD2000C7D33 /* SidebarView.swift in Sources */,
 				1FAF9E5E2981DB50000C7D33 /* PaperFolder.swift in Sources */,
@@ -523,6 +531,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -583,6 +592,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -609,9 +619,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Paperoad/Paperoad.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Paperoad/Preview Content\"";
 				DEVELOPMENT_TEAM = 8B4VH988UL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -636,9 +648,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Paperoad/Paperoad.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Paperoad/Preview Content\"";
 				DEVELOPMENT_TEAM = 8B4VH988UL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -664,6 +678,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 8B4VH988UL;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -683,6 +698,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 8B4VH988UL;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -701,6 +717,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 8B4VH988UL;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -718,6 +735,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 8B4VH988UL;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;

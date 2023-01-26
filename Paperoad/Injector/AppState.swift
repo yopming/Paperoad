@@ -16,14 +16,32 @@ struct SelectionState {
 }
 
 // MARK: - ViewState
-
+struct ViewState {
+    var entitiesCount = StateWrapper(0)
+    var entitiesViewSwitcher = StateWrapper(0)
+    var entitiesViewSortSwitcher = StateWrapper(nil as String?)
+    
+    var isEditViewShown = StateWrapper(false)
+    var isTagViewShown = StateWrapper(false)
+    var isFolderViewShown = StateWrapper(false)
+    var isNoteViewShown = StateWrapper(false)
+    
+    var alertInformation = StateWrapper(nil as String?)
+    
+    var processingQueueCount = StateWrapper(0)
+    var realReinited = StateWrapper(nil as Date?)
+    
+    var searchMode = StateWrapper(SearchMode.general)
+}
 
 // MARK: - SharedData
 struct SharedData {
     var searchQuery = StateWrapper(nil as String?)
-    var editEntityDraft = StateWrapper()
+    var editEntity = StateWrapper(PaperEntity())
 }
 
 struct SharedState {
-    
+    var selection = SelectionState()
+    var viewState = ViewState()
+    var sharedData = SharedData()
 }

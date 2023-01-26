@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import RealmSwift
+
+
+class PaperFolder: IDObject, ObjectKeyIdentifiable, PaperCategorizer {
+    @Persisted var _partition: String?
+    @Persisted var count: Int = 0
+    @Persisted var name: String = ""
+    
+    convenience required init(name: String) {
+        self.init()
+        self.name = name
+    }
+}

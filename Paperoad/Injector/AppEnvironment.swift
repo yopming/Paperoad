@@ -9,5 +9,3 @@ import Combine
 import SwiftUI
 
 // MARK: - PaperoadContainer
-struct PaperoadContainer: EnvironmentKey {
-}
