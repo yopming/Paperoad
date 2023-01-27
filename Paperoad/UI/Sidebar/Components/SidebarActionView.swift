@@ -9,21 +9,6 @@ import SwiftUI
 
 struct SidebarActionView: View {
     var body: some View {
-//        VStack {
-//            Text("Paperoad")
-//        }
-//        .toolbar {
-//            ToolbarItem(placement: .primaryAction){
-//                Menu {
-//                    Button("Add new group", action: {})
-//                    Button("Add new tag", action: {})
-//                } label: {
-//                    Label("Star", systemImage: "plus.app")
-//                }
-//            }
-//        }
-//        .frame(height: 50)
-//        .border(SeparatorShapeStyle(), width: 2)
         VStack (alignment: .leading) {
             Divider()
             Menu {
@@ -34,7 +19,6 @@ struct SidebarActionView: View {
             }
             .menuStyle(BorderlessButtonMenuStyle())
         }
-//        .frame(height: 30)
         .padding()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PreferenceView.swift
+//  SettingsView.swift
 //  Paperoad
 //
 //  Created by Tieming Geng on 1/26/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PreferenceView: View {
+struct SettingsView: View {
     private enum Tabs: Hashable {
         case general
     }

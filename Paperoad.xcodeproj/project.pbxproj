@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102129830C8500A6D4CD /* SidebarView.swift */; };
-		1F28102629832A6000A6D4CD /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* PreferenceView.swift */; };
+		1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* SettingsView.swift */; };
 		1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102829832AEF00A6D4CD /* GeneralView.swift */; };
 		1F28102B29832CD700A6D4CD /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1F28102A29832CD700A6D4CD /* Credits.html */; };
 		1F28102E2983361200A6D4CD /* SidebarGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102D2983361200A6D4CD /* SidebarGroupView.swift */; };
@@ -24,6 +24,7 @@
 		1FAF9E392981CBCB000C7D33 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */; };
 		1FAF9E512981D88D000C7D33 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAF9E502981D88D000C7D33 /* Realm */; };
 		1FAF9E532981D88D000C7D33 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAF9E522981D88D000C7D33 /* RealmSwift */; };
+		1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E6029846A6B000C7D33 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		1F28102129830C8500A6D4CD /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
-		1F28102529832A6000A6D4CD /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
+		1F28102529832A6000A6D4CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1F28102829832AEF00A6D4CD /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
 		1F28102A29832CD700A6D4CD /* Credits.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		1F28102D2983361200A6D4CD /* SidebarGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupView.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		1FAF9E132981B9E7000C7D33 /* PaperoadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1FAF9E372981CA53000C7D33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		1FAF9E6029846A6B000C7D33 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +104,13 @@
 			path = Sidebar;
 			sourceTree = "<group>";
 		};
-		1F28102429832A2B00A6D4CD /* Preferences */ = {
+		1F28102429832A2B00A6D4CD /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				1F28102729832AE100A6D4CD /* Components */,
-				1F28102529832A6000A6D4CD /* PreferenceView.swift */,
+				1F28102529832A6000A6D4CD /* SettingsView.swift */,
 			);
-			path = Preferences;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		1F28102729832AE100A6D4CD /* Components */ = {
@@ -192,11 +194,20 @@
 		1FAF9E202981BC0A000C7D33 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1F28102429832A2B00A6D4CD /* Preferences */,
+				1FAF9E5F29846A4A000C7D33 /* Main */,
+				1F28102429832A2B00A6D4CD /* Settings */,
 				1F2810232983184100A6D4CD /* Sidebar */,
 				1FAF9DF72981B9E6000C7D33 /* ContentView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		1FAF9E5F29846A4A000C7D33 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1FAF9E6029846A6B000C7D33 /* MainView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,7 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F28102629832A6000A6D4CD /* PreferenceView.swift in Sources */,
+				1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */,
+				1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,
 				1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */,
