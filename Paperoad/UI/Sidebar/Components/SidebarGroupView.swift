@@ -16,9 +16,21 @@ struct SidebarGroupView: View {
             Label("Tutorials", systemImage: "tv")
             Label("My Library", systemImage: "building.columns")
             
-            ForEach(1..<80) {i in
+            ForEach(1..<10) {i in
                 Label("label \(i)", systemImage: "sidebar.left")
             }
+        }
+        .contextMenu {
+            Button(action: {}, label: {
+                Label("Test", systemImage: "sidebar.left")
+            })
+            Button(action: {}, label: {
+                Label("Test", systemImage: "sidebar.left")
+            })
+            Divider()
+            Button(action: {}, label: {
+                Label("Test", systemImage: "sidebar.left")
+            })
         }
     }
 }
