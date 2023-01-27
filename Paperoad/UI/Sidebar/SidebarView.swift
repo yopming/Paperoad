@@ -12,12 +12,12 @@ struct SidebarView: View {
     
     var body: some View {
         List {
-            DisclosureGroup(isExpanded: $isExpanded) {
-                Label("Books", systemImage: "book.closed")
-                Label("Tutorials", systemImage: "tv")
-            } label: {
-                Label("All", systemImage: "list.bullet.rectangle")
-            }
+            SidebarGroupView()
+            SidebarTagView()
+        }
+        // SidebarBottomView() at the very bottom
+        .safeAreaInset(edge: .bottom) {
+            SidebarActionView()
         }
         .listStyle(SidebarListStyle())
         .toolbar {

@@ -16,6 +16,9 @@ struct PaperoadApp: App {
         }
         .commands {
             SidebarCommands()
+            
+            // remove "New Window" option from menu File
+            CommandGroup(replacing: .newItem, addition: {})
         }
         
         Settings {
