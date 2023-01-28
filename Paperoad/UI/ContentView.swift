@@ -8,16 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
-    @AppStorage("fontSize") private var fontSize = 12
+    @State private var searchText = ""
     
     var body: some View {
         NavigationView {
             SidebarView()
-                .frame(width: 200)
-            
-            Text("Use button to toggle sidebar.")
-                .font(.system(size: CGFloat(fontSize)))
-                .frame(minWidth: 500)
+            MainView()
         }
+        .toolbar(content: {
+            ToolbarItemGroup(placement: .primaryAction) {
+                Button(action: {}, label: {
+                    Label("Add Empty", systemImage: "plus")
+                        .labelStyle(.titleAndIcon)
+                })
+                Button(action: {}, label: {
+                    Label("Add by Identifier", systemImage: "wand.and.stars")
+                        .labelStyle(.titleAndIcon)
+                })
+                
+            }
+        })
+        .searchable(text: $searchText)
     }
 }
+
+// function as action to toggle sidebar
+private func toggleSidebar() {
+    NSApp.keyWindow?.contentViewController?.tryToPerform(
+        #selector(NSSplitViewController.toggleSidebar(_:)), with: nil
+    )
+}
+

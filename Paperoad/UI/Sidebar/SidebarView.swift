@@ -20,18 +20,6 @@ struct SidebarView: View {
             SidebarActionView()
         }
         .listStyle(SidebarListStyle())
-        .toolbar {
-            Button(action: toggleSidebar, label: {
-                Label("Toggle Sidebar", systemImage: "sidebar.left")
-            })
-        }
-        .frame(minWidth:200, maxWidth: 500)
+        .frame(minWidth:100, idealWidth: 200)
     }
-}
-
-// function as action to toggle sidebar
-private func toggleSidebar() {
-    NSApp.keyWindow?.contentViewController?.tryToPerform(
-        #selector(NSSplitViewController.toggleSidebar(_:)), with: nil
-    )
 }

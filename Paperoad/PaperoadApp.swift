@@ -14,6 +14,8 @@ struct PaperoadApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowStyle(.automatic)
+        .windowToolbarStyle(.unified(showsTitle: false))
         .commands {
             SidebarCommands()
             
@@ -22,7 +24,7 @@ struct PaperoadApp: App {
         }
         
         Settings {
-            PreferenceView()
+            SettingsView()
         }
     }
 }
