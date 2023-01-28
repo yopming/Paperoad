@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct SidebarView: View {
-    @State private var isExpanded: Bool = true
+    // which group or tag is selected right now, for router
+    @State private var selectedGroup: Int?
     
     var body: some View {
         List {
             SidebarGroupView()
-            SidebarTagView()
+            // TODO: tag implementation
+            // SidebarTagView()
         }
-        // SidebarBottomView() at the very bottom
+        // SidebarActionView() at the very bottom
         .safeAreaInset(edge: .bottom) {
             SidebarActionView()
         }
