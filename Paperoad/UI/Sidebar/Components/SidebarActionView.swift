@@ -6,19 +6,51 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct SidebarActionView: View {
+    // if AddGroup sheet is presented
+    @State private var isAddGroupFormIsPresented: Bool = false
+    
+    @State private var name: String = ""
+    
+//    // all groups without projection
+//    @ObservedResults(
+//        GroupModel.self
+//    ) var groups
+
     var body: some View {
         VStack (alignment: .leading) {
             Divider()
-            Menu {
-                Button("Add new group", action: {})
-                Button("Add new tag", action: {})
-            } label: {
-                Label("Add", systemImage: "plus.app")
-            }
-            .menuStyle(BorderlessButtonMenuStyle())
+            Button(
+                action: openNewGroupFormView,
+                label: {
+                    Label("New Group", systemImage: "plus")
+                }
+            )
+            
+            // add popover window for new group
+            .sheet(
+                isPresented: $isAddGroupFormIsPresented,
+                onDismiss: {
+                    // refresh group list after adding
+                },
+                content: {
+                    SidebarGroupAddView(
+                        isPresented: $isAddGroupFormIsPresented,
+                        group: GroupModel()
+                    )
+                }
+            )
         }
         .padding()
+    }
+}
+
+
+// MARK: - Actions
+extension SidebarActionView {
+    func openNewGroupFormView() {
+        isAddGroupFormIsPresented = true
     }
 }

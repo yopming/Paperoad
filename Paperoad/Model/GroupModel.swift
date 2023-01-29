@@ -8,8 +8,8 @@
 import RealmSwift
 import Foundation
 
-class GroupModel: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
+class GroupModel: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var name = ""
     @Persisted var desc: String?
     @Persisted var createTime = Date()

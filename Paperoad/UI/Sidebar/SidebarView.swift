@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct SidebarView: View {
     // which group or tag is selected right now, for router
-    @State private var selectedGroup: Int?
+//    @State private var selectedGroup: Int?
     
     var body: some View {
         List {
