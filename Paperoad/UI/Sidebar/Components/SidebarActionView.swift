@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct SidebarActionView: View {
     // if AddGroup sheet is presented
@@ -37,8 +36,7 @@ struct SidebarActionView: View {
                 },
                 content: {
                     SidebarGroupAddView(
-                        isPresented: $isAddGroupFormIsPresented,
-                        group: GroupModel()
+                        isPresented: $isAddGroupFormIsPresented
                     )
                 }
             )

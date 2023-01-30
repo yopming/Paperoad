@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct SidebarGroupAddView: View {
     // keep track of if the sheet should be shown
     @Binding var isPresented: Bool
     
-    @ObservedRealmObject var group: GroupModel
+    @State private var groupName = ""
     
     // the name of the sheet
     var title: String = "New Group"
     
     // called when the sheet is done
-    var onFinish: (String) -> ()
+//    var onFinish: (String) -> ()
     
     var body: some View {
         VStack {
@@ -28,16 +27,16 @@ struct SidebarGroupAddView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
             Form {
-                TextField("Name:", text: $group.name)
+                TextField("Name:", text: $groupName)
             }
             Divider()
             HStack {
                 Button("Close", role: .cancel) { isPresented = false }
                 Button("Create") {
-                    onFinish(group.name)
+//                    onFinish(group.name)
                     isPresented = false
                 }
-                .disabled(group.name.isEmpty)
+                .disabled(groupName.isEmpty)
                 .tint(.accentColor)
             }
             .frame(maxWidth: .infinity, alignment: .bottomTrailing)

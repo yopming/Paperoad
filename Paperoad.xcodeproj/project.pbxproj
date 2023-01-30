@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F26B93C2985E7B900709752 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 1F26B93B2985E7B900709752 /* GRDB */; };
-		1F26B93E2985E7B900709752 /* GRDB-dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 1F26B93D2985E7B900709752 /* GRDB-dynamic */; };
 		1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102129830C8500A6D4CD /* SidebarView.swift */; };
 		1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* SettingsView.swift */; };
 		1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102829832AEF00A6D4CD /* GeneralView.swift */; };
@@ -16,8 +14,8 @@
 		1F28102E2983361200A6D4CD /* SidebarGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102D2983361200A6D4CD /* SidebarGroupView.swift */; };
 		1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102F2983361C00A6D4CD /* SidebarTagView.swift */; };
 		1F28103429834FC500A6D4CD /* SidebarActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28103329834FC500A6D4CD /* SidebarActionView.swift */; };
-		1F281037298597A400A6D4CD /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F281036298597A400A6D4CD /* GroupModel.swift */; };
 		1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */; };
+		1F2E542129874796007992FA /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 1F2E542029874796007992FA /* GRDB */; };
 		1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */; };
 		1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF72981B9E6000C7D33 /* ContentView.swift */; };
 		1FAF9DFA2981B9E7000C7D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */; };
@@ -26,8 +24,6 @@
 		1FAF9E122981B9E7000C7D33 /* PaperoadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E112981B9E7000C7D33 /* PaperoadUITests.swift */; };
 		1FAF9E142981B9E7000C7D33 /* PaperoadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E132981B9E7000C7D33 /* PaperoadUITestsLaunchTests.swift */; };
 		1FAF9E392981CBCB000C7D33 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */; };
-		1FAF9E512981D88D000C7D33 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAF9E502981D88D000C7D33 /* Realm */; };
-		1FAF9E532981D88D000C7D33 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FAF9E522981D88D000C7D33 /* RealmSwift */; };
 		1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E6029846A6B000C7D33 /* MainView.swift */; };
 		1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E632984773B000C7D33 /* PapersView.swift */; };
 		1FAF9EF129861582000C7D33 /* DatabasePersistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9EED29861582000C7D33 /* DatabasePersistent.swift */; };
@@ -53,6 +49,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1F26B9542987443000709752 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1F28102129830C8500A6D4CD /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		1F28102529832A6000A6D4CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -61,7 +70,6 @@
 		1F28102D2983361200A6D4CD /* SidebarGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupView.swift; sourceTree = "<group>"; };
 		1F28102F2983361C00A6D4CD /* SidebarTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTagView.swift; sourceTree = "<group>"; };
 		1F28103329834FC500A6D4CD /* SidebarActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionView.swift; sourceTree = "<group>"; };
-		1F281036298597A400A6D4CD /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupAddView.swift; sourceTree = "<group>"; };
 		1FAF9DF22981B9E5000C7D33 /* Paperoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paperoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadApp.swift; sourceTree = "<group>"; };
@@ -89,10 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F26B93C2985E7B900709752 /* GRDB in Frameworks */,
-				1F26B93E2985E7B900709752 /* GRDB-dynamic in Frameworks */,
-				1FAF9E532981D88D000C7D33 /* RealmSwift in Frameworks */,
-				1FAF9E512981D88D000C7D33 /* Realm in Frameworks */,
+				1F2E542129874796007992FA /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +135,13 @@
 				1FAF9EF029861582000C7D33 /* DatabasePreview.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		1F26B9482987443000709752 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		1F2810232983184100A6D4CD /* Sidebar */ = {
@@ -171,7 +183,6 @@
 		1F2810352985975700A6D4CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1F281036298597A400A6D4CD /* GroupModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 				1FAF9E062981B9E7000C7D33 /* PaperoadTests */,
 				1FAF9E102981B9E7000C7D33 /* PaperoadUITests */,
 				1FAF9DF32981B9E5000C7D33 /* Products */,
+				1F26B9482987443000709752 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,6 +289,7 @@
 				1FAF9DEE2981B9E5000C7D33 /* Sources */,
 				1FAF9DEF2981B9E5000C7D33 /* Frameworks */,
 				1FAF9DF02981B9E5000C7D33 /* Resources */,
+				1F26B9542987443000709752 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,10 +297,7 @@
 			);
 			name = Paperoad;
 			packageProductDependencies = (
-				1FAF9E502981D88D000C7D33 /* Realm */,
-				1FAF9E522981D88D000C7D33 /* RealmSwift */,
-				1F26B93B2985E7B900709752 /* GRDB */,
-				1F26B93D2985E7B900709752 /* GRDB-dynamic */,
+				1F2E542029874796007992FA /* GRDB */,
 			);
 			productName = Paperoad;
 			productReference = 1FAF9DF22981B9E5000C7D33 /* Paperoad.app */;
@@ -409,7 +419,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F281037298597A400A6D4CD /* GroupModel.swift in Sources */,
 				1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */,
 				1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
@@ -592,11 +601,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.dbms.tgeng.Paperoad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -621,11 +632,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.dbms.tgeng.Paperoad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -771,25 +784,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1F26B93B2985E7B900709752 /* GRDB */ = {
+		1F2E542029874796007992FA /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1F26B93A2985E7B900709752 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
-		};
-		1F26B93D2985E7B900709752 /* GRDB-dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1F26B93A2985E7B900709752 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = "GRDB-dynamic";
-		};
-		1FAF9E502981D88D000C7D33 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1FAF9E4F2981D88D000C7D33 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		1FAF9E522981D88D000C7D33 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1FAF9E4F2981D88D000C7D33 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

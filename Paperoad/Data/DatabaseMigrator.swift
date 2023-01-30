@@ -35,13 +35,13 @@ extension Database {
             table.autoIncrementedPrimaryKey("id")
             table.column("title", .text).notNull()
             table.foreignKey(["id"], references: "Authors", columns: ["authorId"])
-            table.column("type", .text).notNull() // TODO type table
+            table.column("type", .text).notNull()
             table.column("abstract", .text)
             table.column("date", .datetime)
             table.column("doi", .text)
             table.column("isbn", .text)
             table.column("url", .text)
-            table.column("publisher", .text) // TODO publisher table
+            table.column("publisher", .text)
             table.column("proceedingTitle", .text)
             table.column("conferenceName", .text)
             table.column("place", .text)

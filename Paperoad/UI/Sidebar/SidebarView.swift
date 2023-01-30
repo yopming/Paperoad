@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct SidebarView: View {
     // which group or tag is selected right now, for router
