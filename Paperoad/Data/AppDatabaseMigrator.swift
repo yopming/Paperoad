@@ -1,5 +1,5 @@
 //
-//  DatabaseMigrator.swift
+//  AppDatabaseMigrator.swift
 //  Paperoad
 //
 //  Created by Tieming on 1/28/23.
@@ -7,15 +7,22 @@
 
 import GRDB
 
-extension Database {
-    var migrator: DatabaseMigrator {
+/// The DatabaseMigrator that defines the database schema.
+/// See <https://swiftpackageindex.com/groue/grdb.swift/documentation/grdb/migrations>
+extension AppDatabase {
+    private var migrator: DatabaseMigrator {
         var migrator = DatabaseMigrator()
         
+        /// speed up development by nuking the database when migrations change
+        /// see <https://swiftpackageindex.com/groue/grdb.swift/documentation/grdb/migrations>
         #if DEBUG
         migrator.eraseDatabaseOnSchemaChange = true
         #endif
         
         migrator.registerMigration("v1") { db in
+            try self.createGroupTable(db)
+            try self.createPaperTable(db)
+            try self.createAuthorTable(db)
         }
         return migrator
     }
@@ -54,7 +61,7 @@ extension Database {
         }
     }
     
-    private func createAuthortable(_ db: GRDB.Database) throws {
+    private func createAuthorTable(_ db: GRDB.Database) throws {
         try db.create(table: "Authors") {table in
             table.autoIncrementedPrimaryKey("id")
             table.column("orcId", .text)
