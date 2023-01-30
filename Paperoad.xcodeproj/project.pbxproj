@@ -18,8 +18,8 @@
 		1F2DA2872988456A00837D0B /* AppDatabaseMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2862988456A00837D0B /* AppDatabaseMigrator.swift */; };
 		1F2DA289298847BB00837D0B /* AppDatabaseReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA288298847BB00837D0B /* AppDatabaseReader.swift */; };
 		1F2DA28B298847C600837D0B /* AppDatabaseWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA28A298847C600837D0B /* AppDatabaseWriter.swift */; };
-		1F2DA28D2988493800837D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA28C2988493800837D0B /* Group.swift */; };
 		1F2DA28F29884DE600837D0B /* AppDatabasePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA28E29884DE600837D0B /* AppDatabasePersistence.swift */; };
+		1F2DA297298860D300837D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA296298860D300837D0B /* Group.swift */; };
 		1F2E542129874796007992FA /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 1F2E542029874796007992FA /* GRDB */; };
 		1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */; };
 		1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF72981B9E6000C7D33 /* ContentView.swift */; };
@@ -76,8 +76,8 @@
 		1F2DA2862988456A00837D0B /* AppDatabaseMigrator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabaseMigrator.swift; sourceTree = "<group>"; };
 		1F2DA288298847BB00837D0B /* AppDatabaseReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseReader.swift; sourceTree = "<group>"; };
 		1F2DA28A298847C600837D0B /* AppDatabaseWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseWriter.swift; sourceTree = "<group>"; };
-		1F2DA28C2988493800837D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Paperoad/Data/Group.swift; sourceTree = SOURCE_ROOT; };
 		1F2DA28E29884DE600837D0B /* AppDatabasePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabasePersistence.swift; sourceTree = "<group>"; };
+		1F2DA296298860D300837D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		1FAF9DF22981B9E5000C7D33 /* Paperoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paperoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadApp.swift; sourceTree = "<group>"; };
 		1FAF9DF72981B9E6000C7D33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -185,10 +185,17 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		1F2810352985975700A6D4CD /* Model */ = {
+		1F2DA290298856A400837D0B /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				1F2DA28C2988493800837D0B /* Group.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		1F2DA295298860C700837D0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F2DA296298860D300837D0B /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,8 +226,9 @@
 		1FAF9DF42981B9E5000C7D33 /* Paperoad */ = {
 			isa = PBXGroup;
 			children = (
+				1F2DA295298860C700837D0B /* Model */,
+				1F2DA290298856A400837D0B /* Debug */,
 				1F26B9452985F41300709752 /* Data */,
-				1F2810352985975700A6D4CD /* Model */,
 				1FAF9E202981BC0A000C7D33 /* UI */,
 				1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */,
 				1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */,
@@ -428,8 +436,8 @@
 				1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */,
 				1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
-				1F2DA28D2988493800837D0B /* Group.swift in Sources */,
 				1F2DA289298847BB00837D0B /* AppDatabaseReader.swift in Sources */,
+				1F2DA297298860D300837D0B /* Group.swift in Sources */,
 				1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,
 				1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */,

@@ -19,7 +19,7 @@ extension AppDatabase {
             let fileManager = FileManager()
             let folderURL = try fileManager
                 .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                .appendingPathComponent("database", isDirectory: true)
+                .appendingPathComponent("data", isDirectory: true)
             try fileManager.createDirectory(at: folderURL, withIntermediateDirectories: true)
             
             // connect to a database on disk

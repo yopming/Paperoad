@@ -20,10 +20,26 @@ struct PaperoadApp: App {
             
             // remove "New Window" option from menu File
             CommandGroup(replacing: .newItem, addition: {})
+            
+            // open library directory where sqlite file is located
+            CommandMenu("Developer") {
+                Button("Open Application Support") {
+                    openApplicationSupportDir()
+                }
+            }
         }
         
         Settings {
             SettingsView()
         }
     }
+}
+
+private func openApplicationSupportDir() {
+    let fileManager = FileManager.default
+    let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+//    let dataDirectoryURL = appSupportURL.appendingPathComponent("data", isDirectory: true)
+    let dataDirectoryURL = appSupportURL
+
+    NSWorkspace.shared.open(dataDirectoryURL)
 }
