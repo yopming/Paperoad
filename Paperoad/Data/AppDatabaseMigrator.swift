@@ -27,6 +27,7 @@ extension AppDatabase {
         return migrator
     }
     
+    // MARK: - Group Schema
     private func createGroupTable(_ db: GRDB.Database) throws {
         try db.create(table: "Groups") { table in
             table.autoIncrementedPrimaryKey("id")
@@ -37,6 +38,7 @@ extension AppDatabase {
         }
     }
     
+    // MARK: - Paper Schema
     private func createPaperTable(_ db: GRDB.Database) throws {
         try db.create(table: "Papers") {table in
             table.autoIncrementedPrimaryKey("id")
@@ -61,6 +63,7 @@ extension AppDatabase {
         }
     }
     
+    // MARK: - Authro Schema
     private func createAuthorTable(_ db: GRDB.Database) throws {
         try db.create(table: "Authors") {table in
             table.autoIncrementedPrimaryKey("id")
