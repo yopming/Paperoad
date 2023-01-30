@@ -10,7 +10,7 @@ import Foundation
 
 extension AppDatabase {
     /// The database for the application
-    //static let shared =
+    static let shared = makeShared()
     
     private static func makeShared() -> AppDatabase {
         do {

@@ -17,9 +17,8 @@ struct SidebarGroupAddView: View {
     var title: String = "New Group"
     
     // called when the sheet is done
-    var onFinish: (_ name: String, _ description: String) -> () {
-        try 
-    }
+//    var onFinish: (_ name: String, _ description: String) -> () {
+//    }
     
     var body: some View {
         VStack {
@@ -35,7 +34,7 @@ struct SidebarGroupAddView: View {
             HStack {
                 Button("Close", role: .cancel) { isPresented = false }
                 Button("Create") {
-                    onFinish(group),
+//                    onFinish(group),
                     isPresented = false
                 }
                 .disabled(groupName.isEmpty)

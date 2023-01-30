@@ -13,7 +13,7 @@ struct SidebarView: View {
     
     var body: some View {
         List {
-            SidebarGroupView()
+            SidebarGroupView(viewModel: GroupViewModel(database: AppDatabase.shared))
             // TODO: tag implementation
             // SidebarTagView()
         }
