@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct SidebarGroupView: View {
-    @State private var isExpanded: Bool = true
+    @Environment(\.managedObjectContext) internal var viewContext
     
-    @StateObject var viewModel: GroupViewModel
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Group.name, ascending: false)],
+        animation: .default
+    )
+    
+    internal var groups: FetchedResults<Group>
     
     var body: some View {
         Section(header: Text("Groups")) {
-            ForEach(viewModel.groups) {group in
+            ForEach(groups) { group in
                 GroupItem(group: group)
             }
-            
-            Label("Books", systemImage: "book.closed")
-            Label("Tutorials", systemImage: "tv")
-            Label("My Library", systemImage: "building.columns")
-            
-            ForEach(1..<10) {i in
-                Label("label \(i)", systemImage: "sidebar.left")
+        }
+        .toolbar {
+            ToolbarItem {
+                Button(action: addGroup) {
+                    Label("Add Group", systemImage: "plus")
+                }
             }
         }
         .contextMenu {
@@ -45,6 +49,6 @@ struct GroupItem: View {
     let group: Group
     
     var body: some View {
-        Label(group.name, systemImage: "folder")
+        Label(group.name!, systemImage: "folder")
     }
 }

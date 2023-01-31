@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State private var searchText = ""
     
     var body: some View {

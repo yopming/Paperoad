@@ -12,6 +12,7 @@ struct SidebarGroupAddView: View {
     @Binding var isPresented: Bool
     
     @State private var groupName = ""
+    @State private var groupDescription = ""
     
     // the name of the sheet
     var title: String = "New Group"
@@ -28,17 +29,15 @@ struct SidebarGroupAddView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
             Form {
-                TextField("Name:", text: $groupName)
+                TextField("* Name:", text: $groupName)
+                TextField("Description", text: $groupDescription)
             }
             Divider()
             HStack {
                 Button("Close", role: .cancel) { isPresented = false }
-                Button("Create") {
-//                    onFinish(group),
-                    isPresented = false
-                }
-                .disabled(groupName.isEmpty)
-                .tint(.accentColor)
+                Button("Create") { isPresented = false }
+                    .disabled(groupName.isEmpty)
+                    .tint(.accentColor)
             }
             .frame(maxWidth: .infinity, alignment: .bottomTrailing)
         }
@@ -47,3 +46,4 @@ struct SidebarGroupAddView: View {
         .frame(width: 300, alignment: .leading)
     }
 }
+

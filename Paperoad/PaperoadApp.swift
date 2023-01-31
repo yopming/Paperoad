@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PaperoadApp: App {
+    let persistenceController = PersistentController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         .windowStyle(.automatic)
         .windowToolbarStyle(.unified(showsTitle: false))

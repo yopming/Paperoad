@@ -2,46 +2,54 @@
 //  Group.swift
 //  Paperoad
 //
-//  Created by Tieming Geng on 1/30/23.
+//  Created by Tieming on 1/30/23.
 //
 
-import GRDB
-import Combine
+import CoreData
 
-extension AppDatabase {
-    // MARK: - Read
-    func groups() throws -> [Group] {
-        try dbWriter.read {db in
-            try Group.fetchAll(db)
-        }
-    }
-    
-    // MARK: - Save (Insert or Update)
-    func saveGroup(_ group: inout Group) throws {
-        try dbWriter.write{db in
-            try group.save(db)
-        }
-    }
-    
-    // MARK: - Delete specific
-    func deleteGroup(ids: [Int64]) throws {
-        try dbWriter.write{db in
-            _ = try Group.deleteAll(db, keys: ids)
-        }
-    }
-    
-    // MARK: - Delete all
-    func deleteAllGroups() throws {
-        try dbWriter.write{db in
-            _ = try Group.deleteAll(db)
-        }
-    }
-    
-    // Returns a publisher that tracks changes in groups ordered by name
-    func groupsOrderedByTitlePublisher() -> AnyPublisher<[Group], Error> {
-        ValueObservation
-            .tracking(Group.all().orderedByName().fetchAll)
-            .publisher(in: dbWriter, scheduling: .immediate)
-            .eraseToAnyPublisher()
-    }
-}
+//extension PersistentController {
+//    // MARK: - Create
+//    func groupCreate(_ groupName: String, _ groupDesc: String, completion: (Group) -> Void) {
+//        let group = Group(context: viewContext)
+//        group.name = groupName
+//        group.desc = groupDesc
+//        group.createTime = Date()
+//        group.updateTime = Date()
+//        completion(group)
+//        saveContext()
+//    }
+//    
+//    // MARK: - Fetch
+//    func groupFetch(completion:(Result<[Group], Error>) -> Void) {
+//        let fetchRequest = Group.fetchRequest()
+//        do {
+//            let groups = try viewContext.fetch(fetchRequest)
+//            completion(.success(groups))
+//        } catch let error {
+//            completion(.failure(error))
+//        }
+//    }
+//    
+//    // MARK: - Update
+//    func groupUpdate(_ group: Group, newName: String, newDesc: String) {
+//        group.name = newName
+//        group.desc = newDesc
+//        group.updateTime = Date()
+//        saveContext()
+//    }
+//    
+//    // MARK: - Delete
+//    func deleteGroup(_ group: Group) {
+//        viewContext.delete(group)
+//        saveContext()
+//    }
+//    
+//    func saveContext() {
+//        do {
+//            try viewContext.save()
+//        } catch {
+//            let nserror = error as NSError
+//            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//        }
+//    }
+//}

@@ -15,13 +15,12 @@
 		1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102F2983361C00A6D4CD /* SidebarTagView.swift */; };
 		1F28103429834FC500A6D4CD /* SidebarActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28103329834FC500A6D4CD /* SidebarActionView.swift */; };
 		1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */; };
-		1F2DA2872988456A00837D0B /* AppDatabaseMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2862988456A00837D0B /* AppDatabaseMigrator.swift */; };
-		1F2DA289298847BB00837D0B /* AppDatabaseReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA288298847BB00837D0B /* AppDatabaseReader.swift */; };
-		1F2DA28F29884DE600837D0B /* AppDatabasePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA28E29884DE600837D0B /* AppDatabasePersistence.swift */; };
-		1F2DA297298860D300837D0B /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA296298860D300837D0B /* GroupModel.swift */; };
-		1F2E542129874796007992FA /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 1F2E542029874796007992FA /* GRDB */; };
-		1F2E542429888410007992FA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E542329888410007992FA /* Group.swift */; };
-		1F2E54272988866D007992FA /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E54262988866D007992FA /* GroupViewModel.swift */; };
+		1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2992988AE1E00837D0B /* TextField.swift */; };
+		1F2DA2D92988BC2F00837D0B /* Paperoad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2D72988BC2F00837D0B /* Paperoad.xcdatamodeld */; };
+		1F2DA3192988C46800837D0B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA3182988C46800837D0B /* StorageManager.swift */; };
+		1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31B2988C4FC00837D0B /* Group.swift */; };
+		1F2DA31E2988C92200837D0B /* SidebarGroupAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31D2988C92200837D0B /* SidebarGroupAddViewModel.swift */; };
+		1F2DA3202988C9A000837D0B /* SidebarGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31F2988C9A000837D0B /* SidebarGroupViewModel.swift */; };
 		1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */; };
 		1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF72981B9E6000C7D33 /* ContentView.swift */; };
 		1FAF9DFA2981B9E7000C7D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */; };
@@ -32,7 +31,6 @@
 		1FAF9E392981CBCB000C7D33 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */; };
 		1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E6029846A6B000C7D33 /* MainView.swift */; };
 		1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E632984773B000C7D33 /* PapersView.swift */; };
-		1FAF9EF229861582000C7D33 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9EEE29861582000C7D33 /* AppDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,12 +72,12 @@
 		1F28102F2983361C00A6D4CD /* SidebarTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarTagView.swift; sourceTree = "<group>"; };
 		1F28103329834FC500A6D4CD /* SidebarActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionView.swift; sourceTree = "<group>"; };
 		1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupAddView.swift; sourceTree = "<group>"; };
-		1F2DA2862988456A00837D0B /* AppDatabaseMigrator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabaseMigrator.swift; sourceTree = "<group>"; };
-		1F2DA288298847BB00837D0B /* AppDatabaseReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseReader.swift; sourceTree = "<group>"; };
-		1F2DA28E29884DE600837D0B /* AppDatabasePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabasePersistence.swift; sourceTree = "<group>"; };
-		1F2DA296298860D300837D0B /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
-		1F2E542329888410007992FA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		1F2E54262988866D007992FA /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
+		1F2DA2992988AE1E00837D0B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		1F2DA2D82988BC2F00837D0B /* Paperoad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Paperoad.xcdatamodel; sourceTree = "<group>"; };
+		1F2DA3182988C46800837D0B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		1F2DA31B2988C4FC00837D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		1F2DA31D2988C92200837D0B /* SidebarGroupAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupAddViewModel.swift; sourceTree = "<group>"; };
+		1F2DA31F2988C9A000837D0B /* SidebarGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupViewModel.swift; sourceTree = "<group>"; };
 		1FAF9DF22981B9E5000C7D33 /* Paperoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paperoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadApp.swift; sourceTree = "<group>"; };
 		1FAF9DF72981B9E6000C7D33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 		1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		1FAF9E6029846A6B000C7D33 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1FAF9E632984773B000C7D33 /* PapersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapersView.swift; sourceTree = "<group>"; };
-		1FAF9EEE29861582000C7D33 /* AppDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F2E542129874796007992FA /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,11 +131,8 @@
 		1F26B9452985F41300709752 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1F2E5422298883CB007992FA /* Relations */,
-				1FAF9EEE29861582000C7D33 /* AppDatabase.swift */,
-				1F2DA2862988456A00837D0B /* AppDatabaseMigrator.swift */,
-				1F2DA288298847BB00837D0B /* AppDatabaseReader.swift */,
-				1F2DA28E29884DE600837D0B /* AppDatabasePersistence.swift */,
+				1F2DA31A2988C4F300837D0B /* Relations */,
+				1F2DA3182988C46800837D0B /* StorageManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -187,18 +180,18 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		1F2DA295298860C700837D0B /* Model */ = {
+		1F2DA2982988AE1000837D0B /* Tweak */ = {
 			isa = PBXGroup;
 			children = (
-				1F2DA296298860D300837D0B /* GroupModel.swift */,
+				1F2DA2992988AE1E00837D0B /* TextField.swift */,
 			);
-			path = Model;
+			path = Tweak;
 			sourceTree = "<group>";
 		};
-		1F2E5422298883CB007992FA /* Relations */ = {
+		1F2DA31A2988C4F300837D0B /* Relations */ = {
 			isa = PBXGroup;
 			children = (
-				1F2E542329888410007992FA /* Group.swift */,
+				1F2DA31B2988C4FC00837D0B /* Group.swift */,
 			);
 			path = Relations;
 			sourceTree = "<group>";
@@ -206,7 +199,8 @@
 		1F2E54252988865A007992FA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1F2E54262988866D007992FA /* GroupViewModel.swift */,
+				1F2DA31D2988C92200837D0B /* SidebarGroupAddViewModel.swift */,
+				1F2DA31F2988C9A000837D0B /* SidebarGroupViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -237,14 +231,14 @@
 		1FAF9DF42981B9E5000C7D33 /* Paperoad */ = {
 			isa = PBXGroup;
 			children = (
-				1F2DA295298860C700837D0B /* Model */,
 				1F26B9452985F41300709752 /* Data */,
 				1FAF9E202981BC0A000C7D33 /* UI */,
 				1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */,
 				1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */,
 				1FAF9DFE2981B9E7000C7D33 /* Paperoad.entitlements */,
-				1FAF9DFB2981B9E7000C7D33 /* Preview Content */,
 				1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */,
+				1F2DA2D72988BC2F00837D0B /* Paperoad.xcdatamodeld */,
+				1FAF9DFB2981B9E7000C7D33 /* Preview Content */,
 			);
 			path = Paperoad;
 			sourceTree = "<group>";
@@ -277,6 +271,7 @@
 		1FAF9E202981BC0A000C7D33 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1F2DA2982988AE1000837D0B /* Tweak */,
 				1F2E54252988865A007992FA /* ViewModels */,
 				1F26B9392985DAAE00709752 /* Sheets */,
 				1FAF9E622984771E000C7D33 /* Papers */,
@@ -322,7 +317,6 @@
 			);
 			name = Paperoad;
 			packageProductDependencies = (
-				1F2E542029874796007992FA /* GRDB */,
 			);
 			productName = Paperoad;
 			productReference = 1FAF9DF22981B9E5000C7D33 /* Paperoad.app */;
@@ -397,8 +391,6 @@
 			);
 			mainGroup = 1FAF9DE92981B9E5000C7D33;
 			packageReferences = (
-				1FAF9E4F2981D88D000C7D33 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				1F26B93A2985E7B900709752 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 1FAF9DF32981B9E5000C7D33 /* Products */;
 			projectDirPath = "";
@@ -445,23 +437,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */,
+				1F2DA3202988C9A000837D0B /* SidebarGroupViewModel.swift in Sources */,
 				1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */,
-				1F2E54272988866D007992FA /* GroupViewModel.swift in Sources */,
-				1F2E542429888410007992FA /* Group.swift in Sources */,
+				1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
-				1F2DA289298847BB00837D0B /* AppDatabaseReader.swift in Sources */,
-				1F2DA297298860D300837D0B /* GroupModel.swift in Sources */,
 				1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */,
+				1F2DA31E2988C92200837D0B /* SidebarGroupAddViewModel.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,
 				1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */,
 				1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */,
+				1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */,
 				1F28103429834FC500A6D4CD /* SidebarActionView.swift in Sources */,
+				1F2DA2D92988BC2F00837D0B /* Paperoad.xcdatamodeld in Sources */,
 				1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */,
-				1F2DA2872988456A00837D0B /* AppDatabaseMigrator.swift in Sources */,
 				1F28102E2983361200A6D4CD /* SidebarGroupView.swift in Sources */,
-				1FAF9EF229861582000C7D33 /* AppDatabase.swift in Sources */,
-				1F2DA28F29884DE600837D0B /* AppDatabasePersistence.swift in Sources */,
 				1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */,
+				1F2DA3192988C46800837D0B /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,32 +783,18 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		1F26B93A2985E7B900709752 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/groue/GRDB.swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
+/* Begin XCVersionGroup section */
+		1F2DA2D72988BC2F00837D0B /* Paperoad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1F2DA2D82988BC2F00837D0B /* Paperoad.xcdatamodel */,
+			);
+			currentVersion = 1F2DA2D82988BC2F00837D0B /* Paperoad.xcdatamodel */;
+			path = Paperoad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
 		};
-		1FAF9E4F2981D88D000C7D33 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1F2E542029874796007992FA /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1F26B93A2985E7B900709752 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
-		};
-/* End XCSwiftPackageProductDependency section */
+/* End XCVersionGroup section */
 	};
 	rootObject = 1FAF9DEA2981B9E5000C7D33 /* Project object */;
 }
