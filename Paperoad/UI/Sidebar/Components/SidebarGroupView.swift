@@ -22,6 +22,7 @@ struct SidebarGroupView: View {
             ForEach(groups) { group in
                 GroupItem(group: group)
             }
+            .onDelete(perform:)
         }
         .toolbar {
             ToolbarItem {

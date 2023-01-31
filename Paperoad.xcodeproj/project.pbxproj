@@ -17,7 +17,7 @@
 		1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */; };
 		1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2992988AE1E00837D0B /* TextField.swift */; };
 		1F2DA2D92988BC2F00837D0B /* Paperoad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2D72988BC2F00837D0B /* Paperoad.xcdatamodeld */; };
-		1F2DA3192988C46800837D0B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA3182988C46800837D0B /* StorageManager.swift */; };
+		1F2DA3192988C46800837D0B /* PersistentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA3182988C46800837D0B /* PersistentController.swift */; };
 		1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31B2988C4FC00837D0B /* Group.swift */; };
 		1F2DA31E2988C92200837D0B /* SidebarGroupAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31D2988C92200837D0B /* SidebarGroupAddViewModel.swift */; };
 		1F2DA3202988C9A000837D0B /* SidebarGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31F2988C9A000837D0B /* SidebarGroupViewModel.swift */; };
@@ -74,7 +74,7 @@
 		1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupAddView.swift; sourceTree = "<group>"; };
 		1F2DA2992988AE1E00837D0B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		1F2DA2D82988BC2F00837D0B /* Paperoad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Paperoad.xcdatamodel; sourceTree = "<group>"; };
-		1F2DA3182988C46800837D0B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		1F2DA3182988C46800837D0B /* PersistentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentController.swift; sourceTree = "<group>"; };
 		1F2DA31B2988C4FC00837D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		1F2DA31D2988C92200837D0B /* SidebarGroupAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupAddViewModel.swift; sourceTree = "<group>"; };
 		1F2DA31F2988C9A000837D0B /* SidebarGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupViewModel.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				1F2DA31A2988C4F300837D0B /* Relations */,
-				1F2DA3182988C46800837D0B /* StorageManager.swift */,
+				1F2DA3182988C46800837D0B /* PersistentController.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -452,7 +452,7 @@
 				1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */,
 				1F28102E2983361200A6D4CD /* SidebarGroupView.swift in Sources */,
 				1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */,
-				1F2DA3192988C46800837D0B /* StorageManager.swift in Sources */,
+				1F2DA3192988C46800837D0B /* PersistentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

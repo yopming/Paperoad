@@ -9,7 +9,4 @@ import SwiftUI
 import CoreData
 
 extension SidebarGroupAddView {
-    
-    
-    
 }

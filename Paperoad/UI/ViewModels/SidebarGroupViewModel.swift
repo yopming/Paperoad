@@ -13,7 +13,6 @@ extension SidebarGroupView {
         withAnimation {
             let newGroup = Group(context: viewContext)
             newGroup.name = "test"
-            newGroup.desc = "test description"
             newGroup.createTime = Date()
             newGroup.updateTime = Date()
             
