@@ -231,6 +231,7 @@
 		1FAF9DF42981B9E5000C7D33 /* Paperoad */ = {
 			isa = PBXGroup;
 			children = (
+				1F2E54252988865A007992FA /* ViewModels */,
 				1F26B9452985F41300709752 /* Data */,
 				1FAF9E202981BC0A000C7D33 /* UI */,
 				1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */,
@@ -272,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				1F2DA2982988AE1000837D0B /* Tweak */,
-				1F2E54252988865A007992FA /* ViewModels */,
 				1F26B9392985DAAE00709752 /* Sheets */,
 				1FAF9E622984771E000C7D33 /* Papers */,
 				1FAF9E5F29846A4A000C7D33 /* Main */,

@@ -9,12 +9,9 @@ import SwiftUI
 import CoreData
 
 extension SidebarGroupView {
-    func addGroup() {
+    func deleteGroups(offsets: IndexSet) {
         withAnimation {
-            let newGroup = Group(context: viewContext)
-            newGroup.name = "test"
-            newGroup.createTime = Date()
-            newGroup.updateTime = Date()
+            offsets.map{ groups[$0] }.forEach(viewContext.delete)
             
             do {
                 try viewContext.save()

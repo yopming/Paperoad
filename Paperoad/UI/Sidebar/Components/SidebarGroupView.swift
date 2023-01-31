@@ -20,36 +20,22 @@ struct SidebarGroupView: View {
     var body: some View {
         Section(header: Text("Groups")) {
             ForEach(groups) { group in
-                GroupItem(group: group)
+                Label(group.name!, systemImage: "folder")
+                    .contextMenu {
+                        Button(action: {
+                            viewContext.delete(group)
+                            do {
+                                try viewContext.save()
+                            } catch {
+                                let nsError = error as NSError
+                                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                            }
+                        }, label: {
+                            Label("Delete", systemImage: "sidebar.left")
+                        })
+                    }
             }
-            .onDelete(perform:)
+            .onDelete(perform: deleteGroups)
         }
-        .toolbar {
-            ToolbarItem {
-                Button(action: addGroup) {
-                    Label("Add Group", systemImage: "plus")
-                }
-            }
-        }
-        .contextMenu {
-            Button(action: {}, label: {
-                Label("Test", systemImage: "sidebar.left")
-            })
-            Button(action: {}, label: {
-                Label("Test", systemImage: "sidebar.left")
-            })
-            Divider()
-            Button(action: {}, label: {
-                Label("Test", systemImage: "sidebar.left")
-            })
-        }
-    }
-}
-
-struct GroupItem: View {
-    let group: Group
-    
-    var body: some View {
-        Label(group.name!, systemImage: "folder")
     }
 }

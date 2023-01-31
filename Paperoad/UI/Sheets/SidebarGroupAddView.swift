@@ -8,18 +8,15 @@
 import SwiftUI
 
 struct SidebarGroupAddView: View {
+    @Environment(\.managedObjectContext) internal var viewContext
+    
     // keep track of if the sheet should be shown
     @Binding var isPresented: Bool
     
     @State private var groupName = ""
-    @State private var groupDescription = ""
     
     // the name of the sheet
     var title: String = "New Group"
-    
-    // called when the sheet is done
-//    var onFinish: (_ name: String, _ description: String) -> () {
-//    }
     
     var body: some View {
         VStack {
@@ -29,13 +26,15 @@ struct SidebarGroupAddView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
             Form {
-                TextField("* Name:", text: $groupName)
-                TextField("Description", text: $groupDescription)
+                TextField("Name:", text: $groupName)
             }
             Divider()
             HStack {
                 Button("Close", role: .cancel) { isPresented = false }
-                Button("Create") { isPresented = false }
+                Button("Create") {
+                    isPresented = false
+                    addGroup(name: groupName)
+                }
                     .disabled(groupName.isEmpty)
                     .tint(.accentColor)
             }
