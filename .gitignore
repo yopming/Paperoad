@@ -1,6 +1,8 @@
 *.swp
 *.DS_Store
 .Trashes
+node_modules/
+
 Paperoad.xcodeproj/xcuserdata/*
 Paperoad.xcodeproj/project.xcworkspace/xcuserdata/*
 
