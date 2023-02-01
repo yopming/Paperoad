@@ -41,25 +41,3 @@ struct SidebarGroupView: View {
         }
     }
 }
-
-
-//struct NavigationLabel: View {
-//    let group: Group
-//
-//    var body: some View {
-//        Label(group.name!, systemImage: "folder")
-//            .contextMenu {
-//                Button(action: {
-//                    viewContext.delete(group)
-//                    do {
-//                        try viewContext.save()
-//                    } catch {
-//                        let nsError = error as NSError
-//                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//                    }
-//                }, label: {
-//                    Label("Delete", systemImage: "trash")
-//                })
-//            }
-//    }
-//}

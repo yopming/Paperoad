@@ -43,7 +43,7 @@ struct SidebarGroupAddView: View {
         }
         .padding()
         .textFieldStyle(.roundedBorder)
-        .frame(width: 300, alignment: .leading)
+        .frame(width: 350, alignment: .leading)
     }
 }
 

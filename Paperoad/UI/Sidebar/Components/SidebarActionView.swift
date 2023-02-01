@@ -13,11 +13,6 @@ struct SidebarActionView: View {
     
     @State private var name: String = ""
     
-//    // all groups without projection
-//    @ObservedResults(
-//        GroupModel.self
-//    ) var groups
-
     var body: some View {
         VStack (alignment: .leading) {
             Divider()

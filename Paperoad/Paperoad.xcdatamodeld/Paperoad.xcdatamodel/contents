@@ -17,6 +17,7 @@
         <attribute name="createTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="doi" optional="YES" attributeType="String"/>
+        <attribute name="group" optional="YES" attributeType="String"/>
         <attribute name="isbn" optional="YES" attributeType="String"/>
         <attribute name="language" optional="YES" attributeType="String"/>
         <attribute name="pages" optional="YES" attributeType="String"/>
