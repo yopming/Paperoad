@@ -26,6 +26,8 @@ struct PapersView: View {
     @State private var sortOrder = [KeyPathComparator(\Person.firstName)]
     @State private var selectedPeople = Set<Person.ID>()
     
+    let par: String
+    
     var body: some View {
         VStack {
             Table(people, selection: $selectedPeople, sortOrder: $sortOrder) {
@@ -36,7 +38,7 @@ struct PapersView: View {
                 people.sort(using: $0)
             }
             
-            Text("\(selectedPeople.count) people selected")
+            Text("\(selectedPeople.count) people selected \(par)")
                 .padding()
         }
     }

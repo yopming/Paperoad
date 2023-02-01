@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
+    let par: String
+    
     var body: some View {
-        PapersView()
+        PapersView(par: par)
     }
 }

@@ -9,22 +9,20 @@ import SwiftUI
 
 struct SidebarView: View {
     // which group or tag is selected right now, for router
-//    @State private var selectedGroup: Int?
+    // @State private var selectedGroup: Int?
     
     var body: some View {
-        NavigationView {
-            List {
-                SidebarGroupView()
-                
-//                 TODO: tag implementation
-//                 SidebarTagView()
-            }
-            // SidebarActionView() at the very bottom
-            .safeAreaInset(edge: .bottom) {
-                SidebarActionView()
-            }
-            .listStyle(SidebarListStyle())
-            .frame(minWidth:100, idealWidth: 200)
+        List {
+            SidebarGroupView()
+            
+            // TODO: tag implementation
+            // SidebarTagView()
         }
+        // SidebarActionView() at the very bottom
+        .safeAreaInset(edge: .bottom) {
+            SidebarActionView()
+        }
+        .listStyle(SidebarListStyle())
+        .frame(minWidth:100, idealWidth: 200)
     }
 }

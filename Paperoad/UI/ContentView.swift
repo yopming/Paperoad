@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             SidebarView()
-            MainView()
+            MainView(par: "Initial")
         }
         .toolbar(content: {
             ToolbarItemGroup(placement: .primaryAction) {

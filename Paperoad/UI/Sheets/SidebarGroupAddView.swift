@@ -15,20 +15,21 @@ struct SidebarGroupAddView: View {
     
     @State private var groupName = ""
     
-    // the name of the sheet
-    var title: String = "New Group"
-    
     var body: some View {
         VStack {
-            Text(title)
+            Text("New Group")
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
+            
             Divider()
+            
             Form {
                 TextField("Name:", text: $groupName)
             }
+            
             Divider()
+            
             HStack {
                 Button("Close", role: .cancel) { isPresented = false }
                 Button("Create") {
