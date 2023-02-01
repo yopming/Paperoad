@@ -12,17 +12,19 @@ struct SidebarView: View {
 //    @State private var selectedGroup: Int?
     
     var body: some View {
-        List {
-            SidebarGroupView()
-            
-            // TODO: tag implementation
-            // SidebarTagView()
+        NavigationView {
+            List {
+                SidebarGroupView()
+                
+//                 TODO: tag implementation
+//                 SidebarTagView()
+            }
+            // SidebarActionView() at the very bottom
+            .safeAreaInset(edge: .bottom) {
+                SidebarActionView()
+            }
+            .listStyle(SidebarListStyle())
+            .frame(minWidth:100, idealWidth: 200)
         }
-        // SidebarActionView() at the very bottom
-        .safeAreaInset(edge: .bottom) {
-            SidebarActionView()
-        }
-        .listStyle(SidebarListStyle())
-        .frame(minWidth:100, idealWidth: 200)
     }
 }
