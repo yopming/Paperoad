@@ -11,8 +11,8 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var isAddEmptyPaperPresented: Bool = false
-    @State private var isAddPaperByDOIPresented: Bool = false
+    @State private var isPaperAddViewPresented: Bool = false
+    @State private var isPaperAddByIdViewPresented: Bool = false
     
     @State private var searchText = ""
     
@@ -23,21 +23,27 @@ struct ContentView: View {
         }
         .toolbar(content: {
             ToolbarItemGroup(placement: .primaryAction) {
-                Button(action: openAddEmptyPaperView, label: {
+                Button(action: openPaperAddView, label: {
                     Label("Add Empty", systemImage: "plus")
                         .labelStyle(.titleAndIcon)
                 })
                 .sheet(
-                    isPresented: $isAddEmptyPaperPresented,
+                    isPresented: $isPaperAddViewPresented,
                     content: {
-                        PaperAddView(isPresented: $isAddEmptyPaperPresented)
+                        PaperAddView(isPaperAddViewPresented: isPaperAddViewPresented)
                     }
                 )
                 
-                Button(action: {}, label: {
+                Button(action: openPaperAddByIdView, label: {
                     Label("Add by Identifier", systemImage: "wand.and.stars")
                         .labelStyle(.titleAndIcon)
                 })
+                .sheet(
+                    isPresented: $isPaperAddByIdViewPresented,
+                    content: {
+                        PaperAddByIdView(isPaperAddViewByIdPresented: isPaperAddByIdViewPresented)
+                    }
+                )
                 
             }
         })
@@ -54,7 +60,13 @@ private func toggleSidebar() {
 
 // MARK: - Actions
 extension ContentView {
-    func openAddEmptyPaperView() {
-        isAddEmptyPaperPresented = true
+    func openPaperAddView() {
+        isPaperAddViewPresented = true
+    }
+}
+
+extension ContentView {
+    func openPaperAddByIdView() {
+        isPaperAddByIdViewPresented = true
     }
 }

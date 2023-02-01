@@ -12,6 +12,7 @@
     </entity>
     <entity name="Publication" representedClassName="Publication" syncable="YES" codeGenerationType="class">
         <attribute name="abstract" optional="YES" attributeType="String"/>
+        <attribute name="arxiv" optional="YES" attributeType="String"/>
         <attribute name="authors" optional="YES" attributeType="String" customClassName="[String]"/>
         <attribute name="conferenceName" optional="YES" attributeType="String"/>
         <attribute name="createTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -20,6 +21,7 @@
         <attribute name="group" optional="YES" attributeType="String"/>
         <attribute name="isbn" optional="YES" attributeType="String"/>
         <attribute name="language" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="pages" optional="YES" attributeType="String"/>
         <attribute name="place" optional="YES" attributeType="String"/>
         <attribute name="proceedingTitle" optional="YES" attributeType="String"/>
