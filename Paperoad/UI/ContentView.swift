@@ -22,6 +22,7 @@ struct ContentView: View {
             MainView(par: "Initial")
         }
         .toolbar(content: {
+            // TODO: - customizable toolbar
             ToolbarItemGroup(placement: .primaryAction) {
                 Button(action: openPaperAddView, label: {
                     Label("Add Empty", systemImage: "plus")
@@ -30,10 +31,10 @@ struct ContentView: View {
                 .sheet(
                     isPresented: $isPaperAddViewPresented,
                     content: {
-                        PaperAddView(isPaperAddViewPresented: isPaperAddViewPresented)
+                        PaperAddView(isPaperAddViewPresented: $isPaperAddViewPresented)
                     }
                 )
-                
+
                 Button(action: openPaperAddByIdView, label: {
                     Label("Add by Identifier", systemImage: "wand.and.stars")
                         .labelStyle(.titleAndIcon)
@@ -41,10 +42,10 @@ struct ContentView: View {
                 .sheet(
                     isPresented: $isPaperAddByIdViewPresented,
                     content: {
-                        PaperAddByIdView(isPaperAddViewByIdPresented: isPaperAddByIdViewPresented)
+                        PaperAddByIdView(isPaperAddViewByIdPresented: $isPaperAddByIdViewPresented)
                     }
                 )
-                
+
             }
         })
         .searchable(text: $searchText)

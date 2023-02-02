@@ -34,6 +34,7 @@
 		1FF1D348298ACAF9003B4F2B /* PaperAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */; };
 		1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */; };
 		1FF1D34E298B0C5F003B4F2B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D34D298B0C5F003B4F2B /* Data.swift */; };
+		1FF1D353298C16E0003B4F2B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D352298C16E0003B4F2B /* Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAddView.swift; sourceTree = "<group>"; };
 		1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAddByIdView.swift; sourceTree = "<group>"; };
 		1FF1D34D298B0C5F003B4F2B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		1FF1D352298C16E0003B4F2B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				1F2DA2992988AE1E00837D0B /* TextField.swift */,
+				1FF1D352298C16E0003B4F2B /* Button.swift */,
 			);
 			path = Tweak;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
 				1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */,
+				1FF1D353298C16E0003B4F2B /* Button.swift in Sources */,
 				1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */,
 				1F2DA31E2988C92200837D0B /* SidebarGroupAddViewModel.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,

@@ -10,12 +10,12 @@ import SwiftUI
 struct PaperAddView: View {
     @Environment(\.managedObjectContext) internal var viewContext
     
-    @State var isPaperAddViewPresented: Bool
+    @Binding var isPaperAddViewPresented: Bool
     
     @State private var title = ""
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Text("New Paper")
                 .font(.title)
                 .bold()
@@ -35,11 +35,13 @@ struct PaperAddView: View {
                     isPaperAddViewPresented = false
                 }
                 .disabled(title.isEmpty)
+                .buttonStyle(.borderedProminent)
+                .tint(title.isEmpty ? .gray : .accentColor)
             }
             .frame(maxWidth: .infinity, alignment: .bottomTrailing)
         }
         .padding()
         .textFieldStyle(.roundedBorder)
-        .frame(width: 550, alignment: .leading)
+        .frame(width: 350, alignment: .leading)
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct PaperAddByIdView: View {
     @Environment(\.managedObjectContext) internal var viewContext
     
-    @State var isPaperAddViewByIdPresented: Bool
+    @Binding var isPaperAddViewByIdPresented: Bool
     
     // publication id types
     let idTypes: [String] = PublicationConfig.IdTypes.allCases.map { $0.rawValue }
@@ -19,7 +19,7 @@ struct PaperAddByIdView: View {
     @State private var selectedIdType = 0
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Text("New Paper by ID")
                 .font(.title)
                 .bold()
@@ -34,6 +34,7 @@ struct PaperAddByIdView: View {
                     }
                 }
                 .fixedSize()
+                .pickerStyle(SegmentedPickerStyle())
                 
                 TextField("Identifier", text: $identifier)
             }
@@ -46,6 +47,8 @@ struct PaperAddByIdView: View {
                     isPaperAddViewByIdPresented = false
                 }
                 .disabled(identifier.isEmpty)
+                .buttonStyle(.borderedProminent)
+                .tint(identifier.isEmpty ? .gray : .accentColor)
             }
             .frame(maxWidth: .infinity, alignment: .bottomTrailing)
         }

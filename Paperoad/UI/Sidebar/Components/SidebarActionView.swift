@@ -26,12 +26,9 @@ struct SidebarActionView: View {
             // add popover window for new group
             .sheet(
                 isPresented: $isAddGroupFormIsPresented,
-                onDismiss: {
-                    // refresh group list after adding
-                },
                 content: {
                     SidebarGroupAddView(
-                        isPresented: $isAddGroupFormIsPresented
+                        isSidebarGroupAddViewPresented: $isAddGroupFormIsPresented
                     )
                 }
             )
