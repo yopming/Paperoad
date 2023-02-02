@@ -13,8 +13,7 @@ struct SidebarGroupView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Group.name, ascending: false)],
         animation: .default
-    )
-    internal var groups: FetchedResults<Group>
+    ) internal var groups: FetchedResults<Group>
     
     var body: some View {
         Section(header: Text("Groups")) {

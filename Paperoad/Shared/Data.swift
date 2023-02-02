@@ -17,8 +17,8 @@ enum PublicationConfig {
     }
     
     enum IdTypes: String, CaseIterable {
-        case arxiv = "arXiv ID"
         case doi = "DOI"
+        case arxiv = "arXiv ID"
         case isbn = "ISBN"
     }
 }

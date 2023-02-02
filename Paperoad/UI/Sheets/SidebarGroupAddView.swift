@@ -12,6 +12,7 @@ struct SidebarGroupAddView: View {
     
     // keep track of if the sheet should be shown
     @Binding var isSidebarGroupAddViewPresented: Bool
+    
     @State private var groupName = ""
     
     var body: some View {

@@ -7,39 +7,55 @@
 
 import SwiftUI
 
-struct Person: Identifiable {
-    let firstName: String
-    let lastName: String
-    let id = UUID()
-}
-
-private var people = [
-    Person(firstName: "Homer", lastName: "Simpson"),
-    Person(firstName: "Lisa", lastName: "Simpson"),
-    Person(firstName: "Krusty", lastName: "Clown"),
-    Person(firstName: "Marge", lastName: "Simpson"),
-    Person(firstName: "Chief", lastName: "Wiggum"),
-    Person(firstName: "Itchy", lastName: "Scratchy")
-]
-
 struct PapersView: View {
-    @State private var sortOrder = [KeyPathComparator(\Person.firstName)]
-    @State private var selectedPeople = Set<Person.ID>()
+    @Environment(\.managedObjectContext) internal var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Paper.title, ascending: false),
+            NSSortDescriptor(keyPath: \Paper.year, ascending: true)
+        ]
+    ) internal var papers: FetchedResults<Paper>
+    
+    @State private var sortOrder = [
+        KeyPathComparator(\Paper.title),
+        KeyPathComparator(\Paper.year)
+    ]
+    
+    @State private var selectedPapers = Set<Paper.ID>()
     
     let par: String
     
     var body: some View {
         VStack {
-            Table(people, selection: $selectedPeople, sortOrder: $sortOrder) {
-                TableColumn("First Name", value: \.firstName)
-                TableColumn("Last Name", value: \.lastName)
-            }
-            .onChange(of: sortOrder) {
-                people.sort(using: $0)
+            List(papers, id: \.self.id) { paper in
+                PaperListItem(
+                    title: paper.title!,
+                    authors: paper.authors ?? "",
+                    year: paper.year ?? "",
+                    publication: paper.publication ?? ""
+                )
             }
             
-            Text("\(selectedPeople.count) people selected \(par)")
+//            Table(papers, selection: $selectedPapers, sortOrder: $sortOrder) {
+//                TableColumn("Type", value: \.type!)
+//                TableColumn("Title", value: \.title!)
+//                TableColumn("Authors", value: \.authors!)
+//                TableColumn("Publisher", value: \.publisher)
+//                TableColumn("Date", value: \.date) { paper in
+//                    Text(DateToString(date: paper.date?) ?? "")
+//                }
+//                TableColumn("Create Time", value: \.createTime!) { paper in
+//                    Text(DateToString(date: paper.createTime!))
+//                }
+//            }
+//            .onChange(of: sortOrder) {
+//                $papers.sort(using: $0)
+//            }
+            
+            Text("\(selectedPapers.count) papers selected \(par)")
                 .padding()
         }
     }
 }
+

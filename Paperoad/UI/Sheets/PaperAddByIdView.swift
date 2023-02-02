@@ -39,6 +39,8 @@ struct PaperAddByIdView: View {
                 TextField("Identifier", text: $identifier)
             }
             
+            Text("New paper will be shown in group 'Unfiled'.")
+            
             Divider()
             
             HStack {

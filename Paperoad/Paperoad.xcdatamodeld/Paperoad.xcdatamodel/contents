@@ -10,27 +10,25 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="updateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="Publication" representedClassName="Publication" syncable="YES" codeGenerationType="class">
+    <entity name="Paper" representedClassName="Paper" syncable="YES" codeGenerationType="class">
         <attribute name="abstract" optional="YES" attributeType="String"/>
         <attribute name="arxiv" optional="YES" attributeType="String"/>
         <attribute name="authors" optional="YES" attributeType="String" customClassName="[String]"/>
-        <attribute name="conferenceName" optional="YES" attributeType="String"/>
         <attribute name="createTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="doi" optional="YES" attributeType="String"/>
         <attribute name="group" optional="YES" attributeType="String"/>
         <attribute name="isbn" optional="YES" attributeType="String"/>
-        <attribute name="language" optional="YES" attributeType="String"/>
-        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="String"/>
         <attribute name="pages" optional="YES" attributeType="String"/>
-        <attribute name="place" optional="YES" attributeType="String"/>
-        <attribute name="proceedingTitle" optional="YES" attributeType="String"/>
+        <attribute name="publication" optional="YES" attributeType="String"/>
         <attribute name="publisher" optional="YES" attributeType="String"/>
-        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="removed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
-        <attribute name="updateTime" optional="YES" attributeType="String"/>
+        <attribute name="updateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="volumn" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
     </entity>
 </model>
