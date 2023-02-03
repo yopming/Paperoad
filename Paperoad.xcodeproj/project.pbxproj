@@ -35,7 +35,7 @@
 		1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */; };
 		1FF1D34E298B0C5F003B4F2B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D34D298B0C5F003B4F2B /* Data.swift */; };
 		1FF1D353298C16E0003B4F2B /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D352298C16E0003B4F2B /* Button.swift */; };
-		1FF1D355298C201D003B4F2B /* PapersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D354298C201D003B4F2B /* PapersViewModel.swift */; };
+		1FF1D355298C201D003B4F2B /* PaperAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D354298C201D003B4F2B /* PaperAddViewModel.swift */; };
 		1FF1D358298C3F05003B4F2B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D357298C3F05003B4F2B /* Date.swift */; };
 		1FF1D35B298C4454003B4F2B /* PaperListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D35A298C4454003B4F2B /* PaperListItem.swift */; };
 /* End PBXBuildFile section */
@@ -104,7 +104,7 @@
 		1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAddByIdView.swift; sourceTree = "<group>"; };
 		1FF1D34D298B0C5F003B4F2B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		1FF1D352298C16E0003B4F2B /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		1FF1D354298C201D003B4F2B /* PapersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapersViewModel.swift; sourceTree = "<group>"; };
+		1FF1D354298C201D003B4F2B /* PaperAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAddViewModel.swift; sourceTree = "<group>"; };
 		1FF1D357298C3F05003B4F2B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1FF1D35A298C4454003B4F2B /* PaperListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,7 +218,7 @@
 			children = (
 				1F2DA31D2988C92200837D0B /* SidebarGroupAddViewModel.swift */,
 				1F2DA31F2988C9A000837D0B /* SidebarGroupViewModel.swift */,
-				1FF1D354298C201D003B4F2B /* PapersViewModel.swift */,
+				1FF1D354298C201D003B4F2B /* PaperAddViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -493,7 +493,7 @@
 				1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */,
 				1F2DA31E2988C92200837D0B /* SidebarGroupAddViewModel.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,
-				1FF1D355298C201D003B4F2B /* PapersViewModel.swift in Sources */,
+				1FF1D355298C201D003B4F2B /* PaperAddViewModel.swift in Sources */,
 				1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */,
 				1FF1D34E298B0C5F003B4F2B /* Data.swift in Sources */,
 				1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */,

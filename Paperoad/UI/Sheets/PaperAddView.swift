@@ -25,14 +25,14 @@ struct PaperAddView: View {
     
     @State private var title = ""
     @State private var authors = ""
-    @State private var publication = ""
-    @State private var year = ""
     @State private var publicationType = 0
-    @State private var volumn = ""
+    @State private var publication = ""
+    @State private var publisher = ""
+    @State private var year = ""
+    @State private var volume = ""
     @State private var pages = ""
     @State private var number = ""
-    @State private var publisher = ""
-    @State private var arvix = ""
+    @State private var arxiv = ""
     @State private var doi = ""
     @State private var url = ""
     @State private var note = ""
@@ -50,6 +50,7 @@ struct PaperAddView: View {
                 TextField("Title", text: $title)
                 TextField("Authors", text: $authors)
                 
+                Spacer(minLength: CGFloat(15))
                 Section(header: Text("Publication")) {
                     TextField("Publication", text: $publication)
                     TextField("Publication Year", text: $year)
@@ -61,12 +62,13 @@ struct PaperAddView: View {
                     .fixedSize()
                     .pickerStyle(SegmentedPickerStyle())
                     
-                    TextField("Volume", text: $volumn)
+                    TextField("Volume", text: $volume)
                     TextField("Pages", text: $pages)
                     TextField("Number", text: $number)
                     TextField("Publisher", text: $publisher)
-                    TextField("arXiv ID", text: $arvix)
+                    TextField("arXiv ID", text: $arxiv)
                     TextField("DOI", text: $doi)
+                    TextField("URL", text: $url)
                 }
                 
                 Picker("Group", selection: $selectedGroup) {
@@ -75,16 +77,23 @@ struct PaperAddView: View {
                     }
                 }
                 
-                TextField("Note",  text: $note, axis: .vertical)
+                Spacer(minLength: CGFloat(25))
+                Section(header: Text("Note")) {
+                    TextEditor(text: $note)
+                        .frame(height: 100)
+                        .padding(4)
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.secondary).opacity(0.5))
+                }
             }
             Text("New paper will be shown in group 'Unfiled'.")
             
             Divider()
-            
             HStack {
                 Button("Close", role: .cancel) { isPaperAddViewPresented = false }
                 Button("Create") {
                     isPaperAddViewPresented = false
+                    addPaper(title: title, authors: authors, publicationType: Int16(publicationType), publication: publication, publisher: publisher, year: year, volume: volume, pages: pages, number: number, arxiv: arxiv, doi: doi, url: url, note: note)
                 }
                 .disabled(title.isEmpty)
                 .buttonStyle(.borderedProminent)

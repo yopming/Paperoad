@@ -14,8 +14,17 @@ struct PaperListItem: View {
     let publication: String
     
     var body: some View {
-        Text("\(title)")
-            .fontWeight(.bold)
-            .font(.title)
+        VStack (alignment: .leading, spacing: 1) {
+            Text("\(title)")
+                .fontWeight(.bold)
+                .font(.headline)
+                .padding([.bottom], 2)
+            Text("\(authors)")
+                .font(.caption)
+            Text("\(year) | \(publication)")
+                .font(.footnote)
+        }
+        
+        Divider()
     }
 }
