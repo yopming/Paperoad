@@ -47,7 +47,7 @@ struct PaperAddView: View {
             Divider()
             
             Form {
-                TextField("Title", text: $title)
+                TextField("Title", text: $title, prompt: Text("Required"))
                 TextField("Authors", text: $authors)
                 
                 Spacer(minLength: CGFloat(15))

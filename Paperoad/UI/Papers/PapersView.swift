@@ -27,19 +27,17 @@ struct PapersView: View {
     let par: String
     
     var body: some View {
-        VStack {
-            List(papers, id: \.self.id) { paper in
-                PaperListItem(
-                    title: paper.title!,
-                    authors: paper.authors ?? "",
-                    year: paper.year ?? "",
-                    publication: paper.publication ?? ""
-                )
-            }
-            
-            Text("\(selectedPapers.count) papers selected \(par)")
-                .padding()
+        List(papers, id: \.self.id) { paper in
+            PaperListItem(
+                title: paper.title!,
+                authors: paper.authors ?? "",
+                year: paper.year ?? "",
+                publication: paper.publication ?? ""
+            )
         }
+        
+        Text("\(selectedPapers.count) papers selected \(par)")
+            .padding()
     }
 }
 

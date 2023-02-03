@@ -11,7 +11,7 @@ struct SidebarGroupView: View {
     @Environment(\.managedObjectContext) internal var viewContext
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Group.name, ascending: false)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Group.name, ascending: true)],
         animation: .default
     ) internal var groups: FetchedResults<Group>
     
