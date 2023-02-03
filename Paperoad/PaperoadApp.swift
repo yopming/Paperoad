@@ -11,6 +11,8 @@ import SwiftUI
 struct PaperoadApp: App {
     let persistenceController = PersistentController.shared
     
+    @AppStorage("generalAppearnace") private var apperance = 0
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

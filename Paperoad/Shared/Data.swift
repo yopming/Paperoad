@@ -22,3 +22,13 @@ enum PaperConfig {
         case isbn = "ISBN"
     }
 }
+
+
+enum AppConfig {
+    // Dark mode, light mode, or follow system appearnace
+    enum Appearance: String, CaseIterable, Equatable {
+        case system = "Follow System"
+        case light = "Light"
+        case dark = "Dark"
+    }
+}

@@ -18,15 +18,13 @@ struct PaperListItem: View {
             Text("\(title)")
                 .fontWeight(.bold)
                 .font(.headline)
-                .padding([.bottom], 2)
+                .padding([.bottom], 1)
                 .padding([.top], -4)
             Text("\(authors)")
                 .font(.caption)
+                .foregroundColor(.gray)
             Text("\(year) | \(publication)")
                 .font(.footnote)
-                .padding([.bottom], 5)
-            
-            Divider()
         }
     }
 }

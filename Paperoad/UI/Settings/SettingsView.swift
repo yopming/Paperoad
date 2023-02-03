@@ -21,6 +21,6 @@ struct SettingsView: View {
                 .tag(Tabs.general)
         }
         .padding(20)
-        .frame(width: 350, height: 100)
+        .frame(maxWidth: .infinity)
     }
 }
