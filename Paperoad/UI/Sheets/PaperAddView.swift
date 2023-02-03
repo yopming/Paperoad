@@ -10,10 +10,14 @@ import SwiftUI
 struct PaperAddView: View {
     @Environment(\.managedObjectContext) internal var viewContext
     
+    // fetch relation "Group"
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Group.name, ascending: false)],
         animation: .default
     ) internal var groups: FetchedResults<Group>
+    
+    // fetch paper id types
+    let paperIdTypes: [String] = PaperConfig.IdTypes.allCases.map { $0.rawValue }
     
     @Binding var isPaperAddViewPresented: Bool
     
@@ -49,13 +53,29 @@ struct PaperAddView: View {
                 Section(header: Text("Publication")) {
                     TextField("Publication", text: $publication)
                     TextField("Publication Year", text: $year)
-                        .fixedSize()
                     Picker("Publication Type", selection: $publicationType) {
-                        ForEach(0..<groups.count, id: \.self) { index in
-                            Text(self.groups[index].name!)
+                        ForEach(0..<paperIdTypes.count, id: \.self) { index in
+                            Text(self.paperIdTypes[index])
                         }
                     }
+                    .fixedSize()
+                    .pickerStyle(SegmentedPickerStyle())
+                    
+                    TextField("Volume", text: $volumn)
+                    TextField("Pages", text: $pages)
+                    TextField("Number", text: $number)
+                    TextField("Publisher", text: $publisher)
+                    TextField("arXiv ID", text: $arvix)
+                    TextField("DOI", text: $doi)
                 }
+                
+                Picker("Group", selection: $selectedGroup) {
+                    ForEach(0..<groups.count, id: \.self) { index in
+                        Text(self.groups[index].name!)
+                    }
+                }
+                
+                TextField("Note",  text: $note, axis: .vertical)
             }
             Text("New paper will be shown in group 'Unfiled'.")
             
@@ -74,6 +94,6 @@ struct PaperAddView: View {
         }
         .padding()
         .textFieldStyle(.roundedBorder)
-        .frame(width: 350, alignment: .leading)
+        .frame(width: 650, alignment: .leading)
     }
 }

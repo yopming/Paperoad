@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PublicationConfig {
+enum PaperConfig {
     enum Types: String, CaseIterable {
         case book = "Book"
         case conference = "Conference Paper"
