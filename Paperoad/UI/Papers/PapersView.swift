@@ -29,27 +29,20 @@ struct PapersView: View {
     let par: String
     
     var body: some View {
-        List(papers, id: \.self.id, selection: $selectedPapers) { paper in
-            PaperListItem(
-                title: paper.title!,
-                authors: paper.authors ?? "",
-                year: paper.year ?? "",
-                publication: paper.publication ?? ""
-            )
-            .listRowSeparator(.visible)
-            .listRowSeparatorTint(.gray.opacity(0.25))
-            .padding([.vertical], 3)
-            .contextMenu {
-                Button("Delete") {
-                    isPaperDeleteConfirmPresented = true
-                }
-            }
-            // alert need to be called outside of contextMenu
-            .alert(isPresented: $isPaperDeleteConfirmPresented) {
-                Alert (
-                    title: Text("Are you sure you wan to delete this?"),
-                    message: Text("Delete items can be found in Trash."),
-                    primaryButton: .destructive(Text("Delete")) {
+        List(selection: $selectedPapers) {
+            ForEach(papers, id: \.self.id) { paper in
+                PaperListItem(
+                    title: paper.title!,
+                    authors: paper.authors ?? "",
+                    year: paper.year ?? "",
+                    publication: paper.publication ?? ""
+                )
+                .listRowSeparator(.visible)
+                .listRowSeparatorTint(.gray.opacity(0.25))
+                .padding([.vertical], 3)
+                .contextMenu {
+                    Button("Delete") {
+                        isPaperDeleteConfirmPresented = true
                         viewContext.delete(paper)
                         do {
                             try viewContext.save()
@@ -57,9 +50,8 @@ struct PapersView: View {
                             let nsError = error as NSError
                             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                         }
-                    },
-                    secondaryButton: .cancel()
-                )
+                    }
+                }
             }
         }
         
