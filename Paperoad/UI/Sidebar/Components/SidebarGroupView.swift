@@ -36,16 +36,16 @@ struct SidebarGroupView: View {
                 }
             }
             .onDelete(perform: deleteGroups)
-            
-            Divider()
-            
-            NavigationLink(destination: MainView(par: "unfiled")) {
-                Label("Unfiled", systemImage: "square.stack.fill")
-            }
-            
-            NavigationLink(destination: MainView(par: "Trash")) {
-                Label("Trash", systemImage: "trash.fill")
-            }
+        }
+        
+        Divider()
+        
+        NavigationLink(destination: MainView(par: "unfiled")) {
+            Label("Unfiled", systemImage: "square.stack.fill")
+        }
+        
+        NavigationLink(destination: MainView(par: "Trash")) {
+            Label("Trash", systemImage: "trash.fill")
         }
     }
 }
