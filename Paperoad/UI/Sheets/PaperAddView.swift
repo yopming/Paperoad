@@ -90,6 +90,10 @@ struct PaperAddView: View {
             
             Divider()
             HStack {
+                Button("Random") {
+                    isPaperAddViewPresented = false
+                    addRandomPaper()
+                }
                 Button("Close", role: .cancel) { isPaperAddViewPresented = false }
                 Button("Create") {
                     isPaperAddViewPresented = false

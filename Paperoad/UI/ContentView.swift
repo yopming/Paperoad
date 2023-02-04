@@ -45,7 +45,7 @@ struct ContentView: View {
                         PaperAddByIdView(isPaperAddViewByIdPresented: $isPaperAddByIdViewPresented)
                     }
                 )
-
+                
             }
         })
         .searchable(text: $searchText)

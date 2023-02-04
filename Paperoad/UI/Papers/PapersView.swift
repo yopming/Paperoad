@@ -42,18 +42,24 @@ struct PapersView: View {
             .contextMenu {
                 Button("Delete") {
                     isPaperDeleteConfirmPresented = true
-                    print(isPaperDeleteConfirmPresented)
                 }
-                .confirmationDialog(
-                    "Delete this paper?",
-                    isPresented: $isPaperDeleteConfirmPresented
-                ){
-                    Button("Delete?", role: .destructive) {
+            }
+            // alert need to be called outside of contextMenu
+            .alert(isPresented: $isPaperDeleteConfirmPresented) {
+                Alert (
+                    title: Text("Are you sure you wan to delete this?"),
+                    message: Text("Delete items can be found in Trash."),
+                    primaryButton: .destructive(Text("Delete")) {
                         viewContext.delete(paper)
-                    }
-                } message: {
-                    Text("Deleted item can be found in Trash")
-                }
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            let nsError = error as NSError
+                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                        }
+                    },
+                    secondaryButton: .cancel()
+                )
             }
         }
         

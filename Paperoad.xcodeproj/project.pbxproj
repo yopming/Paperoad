@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0CA056298DCAC5005F6F10 /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 1F0CA055298DCAC5005F6F10 /* LoremSwiftum */; };
 		1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102129830C8500A6D4CD /* SidebarView.swift */; };
 		1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* SettingsView.swift */; };
 		1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102829832AEF00A6D4CD /* GeneralView.swift */; };
@@ -116,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0CA056298DCAC5005F6F10 /* LoremSwiftum in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +367,7 @@
 			);
 			name = Paperoad;
 			packageProductDependencies = (
+				1F0CA055298DCAC5005F6F10 /* LoremSwiftum */,
 			);
 			productName = Paperoad;
 			productReference = 1FAF9DF22981B9E5000C7D33 /* Paperoad.app */;
@@ -439,6 +442,7 @@
 			);
 			mainGroup = 1FAF9DE92981B9E5000C7D33;
 			packageReferences = (
+				1F0CA054298DCAC5005F6F10 /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
 			);
 			productRefGroup = 1FAF9DF32981B9E5000C7D33 /* Products */;
 			projectDirPath = "";
@@ -838,6 +842,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F0CA054298DCAC5005F6F10 /* XCRemoteSwiftPackageReference "LoremSwiftum" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F0CA055298DCAC5005F6F10 /* LoremSwiftum */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F0CA054298DCAC5005F6F10 /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
+			productName = LoremSwiftum;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1F2DA2D72988BC2F00837D0B /* Paperoad.xcdatamodeld */ = {
