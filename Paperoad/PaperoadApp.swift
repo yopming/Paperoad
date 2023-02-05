@@ -53,6 +53,7 @@ struct PaperoadApp: App {
                                       ? .dark
                                       : (theme == "Light" ? .light : nil))
         }
+        .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
 

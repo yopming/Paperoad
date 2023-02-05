@@ -31,4 +31,12 @@ enum AppConfig {
         case light = "Light"
         case dark = "Dark"
     }
+    
+    enum PdfReader: String, CaseIterable, Equatable {
+        case system = "System"
+        case preview = "Preview"
+        case pdf_expert = "PDF Expert"
+        case adobe = "Adobe Reader"
+        case skim = "Skim"
+    }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     private enum Tabs: Hashable {
-        case general
+        case general, storage
     }
     
     var body: some View {
@@ -19,6 +19,11 @@ struct SettingsView: View {
                     Label("General", systemImage: "gear")
                 }
                 .tag(Tabs.general)
+            StorageView()
+                .tabItem {
+                    Label("Storage", systemImage: "internaldrive")
+                }
+                .tag(Tabs.storage)
         }
         .padding(20)
         .frame(maxWidth: .infinity)

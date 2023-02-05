@@ -23,8 +23,14 @@ struct PaperListItem: View {
             Text("\(authors)")
                 .font(.caption)
                 .foregroundColor(.gray)
-            Text("\(year) | \(publication)")
-                .font(.footnote)
+            HStack {
+                Text("\(year) ")
+                    .fontWeight(.semibold)
+                    .font(.footnote)
+                Text("\(publication)")
+                    .font(.footnote)
+                    .lineLimit(1)
+            }
         }
     }
 }

@@ -41,11 +41,11 @@ struct SidebarGroupView: View {
         Divider()
         
         NavigationLink(destination: MainView(par: "unfiled")) {
-            Label("Unfiled", systemImage: "square.stack.fill")
+            Label("Unfiled", systemImage: "square.stack")
         }
         
         NavigationLink(destination: MainView(par: "Trash")) {
-            Label("Trash", systemImage: "trash.fill")
+            Label("Trash", systemImage: "trash")
         }
     }
 }
