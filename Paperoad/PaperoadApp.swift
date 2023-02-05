@@ -11,15 +11,28 @@ import SwiftUI
 struct PaperoadApp: App {
     let persistenceController = PersistentController.shared
     
-    @AppStorage("generalAppearnace") private var apperance = 0
+    // global dark mode or light mode
+    @AppStorage("prefColorScheme") private var theme = "Follow System"
+    
+    static let documentDirectory: URL = {
+        let availableDirectories = FileManager
+            .default
+            .urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return availableDirectories[0]
+            .appendingPathComponent("Paperoad")
+    }()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .preferredColorScheme(theme == "Dark"
+                                      ? .dark
+                                      : (theme == "Light" ? .light : nil))
         }
         .windowStyle(.automatic)
-        .windowToolbarStyle(.unified(showsTitle: false))
+        .windowToolbarStyle(.unifiedCompact(showsTitle: false))
         .commands {
             SidebarCommands()
             
@@ -36,6 +49,9 @@ struct PaperoadApp: App {
         
         Settings {
             SettingsView()
+                .preferredColorScheme(theme == "Dark"
+                                      ? .dark
+                                      : (theme == "Light" ? .light : nil))
         }
     }
 }
