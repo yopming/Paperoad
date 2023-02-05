@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F0CA056298DCAC5005F6F10 /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 1F0CA055298DCAC5005F6F10 /* LoremSwiftum */; };
 		1F0CA095298F6DAE005F6F10 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CA094298F6DAE005F6F10 /* StorageView.swift */; };
+		1F0CA09729902204005F6F10 /* PaperUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CA09629902204005F6F10 /* PaperUpdateView.swift */; };
 		1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102129830C8500A6D4CD /* SidebarView.swift */; };
 		1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* SettingsView.swift */; };
 		1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102829832AEF00A6D4CD /* GeneralView.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		1F0CA094298F6DAE005F6F10 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
+		1F0CA09629902204005F6F10 /* PaperUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperUpdateView.swift; sourceTree = "<group>"; };
 		1F28102129830C8500A6D4CD /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		1F28102529832A6000A6D4CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1F28102829832AEF00A6D4CD /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */,
 				1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */,
 				1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */,
+				1F0CA09629902204005F6F10 /* PaperUpdateView.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				1F28102E2983361200A6D4CD /* SidebarGroupView.swift in Sources */,
 				1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */,
 				1F2DA3192988C46800837D0B /* PersistentController.swift in Sources */,
+				1F0CA09729902204005F6F10 /* PaperUpdateView.swift in Sources */,
 				1F0CA095298F6DAE005F6F10 /* StorageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

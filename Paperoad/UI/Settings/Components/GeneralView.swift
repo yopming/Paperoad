@@ -16,8 +16,6 @@ struct GeneralView: View {
     
     var body: some View {
         VStack (alignment: .leading, spacing: 30) {
-            Text("Appearance")
-            Text("")
             Picker("Appearnace", selection: $theme) {
                 ForEach(themes, id: \.self) {
                     Text($0)
@@ -31,6 +29,5 @@ struct GeneralView: View {
                 }
             }
         }
-        .padding()
     }
 }

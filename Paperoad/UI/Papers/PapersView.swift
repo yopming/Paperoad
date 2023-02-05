@@ -24,7 +24,8 @@ struct PapersView: View {
     
     @State private var selectedPapers = Set<Paper.ID>()
     
-    @State private var isPaperDeleteConfirmPresented: Bool = false
+    // which sheet to show in PapersView
+    @State private var showSheet:PapersSheetView? = nil
     
     let par: String
     
@@ -41,7 +42,25 @@ struct PapersView: View {
                 .listRowSeparatorTint(.gray.opacity(0.25))
                 .padding([.vertical], 3)
                 .contextMenu {
-                    Button("Delete") {
+                    if selectedPapers.count == 1 {
+                        Button("Update Paper") {
+                            isPaperUpdateViewPresented = true
+                        }
+                        .sheet(
+                            isPresented: $isPaperUpdateViewPresented,
+                            content: {
+                                PaperUpdateView(
+                                    paper: paper,
+                                    presented: $isPaperUpdateViewPresented
+                                )
+                            }
+                        )
+                    }
+                    
+                    Button("Delete") {}
+                    
+                    Divider()
+                    Button("Delete Permanently") {
                         isPaperDeleteConfirmPresented = true
                         viewContext.delete(paper)
                         do {
@@ -51,6 +70,7 @@ struct PapersView: View {
                             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                         }
                     }
+                    
                 }
             }
         }
@@ -58,5 +78,34 @@ struct PapersView: View {
         Text("\(selectedPapers.count) papers selected \(par)")
             .padding()
     }
+    
+    
+    // MAKR: - Update Button
+    private var updateButton: some View {
+        var paper:Paper
+        
+        Button("Update Paper") {
+            showSheet = .update
+        }
+        .sheet(item: $showSheet) {_ in
+            PaperUpdateView(
+                paper: paper,
+                showSheet: $showSheet
+            )
+        }
+    }
+    
+    // MARK: - Permanently Delete Button
+    private var permanentlyDeleteButton: some View {
+        Button("Delete Permanently") {
+            showSheet = .delete
+        }
+    }
 }
 
+
+// enum for sheets in PapersView
+enum PapersSheetView: Identifiable {
+    var id: Self { self }
+    case update, delete
+}

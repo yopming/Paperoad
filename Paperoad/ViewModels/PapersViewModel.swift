@@ -23,9 +23,11 @@ extension PapersView {
         }
     }
     
-    func deleteSelectedPapers(selectedPapers: Set<Paper.ID>) {
-//        ForEach(0..<selectedPapers.count, id: \.self) {paper in
-//            print(paper)
-//        }
+    func updatePaper() {
+        
+    }
+    
+    func trashPaper() {
+        
     }
 }

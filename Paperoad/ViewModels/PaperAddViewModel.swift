@@ -13,33 +13,18 @@ extension PaperAddView {
     func addPaper(
         title: String,
         authors: String,
-        publicationType: Int16,
         publication: String,
-        publisher: String,
         year: String,
-        volume: String,
-        pages: String,
-        number: String,
-        arxiv: String,
-        doi: String,
-        url: String,
-        note: String
+        group: String
     ) {
         withAnimation {
             let newPaper = Paper(context: viewContext)
+            newPaper.id = UUID()
             newPaper.title = title
             newPaper.authors = authors
-            newPaper.type = publicationType
             newPaper.publication = publication
-            newPaper.publisher = publisher
             newPaper.year = year
-            newPaper.volume = volume
-            newPaper.pages = pages
-            newPaper.number = number
-            newPaper.arxiv = arxiv
-            newPaper.doi = doi
-            newPaper.url = url
-            newPaper.note = note
+            newPaper.group = group
             
             do {
                 try viewContext.save()
@@ -54,6 +39,7 @@ extension PaperAddView {
     func addRandomPaper() {
         withAnimation {
             let newPaper = Paper(context: viewContext)
+            newPaper.id = UUID()
             newPaper.title = Lorem.sentence
             newPaper.authors = Lorem.fullName + Lorem.fullName + Lorem.fullName
             newPaper.publication = Lorem.words(4)

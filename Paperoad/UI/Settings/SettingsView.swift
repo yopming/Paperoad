@@ -25,7 +25,8 @@ struct SettingsView: View {
                 }
                 .tag(Tabs.storage)
         }
-        .padding(20)
-        .frame(maxWidth: .infinity)
+        .padding(35)
+        .frame(width: 500)
+        .frame(maxHeight: .infinity)
     }
 }

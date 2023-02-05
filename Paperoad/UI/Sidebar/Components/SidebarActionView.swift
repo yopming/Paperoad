@@ -33,6 +33,7 @@ struct SidebarActionView: View {
         case .group:
             SidebarGroupAddView(showSheet: $showSheet)
         case .tag:
+            // TODO change
             SidebarGroupAddView(showSheet: $showSheet)
         }
     }

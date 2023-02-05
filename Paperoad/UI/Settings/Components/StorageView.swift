@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StorageView: View {
-    @AppStorage("prefStorage") private var storageDir = ""
+    @AppStorage("prefStorage") private var storageDir = "<none>"
     
     var body: some View {
         VStack (alignment: .leading, spacing: 0) {
@@ -17,23 +17,27 @@ struct StorageView: View {
                 .font(.footnote)
                 .padding([.top], 3)
                 .padding([.bottom], 10)
-            HStack (alignment: .top) {
-                TextEditor(text: .constant(storageDir))
-                    .frame(height: 100)
-                    .overlay(RoundedRectangle(cornerRadius: 0)
-                        .stroke(Color.secondary).opacity(0.5))
+            HStack (alignment: .center) {
+                Text(storageDir)
+                    .padding(6)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(.background)
+                    .cornerRadius(4)
                 Button("Change") {
                     let panel = NSOpenPanel()
+                    panel.showsResizeIndicator = false
+                    panel.showsHiddenFiles = false
                     panel.allowsMultipleSelection = false
                     panel.canChooseDirectories = true
                     panel.canCreateDirectories = true
                     panel.canChooseFiles = false
-                    if panel.runModal() == .OK {
-                        self.storageDir = panel.url?.absoluteString ?? "<none>"
+                    panel.begin { response in
+                        guard response == .OK,
+                              let url = panel.url else { return }
+                        self.storageDir = url.absoluteString
                     }
                 }
             }
-            .padding()
         }
     }
 }
