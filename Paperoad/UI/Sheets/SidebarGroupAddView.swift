@@ -11,7 +11,7 @@ struct SidebarGroupAddView: View {
     @Environment(\.managedObjectContext) internal var viewContext
     
     // keep track of if the sheet should be shown
-    @Binding var isSidebarGroupAddViewPresented: Bool
+    @Binding var showSheet: SidebarSheetView?
     
     @State private var groupName = ""
     
@@ -31,9 +31,11 @@ struct SidebarGroupAddView: View {
             Divider()
             
             HStack {
-                Button("Close", role: .cancel) { isSidebarGroupAddViewPresented = false }
+                Button("Close", role: .cancel) {
+                    showSheet = nil
+                }
                 Button("Create") {
-                    isSidebarGroupAddViewPresented = false
+                    showSheet = nil
                     addGroup(name: groupName)
                 }
                     .disabled(groupName.isEmpty)

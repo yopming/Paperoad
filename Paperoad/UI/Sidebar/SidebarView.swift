@@ -26,3 +26,10 @@ struct SidebarView: View {
         .frame(minWidth:100, idealWidth: 200)
     }
 }
+
+
+// enum for sheets in Sidebar
+enum SidebarSheetView: Identifiable {
+    var id: Self { self }
+    case group, tag
+}
