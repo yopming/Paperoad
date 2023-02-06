@@ -61,14 +61,6 @@ struct PapersView: View {
                     
                     Divider()
                     Button("Delete Permanently") {
-                        isPaperDeleteConfirmPresented = true
-                        viewContext.delete(paper)
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            let nsError = error as NSError
-                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                        }
                     }
                     
                 }
