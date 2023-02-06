@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import GRDBQuery
 
 struct SidebarView: View {
+    @Environment(\.appDatabase) private var appDatabase
+    
+    @Query(GroupRequest(), in: \.appDatabase) private var groups: [Group]
+    
     var body: some View {
         List {
-            SidebarGroupView()
+            SidebarGroupView(groups: groups)
             
             // TODO: tag implementation
             // SidebarTagView()

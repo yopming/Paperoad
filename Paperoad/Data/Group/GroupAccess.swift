@@ -10,8 +10,24 @@ import Foundation
 import Combine
 
 extension AppDatabase {
+    // validation
+    enum ValidationError: LocalizedError {
+        case missingName
+        
+        var errorDescription: String? {
+            switch self {
+            case .missingName:
+                return "Please provide a name."
+            }
+        }
+    }
+    
     // save (insert or update)
     func saveGroup(_ group: inout Group) throws {
+        if group.name.isEmpty {
+            throw ValidationError.missingName
+        }
+        
         try writer.write { db in
             try group.save(db)
         }
@@ -19,7 +35,7 @@ extension AppDatabase {
     
     func deleteGroups(ids: [Int64]) throws {
         try writer.write { db in
-            _ = try Group.deleteAll(db, keys: ids)
+            _ = try Group.deleteAll(db, ids: ids)
         }
     }
     
@@ -27,12 +43,5 @@ extension AppDatabase {
         try writer.write { db in
             _ = try Group.deleteAll(db)
         }
-    }
-    
-    func groupsOrderedByNamePublisher() -> AnyPublisher<[Group], Error> {
-        ValueObservation
-            .tracking(Group.all().orderedByCreateTime().fetchAll)
-            .publisher(in: writer, scheduling: .immediate)
-            .eraseToAnyPublisher()
     }
 }

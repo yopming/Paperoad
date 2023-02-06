@@ -14,11 +14,21 @@ import LoremSwiftum
 /// Identifiable conformance supports SwiftUI list animations,
 /// and type-safe GRDB primary key methods.
 /// Equatable conformance supports tests.
-struct Group: Codable, Identifiable {
+struct Group: Codable, Identifiable, Equatable {
     var id: Int64?
     var name: String
     var createTime: Date
     var updateTime: Date
+}
+
+extension Group {
+    static func new() -> Group {
+        Group(id: nil, name: "", createTime: Date(), updateTime: Date())
+    }
+    
+    static func random() -> Group {
+        Group(id: nil, name: Lorem.word, createTime: Date(), updateTime: Date())
+    }
 }
 
 // SQL generation
@@ -37,13 +47,13 @@ extension Group: FetchableRecord {}
 // Persistence methods
 extension Group: MutablePersistableRecord {
     // update auto incremented id upon successful insertion
-    mutating func didInsert(with rowId: Int64, for column: String?) {
-        id = rowId
+    mutating func didInsert(_ inserted: InsertionSuccess) {
+        id = inserted.rowID
     }
 }
 
 // Database requests
-extension DerivableRequest where RowDecoder == Group {
+extension DerivableRequest<Group> {
     func orderedByName() -> Self {
         order(Group.Columns.name.collating(.localizedCaseInsensitiveCompare))
     }
@@ -53,12 +63,3 @@ extension DerivableRequest where RowDecoder == Group {
     }
 }
 
-extension Group {
-    static func new() -> Group {
-        Group(id: nil, name: "", createTime: Date(), updateTime: Date())
-    }
-    
-    static func random() -> Group {
-        Group(id: nil, name: Lorem.word, createTime: Date(), updateTime: Date())
-    }
-}

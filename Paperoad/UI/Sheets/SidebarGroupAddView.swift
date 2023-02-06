@@ -13,8 +13,6 @@ struct SidebarGroupAddView: View {
     
     @State private var groupName = ""
     
-    let viewModel = GroupListViewModel(database: AppDatabase.persistence)
-    
     var body: some View {
         VStack {
             Text("New Group")
@@ -35,7 +33,6 @@ struct SidebarGroupAddView: View {
                     showSheet = nil
                 }
                 Button("Create") {
-                    viewModel.insertGroup(groupName)
                     showSheet = nil
                 }
                     .disabled(groupName.isEmpty)

@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "grdbquery",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groue/GRDBQuery",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2d1ad7a33a85ff0fdc975158c0ba5a2c452bf5ff"
+      }
+    },
+    {
       "identity" : "loremswiftum",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lukaskubanek/LoremSwiftum.git",
