@@ -19,12 +19,17 @@
 		1F28103429834FC500A6D4CD /* SidebarActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28103329834FC500A6D4CD /* SidebarActionView.swift */; };
 		1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */; };
 		1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2992988AE1E00837D0B /* TextField.swift */; };
-		1F2DA2D92988BC2F00837D0B /* Paperoad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2D72988BC2F00837D0B /* Paperoad.xcdatamodeld */; };
-		1F2DA3192988C46800837D0B /* PersistentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA3182988C46800837D0B /* PersistentController.swift */; };
+		1F2DA3192988C46800837D0B /* AppDatabasePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA3182988C46800837D0B /* AppDatabasePersistence.swift */; };
 		1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31B2988C4FC00837D0B /* Group.swift */; };
 		1F2DA31E2988C92200837D0B /* SidebarGroupAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31D2988C92200837D0B /* SidebarGroupAddViewModel.swift */; };
 		1F2DA3202988C9A000837D0B /* SidebarGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31F2988C9A000837D0B /* SidebarGroupViewModel.swift */; };
 		1F4ED67D298DA7FB005732DE /* PapersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ED67C298DA7FB005732DE /* PapersViewModel.swift */; };
+		1F4ED681299098D4005732DE /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ED680299098D4005732DE /* AppDatabase.swift */; };
+		1F4ED6842990990F005732DE /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4ED6832990990F005732DE /* GRDB */; };
+		1F4ED6862990990F005732DE /* GRDB-dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4ED6852990990F005732DE /* GRDB-dynamic */; };
+		1F4ED68829909B28005732DE /* AppDatabaseMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ED68729909B28005732DE /* AppDatabaseMigrator.swift */; };
+		1F4ED68A2990A11F005732DE /* GroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ED6892990A11F005732DE /* GroupRequest.swift */; };
+		1F4ED68D2990A203005732DE /* GRDBQuery in Frameworks */ = {isa = PBXBuildFile; productRef = 1F4ED68C2990A203005732DE /* GRDBQuery */; };
 		1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */; };
 		1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF72981B9E6000C7D33 /* ContentView.swift */; };
 		1FAF9DFA2981B9E7000C7D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */; };
@@ -86,12 +91,14 @@
 		1F28103329834FC500A6D4CD /* SidebarActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionView.swift; sourceTree = "<group>"; };
 		1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupAddView.swift; sourceTree = "<group>"; };
 		1F2DA2992988AE1E00837D0B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		1F2DA2D82988BC2F00837D0B /* Paperoad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Paperoad.xcdatamodel; sourceTree = "<group>"; };
-		1F2DA3182988C46800837D0B /* PersistentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentController.swift; sourceTree = "<group>"; };
+		1F2DA3182988C46800837D0B /* AppDatabasePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabasePersistence.swift; sourceTree = "<group>"; };
 		1F2DA31B2988C4FC00837D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		1F2DA31D2988C92200837D0B /* SidebarGroupAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupAddViewModel.swift; sourceTree = "<group>"; };
 		1F2DA31F2988C9A000837D0B /* SidebarGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupViewModel.swift; sourceTree = "<group>"; };
 		1F4ED67C298DA7FB005732DE /* PapersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapersViewModel.swift; sourceTree = "<group>"; };
+		1F4ED680299098D4005732DE /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		1F4ED68729909B28005732DE /* AppDatabaseMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabaseMigrator.swift; sourceTree = "<group>"; };
+		1F4ED6892990A11F005732DE /* GroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequest.swift; sourceTree = "<group>"; };
 		1FAF9DF22981B9E5000C7D33 /* Paperoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paperoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadApp.swift; sourceTree = "<group>"; };
 		1FAF9DF72981B9E6000C7D33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +129,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0CA056298DCAC5005F6F10 /* LoremSwiftum in Frameworks */,
+				1F4ED6862990990F005732DE /* GRDB-dynamic in Frameworks */,
+				1F4ED68D2990A203005732DE /* GRDBQuery in Frameworks */,
+				1F4ED6842990990F005732DE /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				1F2DA31A2988C4F300837D0B /* Relations */,
-				1F2DA3182988C46800837D0B /* PersistentController.swift */,
+				1F4ED680299098D4005732DE /* AppDatabase.swift */,
+				1F4ED68729909B28005732DE /* AppDatabaseMigrator.swift */,
+				1F2DA3182988C46800837D0B /* AppDatabasePersistence.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -219,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				1F2DA31B2988C4FC00837D0B /* Group.swift */,
+				1F4ED6892990A11F005732DE /* GroupRequest.swift */,
 			);
 			path = Relations;
 			sourceTree = "<group>";
@@ -269,7 +282,6 @@
 				1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */,
 				1FAF9DFE2981B9E7000C7D33 /* Paperoad.entitlements */,
 				1FAF9E382981CBCB000C7D33 /* .swiftlint.yml */,
-				1F2DA2D72988BC2F00837D0B /* Paperoad.xcdatamodeld */,
 				1FAF9DFB2981B9E7000C7D33 /* Preview Content */,
 			);
 			path = Paperoad;
@@ -374,6 +386,9 @@
 			name = Paperoad;
 			packageProductDependencies = (
 				1F0CA055298DCAC5005F6F10 /* LoremSwiftum */,
+				1F4ED6832990990F005732DE /* GRDB */,
+				1F4ED6852990990F005732DE /* GRDB-dynamic */,
+				1F4ED68C2990A203005732DE /* GRDBQuery */,
 			);
 			productName = Paperoad;
 			productReference = 1FAF9DF22981B9E5000C7D33 /* Paperoad.app */;
@@ -449,6 +464,8 @@
 			mainGroup = 1FAF9DE92981B9E5000C7D33;
 			packageReferences = (
 				1F0CA054298DCAC5005F6F10 /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
+				1F4ED6822990990F005732DE /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				1F4ED68B2990A203005732DE /* XCRemoteSwiftPackageReference "GRDBQuery" */,
 			);
 			productRefGroup = 1FAF9DF32981B9E5000C7D33 /* Products */;
 			projectDirPath = "";
@@ -494,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4ED68A2990A11F005732DE /* GroupRequest.swift in Sources */,
 				1FF1D358298C3F05003B4F2B /* Date.swift in Sources */,
 				1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */,
 				1FF1D348298ACAF9003B4F2B /* PaperAddView.swift in Sources */,
@@ -504,21 +522,22 @@
 				1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */,
 				1FF1D353298C16E0003B4F2B /* Button.swift in Sources */,
 				1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */,
+				1F4ED681299098D4005732DE /* AppDatabase.swift in Sources */,
 				1F2DA31E2988C92200837D0B /* SidebarGroupAddViewModel.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,
 				1FF1D355298C201D003B4F2B /* PaperAddViewModel.swift in Sources */,
 				1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */,
 				1FF1D34E298B0C5F003B4F2B /* Data.swift in Sources */,
+				1F4ED68829909B28005732DE /* AppDatabaseMigrator.swift in Sources */,
 				1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */,
 				1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */,
 				1FF1D35B298C4454003B4F2B /* PaperListItem.swift in Sources */,
 				1F4ED67D298DA7FB005732DE /* PapersViewModel.swift in Sources */,
 				1F28103429834FC500A6D4CD /* SidebarActionView.swift in Sources */,
-				1F2DA2D92988BC2F00837D0B /* Paperoad.xcdatamodeld in Sources */,
 				1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */,
 				1F28102E2983361200A6D4CD /* SidebarGroupView.swift in Sources */,
 				1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */,
-				1F2DA3192988C46800837D0B /* PersistentController.swift in Sources */,
+				1F2DA3192988C46800837D0B /* AppDatabasePersistence.swift in Sources */,
 				1F0CA09729902204005F6F10 /* PaperUpdateView.swift in Sources */,
 				1F0CA095298F6DAE005F6F10 /* StorageView.swift in Sources */,
 			);
@@ -862,6 +881,22 @@
 				kind = branch;
 			};
 		};
+		1F4ED6822990990F005732DE /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1F4ED68B2990A203005732DE /* XCRemoteSwiftPackageReference "GRDBQuery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDBQuery";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -870,20 +905,22 @@
 			package = 1F0CA054298DCAC5005F6F10 /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
 			productName = LoremSwiftum;
 		};
-/* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		1F2DA2D72988BC2F00837D0B /* Paperoad.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				1F2DA2D82988BC2F00837D0B /* Paperoad.xcdatamodel */,
-			);
-			currentVersion = 1F2DA2D82988BC2F00837D0B /* Paperoad.xcdatamodel */;
-			path = Paperoad.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+		1F4ED6832990990F005732DE /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F4ED6822990990F005732DE /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
 		};
-/* End XCVersionGroup section */
+		1F4ED6852990990F005732DE /* GRDB-dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F4ED6822990990F005732DE /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = "GRDB-dynamic";
+		};
+		1F4ED68C2990A203005732DE /* GRDBQuery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F4ED68B2990A203005732DE /* XCRemoteSwiftPackageReference "GRDBQuery" */;
+			productName = GRDBQuery;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FAF9DEA2981B9E5000C7D33 /* Project object */;
 }

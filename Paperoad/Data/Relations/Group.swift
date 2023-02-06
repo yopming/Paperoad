@@ -5,51 +5,64 @@
 //  Created by Tieming on 1/30/23.
 //
 
-import CoreData
+import Foundation
+import GRDB
+import LoremSwiftum
 
-//extension PersistentController {
-//    // MARK: - Create
-//    func groupCreate(_ groupName: String, _ groupDesc: String, completion: (Group) -> Void) {
-//        let group = Group(context: viewContext)
-//        group.name = groupName
-//        group.desc = groupDesc
-//        group.createTime = Date()
-//        group.updateTime = Date()
-//        completion(group)
-//        saveContext()
-//    }
-//    
-//    // MARK: - Fetch
-//    func groupFetch(completion:(Result<[Group], Error>) -> Void) {
-//        let fetchRequest = Group.fetchRequest()
-//        do {
-//            let groups = try viewContext.fetch(fetchRequest)
-//            completion(.success(groups))
-//        } catch let error {
-//            completion(.failure(error))
-//        }
-//    }
-//    
-//    // MARK: - Update
-//    func groupUpdate(_ group: Group, newName: String, newDesc: String) {
-//        group.name = newName
-//        group.desc = newDesc
-//        group.updateTime = Date()
-//        saveContext()
-//    }
-//    
-//    // MARK: - Delete
-//    func deleteGroup(_ group: Group) {
-//        viewContext.delete(group)
-//        saveContext()
-//    }
-//    
-//    func saveContext() {
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            let nserror = error as NSError
-//            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//        }
-//    }
-//}
+/// Group struct
+///
+/// Identifiable conformance supports SwiftUI list animations,
+/// and type-safe GRDB primary key methods.
+/// Equatable conformance supports tests.
+struct Group: Identifiable, Equatable {
+    var id: Int64?
+    var name: String
+    var createTime: Date
+    var updateTime: Date
+}
+
+
+extension Group {
+    static func new() -> Group {
+        Group(
+            id: nil,
+            name: "",
+            createTime: Date(),
+            updateTime: Date()
+        )
+    }
+    
+    static func random() -> Group {
+        Group(
+            id: nil,
+            name: Lorem.word,
+            createTime: Date(),
+            updateTime: Date()
+        )
+    }
+}
+
+extension Group: Codable, FetchableRecord, MutablePersistableRecord {
+    // define database columns from CodingKeys
+    fileprivate enum Columns {
+        static let name = Column(CodingKeys.name)
+        static let createTime = Column(CodingKeys.createTime)
+        static let updateTime = Column(CodingKeys.updateTime)
+    }
+    
+    // updates a group id after it has been inserted in the database
+    mutating func didInsert(_ inserted: InsertionSuccess) {
+        id = inserted.rowID
+    }
+}
+
+// MAKR: - Database Requests
+extension DerivableRequest<Group> {
+    func orderedByName() -> Self {
+        order(Group.Columns.name.collating(.localizedCaseInsensitiveCompare))
+    }
+    
+    func orderedByCreateTime() -> Self {
+        order(Group.Columns.createTime.collating(.unicodeCompare))
+    }
+}

@@ -1,6 +1,24 @@
 {
   "pins" : [
     {
+      "identity" : "grdb.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groue/GRDB.swift.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "ba68e3b02d9ed953a0c9ff43183f856f20c9b7ce"
+      }
+    },
+    {
+      "identity" : "grdbquery",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groue/GRDBQuery",
+      "state" : {
+        "revision" : "df514f2bd74548f94e082f3233022190e594fce4",
+        "version" : "0.5.1"
+      }
+    },
+    {
       "identity" : "loremswiftum",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lukaskubanek/LoremSwiftum.git",
