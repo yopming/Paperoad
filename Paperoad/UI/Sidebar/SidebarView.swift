@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct SidebarView: View {
-    // which group or tag is selected right now, for router
-    // @State private var selectedGroup: Int?
-    
     var body: some View {
         List {
             SidebarGroupView()
@@ -18,8 +15,8 @@ struct SidebarView: View {
             // TODO: tag implementation
             // SidebarTagView()
         }
-        // SidebarActionView() at the very bottom
         .safeAreaInset(edge: .bottom) {
+            // at the bottom
             SidebarActionView()
         }
         .listStyle(SidebarListStyle())

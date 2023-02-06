@@ -9,7 +9,7 @@ import Foundation
 import GRDB
 
 extension AppDatabase {
-    static let shared = makeShared()
+    static let persistence = makeShared()
     
     private static func makeShared() -> AppDatabase {
         do {
@@ -38,9 +38,5 @@ extension AppDatabase {
     static func empty() -> AppDatabase {
         let dbQueue = try! DatabaseQueue()
         return try! AppDatabase(dbQueue)
-    }
-    
-    static func random() -> AppDatabase {
-//        let appDatabase = empty()
     }
 }

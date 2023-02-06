@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct PaperoadApp: App {
-    let persistenceController = PersistentController.shared
-    
     // global dark mode or light mode
     @AppStorage("prefColorScheme") private var theme = "Follow System"
     
@@ -26,10 +24,9 @@ struct PaperoadApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .preferredColorScheme(theme == "Dark"
-                                      ? .dark
-                                      : (theme == "Light" ? .light : nil))
+                .preferredColorScheme(
+                    theme == "Dark" ? .dark : (theme == "Light" ? .light : nil)
+                )
         }
         .windowStyle(.automatic)
         .windowToolbarStyle(.unifiedCompact(showsTitle: false))
@@ -40,7 +37,7 @@ struct PaperoadApp: App {
             CommandGroup(replacing: .newItem, addition: {})
             
             // open library directory where sqlite file is located
-            CommandMenu("Developer") {
+            CommandMenu("Develop") {
                 Button("Open Application Support") {
                     openApplicationSupportDir()
                 }
@@ -49,19 +46,23 @@ struct PaperoadApp: App {
         
         Settings {
             SettingsView()
-                .preferredColorScheme(theme == "Dark"
-                                      ? .dark
-                                      : (theme == "Light" ? .light : nil))
+                .preferredColorScheme(
+                    theme == "Dark" ? .dark : (theme == "Light" ? .light : nil)
+                )
         }
         .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
 
-private func openApplicationSupportDir() {
-    let fileManager = FileManager.default
-    let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-//    let dataDirectoryURL = appSupportURL.appendingPathComponent("data", isDirectory: true)
-    let dataDirectoryURL = appSupportURL
-
-    NSWorkspace.shared.open(dataDirectoryURL)
+// Defines a new environment key that grants access to an AppDatabase
+private struct AppDatabaseKey: EnvironmentKey {
+    static var defaultValue: AppDatabase { .empty() }
 }
+
+extension EnvironmentValues {
+    var appDatabase: AppDatabase {
+        get { self[AppDatabaseKey.self] }
+        set { self[AppDatabaseKey.self] = newValue }
+    }
+}
+

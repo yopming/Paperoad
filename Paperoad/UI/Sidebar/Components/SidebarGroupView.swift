@@ -8,34 +8,26 @@
 import SwiftUI
 
 struct SidebarGroupView: View {
-    @Environment(\.managedObjectContext) internal var viewContext
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Group.name, ascending: true)],
-        animation: .default
-    ) internal var groups: FetchedResults<Group>
+    @StateObject var viewModel: GroupListViewModel
     
     var body: some View {
         Section(header: Text("Groups")) {
-            ForEach(groups) { group in
-                NavigationLink(destination: MainView(par: group.name!)) {
-                    Label(group.name!, systemImage: "folder")
+            ForEach(viewModel.groups) { group in
+                NavigationLink(destination: MainView(par: group.name)) {
+                    Label(group.name, systemImage: "folder")
                         .contextMenu {
                             Button(action: {
-                                viewContext.delete(group)
-                                do {
-                                    try viewContext.save()
-                                } catch {
-                                    let nsError = error as NSError
-                                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                                }
                             }, label: {
                                 Label("Delete", systemImage: "sidebar.left")
                             })
                         }
                 }
             }
-            .onDelete(perform: deleteGroups)
+            .onDelete { offsets in
+                self.viewModel.deleteGroups(atOffsets: offsets)
+            }
+            .onAppear(perform: viewModel.bind)
+            .onDisappear(perform: viewModel.unbind)
         }
         
         Divider()

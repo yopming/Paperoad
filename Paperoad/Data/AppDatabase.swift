@@ -5,20 +5,23 @@
 //  Created by Tieming on 2/5/23.
 //
 
+import os.log
 import Foundation
 import GRDB
 
 struct AppDatabase {
-    // creates an `AppDatabase` and make sure the database schema is ready
-    init(_ dbWriter: any DatabaseWriter) throws {
-        self.dbWriter = dbWriter
-        try migrator.migrate(dbWriter)
-    }
+    private static let log = OSLog(subsystem: "app.dbms.tgeng.Paperoad", category: "database")
     
     // provides access to the database
-    private let dbWriter: any DatabaseWriter
+    let writer: any DatabaseWriter
+    
+    // creates an `AppDatabase` and make sure the database schema is ready
+    init(_ writer: any DatabaseWriter) throws {
+        self.writer = writer
+        try migrator.migrate(writer)
+    }
     
     var reader: DatabaseReader {
-        dbWriter
+        writer
     }
 }
