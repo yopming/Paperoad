@@ -8,19 +8,9 @@
 import SwiftUI
 
 struct PaperUpdateView: View {
-    @Environment(\.managedObjectContext) internal var viewContext
-    
-    @ObservedObject var paper: Paper
-
     // fetch paper id types
     let paperIdTypes: [String] = PaperConfig.IdTypes.allCases.map { $0.rawValue }
 
-    // fetch relation "Group"
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Group.name, ascending: false)],
-        animation: .default
-    ) internal var groups: FetchedResults<Group>
-    
     // keep track of if the sheet should be shown
     @Binding var showSheet: PapersSheetView?
 

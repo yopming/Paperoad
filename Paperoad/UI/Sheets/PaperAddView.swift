@@ -8,14 +8,6 @@
 import SwiftUI
 
 struct PaperAddView: View {
-    @Environment(\.managedObjectContext) internal var viewContext
-    
-    // fetch relation "Group"
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Group.name, ascending: false)],
-        animation: .default
-    ) internal var groups: FetchedResults<Group>
-    
     // fetch paper id types
     let paperIdTypes: [String] = PaperConfig.IdTypes.allCases.map { $0.rawValue }
     
@@ -44,35 +36,34 @@ struct PaperAddView: View {
                 TextField("Publication", text: $publication)
                 TextField("Publication Year", text: $year)
                 
-                Picker("Group", selection: $selectedGroup) {
-                    ForEach(0..<groups.count, id: \.self) { index in
-                        Text(self.groups[index].name!)
-                    }
-                }
+//                Picker("Group", selection: $selectedGroup) {
+//                    ForEach(0..<groups.count, id: \.self) { index in
+//                        Text(self.groups[index].name!)
+//                    }
+//                }
                 
             }
-            Text("New paper will be shown in group 'Unfiled'. More details can be updated later.")
+            Text("New paper will be shown in group 'Unfiled'. ")
+            Text("More details can be updated later.")
                 .font(.footnote)
             
             Divider()
             HStack {
                 Button("Random") {
                     isPaperAddViewPresented = false
-                    addRandomPaper()
                 }
                 Button("Close", role: .cancel) {
                     isPaperAddViewPresented = false
-                    print(groups[selectedGroup].name ?? "")
                 }
                 Button("Create") {
                     isPaperAddViewPresented = false
-                    addPaper(
-                        title: title,
-                        authors: authors,
-                        publication: publication,
-                        year: year,
-                        group: groups[selectedGroup].name ?? ""
-                    )
+//                    addPaper(
+//                        title: title,
+//                        authors: authors,
+//                        publication: publication,
+//                        year: year,
+//                        group: groups[selectedGroup].name ?? ""
+//                    )
                 }
                 .disabled(title.isEmpty)
                 .buttonStyle(.borderedProminent)

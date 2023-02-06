@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SidebarGroupAddView: View {
-    @Environment(\.managedObjectContext) internal var viewContext
-    
     // keep track of if the sheet should be shown
     @Binding var showSheet: SidebarSheetView?
     
     @State private var groupName = ""
+    
+    let viewModel = GroupListViewModel(database: AppDatabase.persistence)
     
     var body: some View {
         VStack {
@@ -35,8 +35,8 @@ struct SidebarGroupAddView: View {
                     showSheet = nil
                 }
                 Button("Create") {
+                    viewModel.insertGroup(groupName)
                     showSheet = nil
-                    addGroup(name: groupName)
                 }
                     .disabled(groupName.isEmpty)
                     .buttonStyle(.borderedProminent)

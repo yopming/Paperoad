@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct SidebarGroupView: View {
-    @StateObject var viewModel: GroupListViewModel
+    @Environment(\.appDatabase) private var appDatabase
+    
+    var groups: [Group]
     
     var body: some View {
         Section(header: Text("Groups")) {
-            ForEach(viewModel.groups) { group in
+            ForEach(groups) { group in
                 NavigationLink(destination: MainView(par: group.name)) {
                     Label(group.name, systemImage: "folder")
                         .contextMenu {
@@ -23,12 +25,9 @@ struct SidebarGroupView: View {
                         }
                 }
             }
-            .onDelete { offsets in
-                self.viewModel.deleteGroups(atOffsets: offsets)
-            }
-            .onAppear(perform: viewModel.bind)
-            .onDisappear(perform: viewModel.unbind)
         }
+//        .onAppear(perform: viewModel.bind)
+//        .onDisappear(perform: viewModel.unbind)
         
         Divider()
         

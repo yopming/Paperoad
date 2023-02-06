@@ -1,12 +1,12 @@
 //
-//  AppDatabasePersistence.swift
+//  Persistence.swift
 //  Paperoad
 //
 //  Created by Tieming on 1/30/23.
 //
 
-import Foundation
 import GRDB
+import Foundation
 
 extension AppDatabase {
     static let persistence = makeShared()
@@ -17,11 +17,6 @@ extension AppDatabase {
             let folderURL = try fileManager
                 .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 .appendingPathComponent("database", isDirectory: true)
-            
-            // support for tests: delete the database if requested
-            if CommandLine.arguments.contains("-reset") {
-                try? fileManager.removeItem(at: folderURL)
-            }
             
             try fileManager.createDirectory(at: folderURL, withIntermediateDirectories: true)
             

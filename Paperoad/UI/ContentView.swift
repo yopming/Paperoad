@@ -6,11 +6,8 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    
     @State private var isPaperAddViewPresented: Bool = false
     @State private var isPaperAddByIdViewPresented: Bool = false
     

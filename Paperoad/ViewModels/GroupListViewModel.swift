@@ -33,6 +33,11 @@ class GroupListViewModel: ObservableObject {
         print("DEINIT GROUP_LIST_VIEWMODEL")
     }
     
+    func insertGroup(_ name: String) {
+        var group = Group(name: name, createTime: Date(), updateTime: Date())
+        try! database.saveGroup(&group)
+    }
+    
     func deleteGroups(atOffsets offsets: IndexSet) {
         let groupIDs = offsets.compactMap { groups[$0].id }
         try! database.deleteGroups(ids: groupIDs)

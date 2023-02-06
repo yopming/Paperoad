@@ -42,33 +42,23 @@ extension Group: MutablePersistableRecord {
     }
 }
 
-//// Database requests
-//extension DerivableRequest<Group> {
-//    func orderedByName() -> Self {
-//        order(Group.Columns.name.collating(.localizedCaseInsensitiveCompare))
-//    }
-//    
-//    func orderedByCreateTime() -> Self {
-//        order(Group.Columns.createTime.desc, Group.Columns.name)
-//    }
-//}
+// Database requests
+extension DerivableRequest where RowDecoder == Group {
+    func orderedByName() -> Self {
+        order(Group.Columns.name.collating(.localizedCaseInsensitiveCompare))
+    }
+    
+    func orderedByCreateTime() -> Self {
+        order(Group.Columns.createTime.desc, Group.Columns.name)
+    }
+}
 
 extension Group {
     static func new() -> Group {
-        Group(
-            id: nil,
-            name: "",
-            createTime: Date(),
-            updateTime: Date()
-        )
+        Group(id: nil, name: "", createTime: Date(), updateTime: Date())
     }
     
     static func random() -> Group {
-        Group(
-            id: nil,
-            name: Lorem.word,
-            createTime: Date(),
-            updateTime: Date()
-        )
+        Group(id: nil, name: Lorem.word, createTime: Date(), updateTime: Date())
     }
 }

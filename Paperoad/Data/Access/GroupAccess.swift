@@ -10,6 +10,7 @@ import Foundation
 import Combine
 
 extension AppDatabase {
+    // save (insert or update)
     func saveGroup(_ group: inout Group) throws {
         try writer.write { db in
             try group.save(db)

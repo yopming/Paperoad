@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct PaperAddByIdView: View {
-    @Environment(\.managedObjectContext) internal var viewContext
-    
     @Binding var isPaperAddViewByIdPresented: Bool
     
     // publication id types

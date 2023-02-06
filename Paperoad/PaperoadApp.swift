@@ -24,6 +24,7 @@ struct PaperoadApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.appDatabase, .persistence)
                 .preferredColorScheme(
                     theme == "Dark" ? .dark : (theme == "Light" ? .light : nil)
                 )
