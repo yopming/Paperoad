@@ -26,6 +26,7 @@
 		1F66E2B829914189000135C8 /* Develop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66E2B729914189000135C8 /* Develop.swift */; };
 		1F9862AD2991947800B17A48 /* GRDBQuery in Frameworks */ = {isa = PBXBuildFile; productRef = 1F9862AC2991947800B17A48 /* GRDBQuery */; };
 		1F9862AF299194B900B17A48 /* GroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9862AE299194B900B17A48 /* GroupRequest.swift */; };
+		1F9862B12991ABF700B17A48 /* SidebarGroupEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9862B02991ABF700B17A48 /* SidebarGroupEditView.swift */; };
 		1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */; };
 		1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF72981B9E6000C7D33 /* ContentView.swift */; };
 		1FAF9DFA2981B9E7000C7D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF9DF92981B9E7000C7D33 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		1F4ED680299098D4005732DE /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		1F66E2B729914189000135C8 /* Develop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Develop.swift; sourceTree = "<group>"; };
 		1F9862AE299194B900B17A48 /* GroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequest.swift; sourceTree = "<group>"; };
+		1F9862B02991ABF700B17A48 /* SidebarGroupEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupEditView.swift; sourceTree = "<group>"; };
 		1FAF9DF22981B9E5000C7D33 /* Paperoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paperoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAF9DF52981B9E6000C7D33 /* PaperoadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadApp.swift; sourceTree = "<group>"; };
 		1FAF9DF72981B9E6000C7D33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,10 +136,8 @@
 		1F26B9392985DAAE00709752 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
-				1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */,
-				1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */,
-				1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */,
-				1F0CA09629902204005F6F10 /* PaperUpdateView.swift */,
+				1F9862B32991AC2000B17A48 /* Paper */,
+				1F9862B22991AC1400B17A48 /* SidebarGroup */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -229,6 +229,25 @@
 				1F66E2B729914189000135C8 /* Develop.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		1F9862B22991AC1400B17A48 /* SidebarGroup */ = {
+			isa = PBXGroup;
+			children = (
+				1F28103D2985B8BB00A6D4CD /* SidebarGroupAddView.swift */,
+				1F9862B02991ABF700B17A48 /* SidebarGroupEditView.swift */,
+			);
+			path = SidebarGroup;
+			sourceTree = "<group>";
+		};
+		1F9862B32991AC2000B17A48 /* Paper */ = {
+			isa = PBXGroup;
+			children = (
+				1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */,
+				1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */,
+				1F0CA09629902204005F6F10 /* PaperUpdateView.swift */,
+			);
+			path = Paper;
 			sourceTree = "<group>";
 		};
 		1FAF9DE92981B9E5000C7D33 = {
@@ -508,6 +527,7 @@
 				1FF1D348298ACAF9003B4F2B /* PaperAddView.swift in Sources */,
 				1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */,
 				1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */,
+				1F9862B12991ABF700B17A48 /* SidebarGroupEditView.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
 				1F9862AF299194B900B17A48 /* GroupRequest.swift in Sources */,
 				1FB855542991542200DF278B /* GroupListViewModel.swift in Sources */,

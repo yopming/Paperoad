@@ -19,6 +19,11 @@ struct SidebarGroupView: View {
                     Label(group.name, systemImage: "folder")
                         .contextMenu {
                             Button(action: {
+                                
+                            }, label: {
+                                Label("Rename", systemImage: "")
+                            })
+                            Button(action: {
                             }, label: {
                                 Label("Delete", systemImage: "sidebar.left")
                             })
