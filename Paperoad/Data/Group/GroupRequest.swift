@@ -21,7 +21,7 @@ struct GroupRequest: Queryable {
     
     func publisher(in appDatabase: AppDatabase) -> AnyPublisher<[Group], Error> {
         ValueObservation
-            .tracking{ db in try Group.fetchAll(db)}
+            .tracking{ db in try Group.fetchAll(db) }
             .publisher(in: appDatabase.reader, scheduling: .immediate)
             .eraseToAnyPublisher()
     }

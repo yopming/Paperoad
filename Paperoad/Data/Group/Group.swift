@@ -5,8 +5,8 @@
 //  Created by Tieming on 1/30/23.
 //
 
-import Foundation
 import GRDB
+import Foundation
 import LoremSwiftum
 
 /// Group struct
@@ -22,8 +22,8 @@ struct Group: Codable, Identifiable, Equatable {
 }
 
 extension Group {
-    static func new() -> Group {
-        Group(id: nil, name: "", createTime: Date(), updateTime: Date())
+    static func new(name: String) -> Group {
+        Group(id: nil, name: name, createTime: Date(), updateTime: Date())
     }
     
     static func random() -> Group {

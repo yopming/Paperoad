@@ -6,26 +6,14 @@
 //
 
 import GRDB
-import Foundation
 import Combine
+import Foundation
 
 extension AppDatabase {
-    // validation
-    enum ValidationError: LocalizedError {
-        case missingName
-        
-        var errorDescription: String? {
-            switch self {
-            case .missingName:
-                return "Please provide a name."
-            }
-        }
-    }
-    
     // save (insert or update)
     func saveGroup(_ group: inout Group) throws {
         if group.name.isEmpty {
-            throw ValidationError.missingName
+            throw ValidationError.missingGroupName
         }
         
         try writer.write { db in
