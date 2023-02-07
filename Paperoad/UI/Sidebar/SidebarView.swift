@@ -14,7 +14,7 @@ struct SidebarView: View {
     @Query(GroupRequest(), in: \.appDatabase) private var groups: [Group]
     
     var body: some View {
-        List {
+        VStack {
             SidebarGroupView(groups: groups)
             
             // TODO: tag implementation
@@ -34,4 +34,9 @@ struct SidebarView: View {
 enum SidebarSheetView: Identifiable {
     var id: Self { self }
     case group, tag
+}
+
+enum SidebarGroupSheetView: Identifiable {
+    var id: Self { self }
+    case groupRename
 }

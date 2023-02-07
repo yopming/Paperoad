@@ -43,9 +43,9 @@ struct SidebarGroupAddView: View {
                     showSheet = nil
                     save(name: groupName)
                 }
-                    .disabled(groupName.isEmpty)
-                    .buttonStyle(.borderedProminent)
-                    .tint(groupName.isEmpty ? .gray : .accentColor)
+                .disabled(groupName.isEmpty)
+                .buttonStyle(.borderedProminent)
+                .tint(groupName.isEmpty ? .gray : .accentColor)
             }
             .frame(maxWidth: .infinity, alignment: .bottomTrailing)
         }

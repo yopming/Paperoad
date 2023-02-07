@@ -10,43 +10,47 @@ import SwiftUI
 struct SidebarGroupEditView: View {
     @Environment(\.appDatabase) private var appDatabase
     @Environment(\.dismiss) private var dismiss
-    
+
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
-    
+
     // keep track of if the sheet should be shown
-    @Binding var showSheet: SidebarSheetView?
-    
-    @State private var groupName = ""
-    private let group: Group
+//    @Binding var presented: Bool
+
+    @State var groupName = ""
+    @State var group: Group
     
     var body: some View {
+        let groupNameBinding = Binding(
+            get: { self.groupName },
+            set: { self.groupName = $0 }
+        )
+
         VStack {
             Text("Rename Group")
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
+
             Divider()
-            
+
             Form {
-                TextField("Name:", text: $groupName)
+                TextField("Name:", text: groupNameBinding)
             }
-            
+
             Divider()
-            
+
             HStack {
                 Button("Close", role: .cancel) {
-                    showSheet = nil
                     dismiss()
                 }
                 Button("Update") {
-                    showSheet = nil
-                    update(name: groupName, group: group)
+                    update(name: groupNameBinding.wrappedValue)
+                    dismiss()
                 }
-                    .disabled(groupName.isEmpty)
-                    .buttonStyle(.borderedProminent)
-                    .tint(groupName.isEmpty ? .gray : .accentColor)
+                .disabled(groupName.isEmpty)
+                .buttonStyle(.borderedProminent)
+                .tint(groupName.isEmpty ? .gray : .accentColor)
             }
             .frame(maxWidth: .infinity, alignment: .bottomTrailing)
         }
@@ -55,7 +59,13 @@ struct SidebarGroupEditView: View {
         .frame(width: 350, alignment: .leading)
     }
     
-    private func update(name: String, group: Group) {
-        
+    private func update(name: String) {
+        do {
+            group.name = name
+            try appDatabase.saveGroup(&group)
+        } catch {
+            errorAlertIsPresented = true
+            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Error occurred"
+        }
     }
 }

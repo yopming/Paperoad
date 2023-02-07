@@ -48,7 +48,8 @@ struct PapersView: View {
 //        }
 //
 //        Text("\(selectedPapers.count) papers selected \(par)")
-//            .padding()
+        Text("\(par)")
+            .padding()
     }
     
     

@@ -36,7 +36,7 @@
 		1FAF9E142981B9E7000C7D33 /* PaperoadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E132981B9E7000C7D33 /* PaperoadUITestsLaunchTests.swift */; };
 		1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E6029846A6B000C7D33 /* MainView.swift */; };
 		1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E632984773B000C7D33 /* PapersView.swift */; };
-		1FB855542991542200DF278B /* GroupListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB855532991542200DF278B /* GroupListViewModel.swift */; };
+		1FB855542991542200DF278B /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB855532991542200DF278B /* GroupViewModel.swift */; };
 		1FB855572991566900DF278B /* GroupAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB855562991566900DF278B /* GroupAccess.swift */; };
 		1FF1D348298ACAF9003B4F2B /* PaperAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */; };
 		1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */; };
@@ -95,7 +95,7 @@
 		1FAF9E372981CA53000C7D33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1FAF9E6029846A6B000C7D33 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1FAF9E632984773B000C7D33 /* PapersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapersView.swift; sourceTree = "<group>"; };
-		1FB855532991542200DF278B /* GroupListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewModel.swift; sourceTree = "<group>"; };
+		1FB855532991542200DF278B /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		1FB855562991566900DF278B /* GroupAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAccess.swift; sourceTree = "<group>"; };
 		1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAddView.swift; sourceTree = "<group>"; };
 		1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAddByIdView.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		1F2E54252988865A007992FA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1FB855532991542200DF278B /* GroupListViewModel.swift */,
+				1FB855532991542200DF278B /* GroupViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -530,7 +530,7 @@
 				1F9862B12991ABF700B17A48 /* SidebarGroupEditView.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
 				1F9862AF299194B900B17A48 /* GroupRequest.swift in Sources */,
-				1FB855542991542200DF278B /* GroupListViewModel.swift in Sources */,
+				1FB855542991542200DF278B /* GroupViewModel.swift in Sources */,
 				1FB855572991566900DF278B /* GroupAccess.swift in Sources */,
 				1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */,
 				1FF1D353298C16E0003B4F2B /* Button.swift in Sources */,

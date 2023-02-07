@@ -12,36 +12,48 @@ struct SidebarGroupView: View {
     
     var groups: [Group]
     
+    @State private var isEditViewPresented: Bool = false
+    
+    @State private var selectedGroup: Group?
+    
     var body: some View {
-        Section(header: Text("Groups")) {
-            ForEach(groups) { group in
-                NavigationLink(destination: MainView(par: group.name)) {
-                    Label(group.name, systemImage: "folder")
-                        .contextMenu {
-                            Button(action: {
-                                
-                            }, label: {
-                                Label("Rename", systemImage: "")
-                            })
-                            Button(action: {
-                            }, label: {
-                                Label("Delete", systemImage: "sidebar.left")
-                            })
+        List {
+            Section(header: Text("Groups")) {
+                ForEach(groups) { group in
+                    NavigationLink(destination: MainView(par: group.name)) {
+                        Label(group.name, systemImage: "folder")
+                    }
+                    .contextMenu {
+                        Button("Rename Group") {
+                            isEditViewPresented = true
+                            selectedGroup = group
                         }
+                        
+                        Button("Delete") {
+                        }
+                    }
                 }
             }
+            
+            Divider()
+            
+            NavigationLink(destination: MainView(par: "Unfiled")) {
+                Label("Unfiled", systemImage: "square.stack")
+            }
+            
+            NavigationLink(destination: MainView(par: "Trash")) {
+                Label("Trash", systemImage: "trash")
+            }
         }
-//        .onAppear(perform: viewModel.bind)
-//        .onDisappear(perform: viewModel.unbind)
-        
-        Divider()
-        
-        NavigationLink(destination: MainView(par: "unfiled")) {
-            Label("Unfiled", systemImage: "square.stack")
+            
+        .sheet (item: $selectedGroup) { group in
+            SidebarGroupEditView(
+                // presented: $isEditViewPresented,
+                groupName: group.name,
+                group: group
+            )
         }
         
-        NavigationLink(destination: MainView(par: "Trash")) {
-            Label("Trash", systemImage: "trash")
-        }
     }
+    
 }
