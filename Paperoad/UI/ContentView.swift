@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     @State private var isPaperAddViewPresented: Bool = false
     @State private var isPaperAddByIdViewPresented: Bool = false
-    
+
     @State private var searchText = ""
-    
+
     var body: some View {
         NavigationView {
             SidebarView()
@@ -43,7 +43,7 @@ struct ContentView: View {
                         PaperAddByIdView(isPaperAddViewByIdPresented: $isPaperAddByIdViewPresented)
                     }
                 )
-                
+
             }
         })
         .searchable(text: $searchText)

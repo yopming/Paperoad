@@ -21,33 +21,42 @@ struct PapersView: View {
     
     let par: String
     
-    @State private var selectedPapers: [Paper]?
+    @State private var selectedPaperToUpdate: Paper?
+    @State private var selectedPapers = Set<Paper>()
     
     var body: some View {
-        List(selection: $selectedPapers) {
-            ForEach(papers, id: \.self.id) { paper in
-                PaperListItem(
-                    title: paper.title,
-                    authors: paper.authors ?? "",
-                    year: paper.year ?? "",
-                    publication: paper.publication ?? ""
-                )
-                .listRowSeparator(.visible)
-                .listRowSeparatorTint(.gray.opacity(0.25))
-                .padding([.vertical], 3)
-                .contextMenu {
-                    if selectedPapers != nil {
-                        if selectedPapers!.count == 1 {
-                            Button("Update Paper") { }
-                        }
+//        Table(papers, selection: $selectedPapers) {
+//            TableColumn("Title", value: \.title)
+//            TableColumn("Authors") { paper in
+//                Text(paper.authors ?? "")
+//            }
+//        }
+        List(papers, id: \.self, selection: $selectedPapers) { paper in
+            PaperListItem(
+                title: paper.title,
+                authors: paper.authors ?? "",
+                year: paper.year ?? "",
+                publication: paper.publication ?? ""
+            )
+            .listRowSeparator(.visible)
+            .listRowSeparatorTint(.gray.opacity(0.25))
+            .padding([.vertical], 3)
+            .contextMenu {
+                if selectedPapers.count == 1 {
+                    Button("Update Paper") {
+                        selectedPaperToUpdate = selectedPapers.first
                     }
-
-                    Button("Delete") {}
                 }
+                
+                Button("Delete") {}
             }
         }
         
-        Text("\(selectedPapers?.count ?? 0) papers selected \(par)")
+        .sheet (item: $selectedPaperToUpdate) { paper in
+            PaperUpdateView(paper: paper)
+        }
+        
+        Text("\(selectedPapers.count) papers selected \(par)")
             .padding()
     }
      
