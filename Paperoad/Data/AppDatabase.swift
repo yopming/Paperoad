@@ -28,11 +28,37 @@ struct AppDatabase {
         migrator.eraseDatabaseOnSchemaChange = true
         #endif
         
-        /// MARK: - table 'group'
+        // MARK: - table 'group'
         migrator.registerMigration("createGroup") { db in
             try db.create(table: "group") { t in
                 t.autoIncrementedPrimaryKey("id")
                 t.column("name", .text).notNull()
+                t.column("createTime", .date).notNull()
+                t.column("updateTime", .date).notNull()
+            }
+        }
+        
+        // MARK: - table 'paper'
+        migrator.registerMigration("createPaper") { db in
+            try db.create(table: "paper") { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("title", .text).notNull()
+                t.column("publication", .text)
+                t.column("year", .text)
+                t.column("authors", .text)
+                t.column("publisher", .text)
+                t.column("type", .integer)
+                t.column("doi", .text)
+                t.column("isbn", .text)
+                t.column("arxiv", .text)
+                t.column("group", .integer)
+                t.column("abstract", .text)
+                t.column("note", .text)
+                t.column("number", .text)
+                t.column("volume", .text)
+                t.column("pages", .text)
+                t.column("url", .text)
+                t.column("deleted", .boolean).notNull()
                 t.column("createTime", .date).notNull()
                 t.column("updateTime", .date).notNull()
             }

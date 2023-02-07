@@ -10,7 +10,7 @@ import Foundation
 import LoremSwiftum
 
 /// Paper struct
-struct Paper: Codable, Identifiable, Equatable {
+struct Paper: Codable, Identifiable, Equatable, Hashable {
     var id: Int64?
     var title: String
     var publication: String?
@@ -25,25 +25,21 @@ struct Paper: Codable, Identifiable, Equatable {
     var abstract: String?
     var note: String?
     var number: String?
+    var volume: String?
     var pages: String?
     var url: String?
-    var volume: String?
     var deleted: Bool
     var createTime: Date
     var updateTime: Date
 }
 
 extension Paper {
-    static func new(title: String) -> Paper {
-        Paper(title: title, deleted: false, createTime: Date(), updateTime: Date())
-    }
-    
-    static func newEssential(title: String, pub: String, year: String, authors: String) -> Paper {
+    static func new(title: String, pub: String?, year: String?, authors: String?) -> Paper {
         Paper(
             title: title,
-            publication: pub,
-            year: year,
-            authors: authors,
+            publication: pub ?? "",
+            year: year ?? "",
+            authors: authors ?? "",
             deleted: false,
             createTime: Date(),
             updateTime: Date()
@@ -82,9 +78,9 @@ extension Paper: TableRecord {
         static let abstract = Column(Paper.CodingKeys.abstract)
         static let note = Column(Paper.CodingKeys.note)
         static let number = Column(Paper.CodingKeys.number)
+        static let volume = Column(Paper.CodingKeys.volume)
         static let pages = Column(Paper.CodingKeys.pages)
         static let url = Column(Paper.CodingKeys.url)
-        static let volume = Column(Paper.CodingKeys.volume)
         static let deleted = Column(Paper.CodingKeys.deleted)
         static let createTime = Column(Paper.CodingKeys.createTime)
         static let updateTime = Column(Paper.CodingKeys.updateTime)

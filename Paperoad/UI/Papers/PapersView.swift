@@ -6,52 +6,51 @@
 //
 
 import SwiftUI
+import GRDBQuery
 
 struct PapersView: View {
+    @Environment(\.appDatabase) private var appDatabase
+    
+    @Query(PaperRequest(), in: \.appDatabase) private var papers: [Paper]
+    
+    @State private var errorAlertIsPresented = false
+    @State private var errorAlertMessage = ""
+    
     // which sheet to show in PapersView
     @State private var showSheet:PapersSheetView? = nil
     
     let par: String
     
+    @State private var selectedPapers: [Paper]?
+    
     var body: some View {
-        Text("PapersView")
-//        List(selection: $selectedPapers) {
-//            ForEach(papers, id: \.self.id) { paper in
-//                PaperListItem(
-//                    title: paper.title!,
-//                    authors: paper.authors ?? "",
-//                    year: paper.year ?? "",
-//                    publication: paper.publication ?? ""
-//                )
-//                .listRowSeparator(.visible)
-//                .listRowSeparatorTint(.gray.opacity(0.25))
-//                .padding([.vertical], 3)
-//                .contextMenu {
-//                    if selectedPapers.count == 1 {
-//                        Button("Update Paper") { }
-//                        .sheet(
-//                            isPresented: $isPaperUpdateViewPresented,
-//                            content: {
-//                                PaperUpdateView()
-//                            }
-//                        )
-//                    }
-//
-//                    Button("Delete") {}
-//
-//                    Divider()
-//                    Button("Delete Permanently") {
-//                    }
-//
-//                }
-//            }
-//        }
-//
-//        Text("\(selectedPapers.count) papers selected \(par)")
-        Text("\(par)")
+        List(selection: $selectedPapers) {
+            ForEach(papers, id: \.self.id) { paper in
+                PaperListItem(
+                    title: paper.title,
+                    authors: paper.authors ?? "",
+                    year: paper.year ?? "",
+                    publication: paper.publication ?? ""
+                )
+                .listRowSeparator(.visible)
+                .listRowSeparatorTint(.gray.opacity(0.25))
+                .padding([.vertical], 3)
+                .contextMenu {
+                    if selectedPapers != nil {
+                        if selectedPapers!.count == 1 {
+                            Button("Update Paper") { }
+                        }
+                    }
+
+                    Button("Delete") {}
+                }
+            }
+        }
+        
+        Text("\(selectedPapers?.count ?? 0) papers selected \(par)")
             .padding()
     }
-    
+     
     
     // MAKR: - Update Button
 //    private var updateButton: some View {

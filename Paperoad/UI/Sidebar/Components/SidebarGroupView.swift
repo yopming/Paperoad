@@ -14,7 +14,6 @@ struct SidebarGroupView: View {
     @State private var errorAlertMessage = ""
     
     var groups: [Group]
-    
     @State private var selectedGroup: Group?
     
     var body: some View {

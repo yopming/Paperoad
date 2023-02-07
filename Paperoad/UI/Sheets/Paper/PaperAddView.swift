@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct PaperAddView: View {
+    @Environment(\.appDatabase) private var appDatabase
+    @Environment(\.dismiss) private var dismiss
+    
+    @State private var errorAlertIsPresented = false
+    @State private var errorAlertMessage = ""
+    
     // fetch paper id types
     let paperIdTypes: [String] = PaperConfig.IdTypes.allCases.map { $0.rawValue }
     
@@ -43,27 +49,21 @@ struct PaperAddView: View {
 //                }
                 
             }
-            Text("New paper will be shown in group 'Unfiled'. ")
+            Text("New paper will be shown in group 'Unfiled'.")
             Text("More details can be updated later.")
-                .font(.footnote)
             
             Divider()
             HStack {
                 Button("Random") {
                     isPaperAddViewPresented = false
+                    random()
                 }
                 Button("Close", role: .cancel) {
                     isPaperAddViewPresented = false
                 }
                 Button("Create") {
                     isPaperAddViewPresented = false
-//                    addPaper(
-//                        title: title,
-//                        authors: authors,
-//                        publication: publication,
-//                        year: year,
-//                        group: groups[selectedGroup].name ?? ""
-//                    )
+                    save(title: title, pub: publication, year: year, authors: authors)
                 }
                 .disabled(title.isEmpty)
                 .buttonStyle(.borderedProminent)
@@ -74,5 +74,27 @@ struct PaperAddView: View {
         .padding()
         .textFieldStyle(.roundedBorder)
         .frame(width: 650, alignment: .leading)
+    }
+    
+    private func save(title: String, pub: String?, year: String?, authors: String?) {
+        do {
+            var paper = Paper.new(title: title, pub: pub, year: year, authors: authors)
+            try appDatabase.savePaper(&paper)
+            dismiss()
+        } catch {
+            errorAlertIsPresented = true
+            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Paper add error occured."
+        }
+    }
+    
+    private func random() {
+        do {
+            var paper = Paper.random()
+            try appDatabase.savePaper(&paper)
+            dismiss()
+        } catch {
+            errorAlertIsPresented = true
+            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Paper add error occured."
+        }
     }
 }
