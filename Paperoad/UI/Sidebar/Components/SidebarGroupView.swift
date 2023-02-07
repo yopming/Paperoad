@@ -10,9 +10,10 @@ import SwiftUI
 struct SidebarGroupView: View {
     @Environment(\.appDatabase) private var appDatabase
     
-    var groups: [Group]
+    @State private var errorAlertIsPresented = false
+    @State private var errorAlertMessage = ""
     
-    @State private var isEditViewPresented: Bool = false
+    var groups: [Group]
     
     @State private var selectedGroup: Group?
     
@@ -25,11 +26,12 @@ struct SidebarGroupView: View {
                     }
                     .contextMenu {
                         Button("Rename Group") {
-                            isEditViewPresented = true
                             selectedGroup = group
                         }
                         
                         Button("Delete") {
+                            trash(id: group.id)
+                            // TODO delete the field "group" in papers
                         }
                     }
                 }
@@ -48,12 +50,22 @@ struct SidebarGroupView: View {
             
         .sheet (item: $selectedGroup) { group in
             SidebarGroupEditView(
-                // presented: $isEditViewPresented,
                 groupName: group.name,
                 group: group
             )
         }
-        
     }
     
+    private func trash(id: Int64?) {
+        if id! > 0 {
+            do {
+                var ids = [Int64]()
+                ids.append(id!)
+                try appDatabase.deleteGroups(ids: ids)
+            } catch {
+                errorAlertIsPresented = true
+                errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Trash Group error occurred"
+            }
+        }
+    }
 }

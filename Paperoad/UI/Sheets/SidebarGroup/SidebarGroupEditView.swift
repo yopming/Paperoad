@@ -14,9 +14,6 @@ struct SidebarGroupEditView: View {
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
 
-    // keep track of if the sheet should be shown
-//    @Binding var presented: Bool
-
     @State var groupName = ""
     @State var group: Group
     
@@ -65,7 +62,7 @@ struct SidebarGroupEditView: View {
             try appDatabase.saveGroup(&group)
         } catch {
             errorAlertIsPresented = true
-            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Error occurred"
+            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Update Group error occurred"
         }
     }
 }
