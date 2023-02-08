@@ -10,25 +10,16 @@ import GRDBQuery
 
 struct PapersView: View {
     @Environment(\.appDatabase) private var appDatabase
-    
-//    @Query(PaperRequest(), in: \.appDatabase) private var papers: [Paper]
-    
+
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
     
     // which sheet to show in PapersView
     @State private var showSheet:PapersSheetView? = nil
     
-    let par: String
-    
+    var papers: [Paper]
     @State private var selectedPaperToUpdate: Paper?
     @State private var selectedPapers = Set<Paper>()
-    
-    private var papers: [Paper]
-    
-    init(group: String) {
-        self.papers = Paper.filter(key: group == group).fetchAll(appDatabase)
-    }
     
     var body: some View {
         // TODO alternative representation style with table instead of list

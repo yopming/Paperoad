@@ -17,7 +17,7 @@ struct PaperAddView: View {
     // fetch paper id types
     let paperIdTypes: [String] = PaperConfig.IdTypes.allCases.map { $0.rawValue }
     
-    @Binding var isPaperAddViewPresented: Bool
+    @Binding var presented: Bool
     
     @State private var selectedGroup = 0
     
@@ -55,14 +55,14 @@ struct PaperAddView: View {
             Divider()
             HStack {
                 Button("Random") {
-                    isPaperAddViewPresented = false
+                    presented = false
                     random()
                 }
                 Button("Close", role: .cancel) {
-                    isPaperAddViewPresented = false
+                    presented = false
                 }
                 Button("Create") {
-                    isPaperAddViewPresented = false
+                    presented = false
                     save(title: title, pub: publication, year: year, authors: authors)
                 }
                 .disabled(title.isEmpty)

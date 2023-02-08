@@ -8,44 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-
-    @State private var isPaperAddViewPresented: Bool = false
-    @State private var isPaperAddByIdViewPresented: Bool = false
-
     @State private var searchText = ""
 
     var body: some View {
         NavigationView {
             SidebarView()
-            MainView(par: "Initial")
+            PapersWrapperView(group: "initial")
+                .toolbar {
+                    ToolbarMiddle()
+                }
         }
-        .toolbar(content: {
-            // TODO: - customizable toolbar
-            ToolbarItemGroup(placement: .primaryAction) {
-                Button(action: openPaperAddView, label: {
-                    Label("Add Empty", systemImage: "plus")
-                        .labelStyle(.titleAndIcon)
-                })
-                .sheet(
-                    isPresented: $isPaperAddViewPresented,
-                    content: {
-                        PaperAddView(isPaperAddViewPresented: $isPaperAddViewPresented)
-                    }
-                )
-
-                Button(action: openPaperAddByIdView, label: {
-                    Label("Add by Identifier", systemImage: "wand.and.stars")
-                        .labelStyle(.titleAndIcon)
-                })
-                .sheet(
-                    isPresented: $isPaperAddByIdViewPresented,
-                    content: {
-                        PaperAddByIdView(isPaperAddViewByIdPresented: $isPaperAddByIdViewPresented)
-                    }
-                )
-
-            }
-        })
+        .navigationViewStyle(.columns)
+        
         .searchable(text: $searchText)
     }
 }
@@ -57,15 +31,3 @@ private func toggleSidebar() {
     )
 }
 
-// MARK: - Actions
-extension ContentView {
-    func openPaperAddView() {
-        isPaperAddViewPresented = true
-    }
-}
-
-extension ContentView {
-    func openPaperAddByIdView() {
-        isPaperAddByIdViewPresented = true
-    }
-}

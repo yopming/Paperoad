@@ -38,10 +38,11 @@
 		1FAF9E082981B9E7000C7D33 /* PaperoadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E072981B9E7000C7D33 /* PaperoadTests.swift */; };
 		1FAF9E122981B9E7000C7D33 /* PaperoadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E112981B9E7000C7D33 /* PaperoadUITests.swift */; };
 		1FAF9E142981B9E7000C7D33 /* PaperoadUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E132981B9E7000C7D33 /* PaperoadUITestsLaunchTests.swift */; };
-		1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E6029846A6B000C7D33 /* MainView.swift */; };
 		1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF9E632984773B000C7D33 /* PapersView.swift */; };
 		1FB855542991542200DF278B /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB855532991542200DF278B /* GroupViewModel.swift */; };
 		1FB855572991566900DF278B /* GroupAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB855562991566900DF278B /* GroupAccess.swift */; };
+		1FD069312993FFBF00F99706 /* ToolbarMiddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD069302993FFBF00F99706 /* ToolbarMiddle.swift */; };
+		1FD0693529944D6200F99706 /* PapersWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0693429944D6200F99706 /* PapersWrapperView.swift */; };
 		1FF1D348298ACAF9003B4F2B /* PaperAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */; };
 		1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */; };
 		1FF1D34E298B0C5F003B4F2B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF1D34D298B0C5F003B4F2B /* Data.swift */; };
@@ -101,10 +102,11 @@
 		1FAF9E112981B9E7000C7D33 /* PaperoadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadUITests.swift; sourceTree = "<group>"; };
 		1FAF9E132981B9E7000C7D33 /* PaperoadUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperoadUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1FAF9E372981CA53000C7D33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1FAF9E6029846A6B000C7D33 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1FAF9E632984773B000C7D33 /* PapersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapersView.swift; sourceTree = "<group>"; };
 		1FB855532991542200DF278B /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		1FB855562991566900DF278B /* GroupAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAccess.swift; sourceTree = "<group>"; };
+		1FD069302993FFBF00F99706 /* ToolbarMiddle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarMiddle.swift; sourceTree = "<group>"; };
+		1FD0693429944D6200F99706 /* PapersWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PapersWrapperView.swift; sourceTree = "<group>"; };
 		1FF1D347298ACAF9003B4F2B /* PaperAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAddView.swift; sourceTree = "<group>"; };
 		1FF1D349298B0AD5003B4F2B /* PaperAddByIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAddByIdView.swift; sourceTree = "<group>"; };
 		1FF1D34D298B0C5F003B4F2B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -337,11 +339,11 @@
 		1FAF9E202981BC0A000C7D33 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1FD0692F2993FF7300F99706 /* Toolbar */,
 				1F66E2B62991417E000135C8 /* Menu */,
 				1F2DA2982988AE1000837D0B /* Tweak */,
 				1F26B9392985DAAE00709752 /* Sheets */,
 				1FAF9E622984771E000C7D33 /* Papers */,
-				1FAF9E5F29846A4A000C7D33 /* Main */,
 				1F28102429832A2B00A6D4CD /* Settings */,
 				1F2810232983184100A6D4CD /* Sidebar */,
 				1FAF9DF72981B9E6000C7D33 /* ContentView.swift */,
@@ -349,21 +351,22 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		1FAF9E5F29846A4A000C7D33 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				1FAF9E6029846A6B000C7D33 /* MainView.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		1FAF9E622984771E000C7D33 /* Papers */ = {
 			isa = PBXGroup;
 			children = (
 				1FF1D359298C4445003B4F2B /* Components */,
 				1FAF9E632984773B000C7D33 /* PapersView.swift */,
+				1FD0693429944D6200F99706 /* PapersWrapperView.swift */,
 			);
 			path = Papers;
+			sourceTree = "<group>";
+		};
+		1FD0692F2993FF7300F99706 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				1FD069302993FFBF00F99706 /* ToolbarMiddle.swift */,
+			);
+			path = Toolbar;
 			sourceTree = "<group>";
 		};
 		1FF1D34B298B0B7B003B4F2B /* Shared */ = {
@@ -544,9 +547,9 @@
 			files = (
 				1FF1D358298C3F05003B4F2B /* Date.swift in Sources */,
 				1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */,
+				1FD0693529944D6200F99706 /* PapersWrapperView.swift in Sources */,
 				1FF1D348298ACAF9003B4F2B /* PaperAddView.swift in Sources */,
 				1F2BC32929920E5200BE74BD /* Paper.swift in Sources */,
-				1FAF9E6129846A6B000C7D33 /* MainView.swift in Sources */,
 				1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */,
 				1F9862B12991ABF700B17A48 /* SidebarGroupEditView.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
@@ -554,6 +557,7 @@
 				1FB855542991542200DF278B /* GroupViewModel.swift in Sources */,
 				1FB855572991566900DF278B /* GroupAccess.swift in Sources */,
 				1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */,
+				1FD069312993FFBF00F99706 /* ToolbarMiddle.swift in Sources */,
 				1FF1D353298C16E0003B4F2B /* Button.swift in Sources */,
 				1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */,
 				1F4ED681299098D4005732DE /* AppDatabase.swift in Sources */,
