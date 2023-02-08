@@ -28,11 +28,9 @@ struct PaperUpdateView: View {
         let yearBinding = Binding(get: {self.paper.year ?? ""}, set: {self.paper.year = $0})
         let authorsBinding = Binding(get: {self.paper.authors ?? ""}, set: {self.paper.authors = $0})
         let publisherBinding = Binding(get: {self.paper.publisher ?? ""}, set: {self.paper.publisher = $0})
-        let typeBinding = Binding(get: {Int(self.paper.type ?? 0)}, set: {self.paper.type = Int16($0)})
         let doiBinding = Binding(get: {self.paper.doi ?? ""}, set: {self.paper.doi = $0})
         let isbnBinding = Binding(get: {self.paper.isbn ?? ""}, set: {self.paper.isbn = $0})
         let arxivBinding = Binding(get: {self.paper.arxiv ?? ""}, set: {self.paper.arxiv = $0})
-        let groupBinding = Binding(get: {Int(self.paper.group ?? 0)}, set: {self.paper.group = Int64($0)})
         let abstractBinding = Binding(get: {self.paper.abstract ?? ""}, set: {self.paper.abstract = $0})
         let noteBinding = Binding(get: {self.paper.note ?? ""}, set: {self.paper.note = $0})
         let numberBinding = Binding(get: {self.paper.number ?? ""}, set: {self.paper.number = $0})
@@ -40,6 +38,11 @@ struct PaperUpdateView: View {
         let pagesBinding = Binding(get: {self.paper.pages ?? ""}, set: {self.paper.pages = $0})
         let urlBinding = Binding(get: {self.paper.url ?? ""}, set: {self.paper.url = $0})
         
+        let typeBinding = Binding(get: {Int(self.paper.type ?? 0)}, set: {self.paper.type = Int16($0)})
+        let groupBinding = Binding(
+            get: {Int(self.paper.group ?? 0)},
+            set: {self.paper.group = Int64($0)}
+        )
         
         VStack(spacing: 20) {
             Text("Update Paper")
@@ -72,7 +75,7 @@ struct PaperUpdateView: View {
 
                     Picker("Publication Type", selection: typeBinding) {
                         ForEach(0..<paperIdTypes.count, id: \.self) {
-                            Text(paperIdTypes[$0])
+                            Text(paperIdTypes[$0]).tag(Optional($0))
                         }
                     }
                     .fixedSize()
@@ -91,6 +94,7 @@ struct PaperUpdateView: View {
                     TextField("URL", text: urlBinding)
                 }
 
+                // TODO: use drag action to update group
                 Picker("Group", selection: groupBinding) {
                     ForEach(0..<groups.count, id: \.self) { index in
                         Text(groups[index].name)
@@ -116,7 +120,7 @@ struct PaperUpdateView: View {
                     dismiss()
                 }
                 
-                Button("Create") {
+                Button("Update") {
                     dismiss()
                     update()
                 }

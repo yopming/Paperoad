@@ -37,11 +37,12 @@ struct SidebarGroupView: View {
             }
             
             Divider()
-            
+            NavigationLink(destination: MainView(par: "All")) {
+                Label("All Papers", systemImage: "tray.2.fill")
+            }
             NavigationLink(destination: MainView(par: "Unfiled")) {
                 Label("Unfiled", systemImage: "square.stack")
             }
-            
             NavigationLink(destination: MainView(par: "Trash")) {
                 Label("Trash", systemImage: "trash")
             }

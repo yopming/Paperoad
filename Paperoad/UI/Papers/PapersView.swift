@@ -11,7 +11,7 @@ import GRDBQuery
 struct PapersView: View {
     @Environment(\.appDatabase) private var appDatabase
     
-    @Query(PaperRequest(), in: \.appDatabase) private var papers: [Paper]
+//    @Query(PaperRequest(), in: \.appDatabase) private var papers: [Paper]
     
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
@@ -24,13 +24,21 @@ struct PapersView: View {
     @State private var selectedPaperToUpdate: Paper?
     @State private var selectedPapers = Set<Paper>()
     
+    private var papers: [Paper]
+    
+    init(group: String) {
+        self.papers = Paper.filter(key: group == group).fetchAll(appDatabase)
+    }
+    
     var body: some View {
+        // TODO alternative representation style with table instead of list
 //        Table(papers, selection: $selectedPapers) {
 //            TableColumn("Title", value: \.title)
 //            TableColumn("Authors") { paper in
 //                Text(paper.authors ?? "")
 //            }
 //        }
+        
         List(papers, id: \.self, selection: $selectedPapers) { paper in
             PaperListItem(
                 title: paper.title,
@@ -52,6 +60,7 @@ struct PapersView: View {
                     trash()
                 }
                 
+                // For debug, print data of one paper in the list
                 // Button("Console.log") { consoleLog() }
             }
         }
@@ -85,9 +94,9 @@ struct PapersView: View {
         }
     }
     
-    private func consoleLog() {
-        print(selectedPapers.first)
-    }
+//    private func consoleLog() {
+//        print(selectedPapers.first)
+//    }
     
 }
 
