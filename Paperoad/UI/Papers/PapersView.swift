@@ -48,40 +48,47 @@ struct PapersView: View {
                     }
                 }
                 
-                Button("Delete") {}
+                Button("Delete") {
+                    trash()
+                }
+                
+                // Button("Console.log") { consoleLog() }
             }
         }
         
-        .sheet (item: $selectedPaperToUpdate) { paper in
-            PaperUpdateView(paper: paper)
-        }
+        .sheet (
+            item: $selectedPaperToUpdate,
+            onDismiss: {
+                // when update done, clear "selectedPapers"
+                selectedPapers.removeAll()
+            },
+            content: { paper in
+                PaperUpdateView(paper: paper)
+            }
+        )
         
         Text("\(selectedPapers.count) papers selected \(par)")
             .padding()
     }
      
+    private func trash() {
+        while !selectedPapers.isEmpty {
+            guard var currentPaper = selectedPapers.popFirst() else { return }
+            currentPaper.deleted = true
+            currentPaper.updateTime = Date()
+            do {
+                try appDatabase.savePaper(&currentPaper)
+            } catch {
+                errorAlertIsPresented = true
+                errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Trash Paper error occurred"
+            }
+        }
+    }
     
-    // MAKR: - Update Button
-//    private var updateButton: some View {
-//        var paper:Paper
-//
-//        Button("Update Paper") {
-//            showSheet = .update
-//        }
-//        .sheet(item: $showSheet) {_ in
-//            PaperUpdateView(
-//                paper: paper,
-//                showSheet: $showSheet
-//            )
-//        }
-//    }
+    private func consoleLog() {
+        print(selectedPapers.first)
+    }
     
-    // MARK: - Permanently Delete Button
-//    private var permanentlyDeleteButton: some View {
-//        Button("Delete Permanently") {
-//            showSheet = .delete
-//        }
-//    }
 }
 
 
