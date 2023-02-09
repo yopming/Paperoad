@@ -35,7 +35,8 @@ struct PapersView: View {
                 title: paper.title,
                 authors: paper.authors ?? "",
                 year: paper.year ?? "",
-                publication: paper.publication ?? ""
+                publication: paper.publication ?? "",
+                deleted: paper.deleted
             )
             .listRowSeparator(.visible)
             .listRowSeparatorTint(.gray.opacity(0.25))
@@ -67,7 +68,7 @@ struct PapersView: View {
             }
         )
         
-        Text("\(selectedPapers.count) papers selected \(par)")
+        Text("\(selectedPapers.count) papers selected.")
             .padding()
     }
      

@@ -28,7 +28,7 @@ extension AppDatabase {
     }
     
     func deleteAllPapers() throws {
-        try writer.write{ db in
+        try writer.write { db in
             _ = try Paper.deleteAll(db)
         }
     }

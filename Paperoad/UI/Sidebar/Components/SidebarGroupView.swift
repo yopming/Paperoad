@@ -21,7 +21,7 @@ struct SidebarGroupView: View {
             Section(header: Text("Groups")) {
                 ForEach(groups) { group in
                     NavigationLink(destination: PapersWrapperView(group: group.name)) {
-                        Label(group.name, systemImage: "folder")
+                        Label(group.name + " , " + String(group.id ?? 0), systemImage: "folder")
                     }
                     .contextMenu {
                         Button("Rename Group") {
@@ -45,6 +45,10 @@ struct SidebarGroupView: View {
             }
             NavigationLink(destination: PapersWrapperView(group: ".trash")) {
                 Label("Trash", systemImage: "trash")
+            }
+            // for debug, display all papers with those in trash
+            NavigationLink(destination: PapersWrapperView(group: ".allwithtrash")) {
+                Label("All Papers /w Trash", systemImage: "trash")
             }
         }
             

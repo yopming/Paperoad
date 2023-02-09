@@ -94,13 +94,6 @@ struct PaperUpdateView: View {
                     TextField("URL", text: urlBinding)
                 }
 
-                // TODO: use drag action to update group
-                Picker("Group", selection: groupBinding) {
-                    ForEach(0..<groups.count, id: \.self) { index in
-                        Text(groups[index].name)
-                    }
-                }
-
                 Spacer(minLength: CGFloat(25))
                 Section(header: Text("Note")) {
                     TextEditor(text: noteBinding)

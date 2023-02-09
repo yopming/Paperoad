@@ -12,6 +12,7 @@ struct PaperListItem: View {
     let authors: String
     let year: String
     let publication: String
+    let deleted: Bool
     
     var body: some View {
         VStack (alignment: .leading, spacing: 0) {
@@ -23,6 +24,11 @@ struct PaperListItem: View {
             Text("\(authors)")
                 .font(.caption)
                 .foregroundColor(.gray)
+            if deleted {
+                Text("--Deleted")
+            } else {
+                Text("--")
+            }
             HStack {
                 Text("\(year) ")
                     .fontWeight(.semibold)

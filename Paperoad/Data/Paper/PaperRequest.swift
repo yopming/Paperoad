@@ -15,7 +15,19 @@ struct PaperRequest: Queryable {
     
     func publisher(in appDatabase: AppDatabase) -> AnyPublisher<[Paper], Error> {
         ValueObservation
-            .tracking{ db in try Paper.filter(Paper.Columns.deleted == false).fetchAll(db) }
+            .tracking { db in try Paper.filter(Paper.Columns.deleted == false).fetchAll(db) }
+            .publisher(in: appDatabase.reader, scheduling: .immediate)
+            .eraseToAnyPublisher()
+    }
+}
+
+// a query fro all papers with those in trash
+struct PaperAllRequest: Queryable {
+    static var defaultValue: [Paper] { [] }
+    
+    func publisher(in appDatabase: AppDatabase) -> AnyPublisher<[Paper], Error> {
+        ValueObservation
+            .tracking { db in try Paper.fetchAll(db) }
             .publisher(in: appDatabase.reader, scheduling: .immediate)
             .eraseToAnyPublisher()
     }
@@ -28,8 +40,20 @@ struct PaperTrashedRequest: Queryable {
     
     func publisher(in appDatabase: AppDatabase) -> AnyPublisher<[Paper], Error> {
         ValueObservation
-            .tracking{ db in try Paper.filter(Paper.Columns.deleted == true).fetchAll(db) }
+            .tracking { db in try Paper.filter(Paper.Columns.deleted == true).fetchAll(db) }
             .publisher(in: appDatabase.reader, scheduling: .immediate)
             .eraseToAnyPublisher()
     }
 }
+
+// query for unfiled paper
+//struct PaperUnfiledRequest: Queryable {
+//    static var defaultValue: [Paper] { [] }
+//
+//    func publisher(in appDatabase: AppDatabase) -> AnyPublisher<[Paper], Error> {
+//        ValueObservation
+//            .tracking { db in try Paper.filter(Paper.Columns.group == nil).fetchAll(db)}
+//            .publisher(in: appDatabase.reader, scheduling: .immediate)
+//            .eraseToAnyPublisher()
+//    }
+//}

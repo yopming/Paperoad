@@ -14,6 +14,8 @@ import LoremSwiftum
 /// Identifiable conformance supports SwiftUI list animations,
 /// and type-safe GRDB primary key methods.
 /// Equatable conformance supports tests.
+
+// TODO: name of group should be unique, and add error alert for adding a group with existed name
 struct Group: Codable, Identifiable, Equatable {
     var id: Int64?
     var name: String

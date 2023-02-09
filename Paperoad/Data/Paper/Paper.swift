@@ -21,7 +21,6 @@ struct Paper: Codable, Identifiable, Equatable, Hashable {
     var doi: String?
     var isbn: String?
     var arxiv: String?
-    var group: Int64?
     var abstract: String?
     var note: String?
     var number: String?
@@ -74,7 +73,6 @@ extension Paper: TableRecord {
         static let doi = Column(Paper.CodingKeys.doi)
         static let isbn = Column(Paper.CodingKeys.isbn)
         static let arxiv = Column(Paper.CodingKeys.arxiv)
-        static let group = Column(Paper.CodingKeys.group)
         static let abstract = Column(Paper.CodingKeys.abstract)
         static let note = Column(Paper.CodingKeys.note)
         static let number = Column(Paper.CodingKeys.number)

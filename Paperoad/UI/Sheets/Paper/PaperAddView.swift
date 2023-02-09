@@ -41,13 +41,6 @@ struct PaperAddView: View {
                 
                 TextField("Publication", text: $publication)
                 TextField("Publication Year", text: $year)
-                
-//                Picker("Group", selection: $selectedGroup) {
-//                    ForEach(0..<groups.count, id: \.self) { index in
-//                        Text(self.groups[index].name!)
-//                    }
-//                }
-                
             }
             Text("New paper will be shown in group 'Unfiled'.")
             Text("More details can be updated later.")
