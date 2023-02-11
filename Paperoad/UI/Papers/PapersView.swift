@@ -42,6 +42,8 @@ struct PapersView: View {
             .listRowSeparatorTint(.gray.opacity(0.25))
             .padding([.vertical], 3)
             .contextMenu {
+                PapersContextMenuAddGroup(paperId: paper.id!)
+                
                 if selectedPapers.count == 1 {
                     Button("Update Paper") {
                         selectedPaperToUpdate = selectedPapers.first
@@ -51,6 +53,7 @@ struct PapersView: View {
                 Button("Delete") {
                     trash()
                 }
+                
                 
                 // For debug, print data of one paper in the list
                 // Button("Console.log") { consoleLog() }

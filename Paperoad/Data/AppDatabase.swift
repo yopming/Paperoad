@@ -64,6 +64,15 @@ struct AppDatabase {
             }
         }
         
+        // MARK: - table 'paper_group'
+        migrator.registerMigration("createPaperGroup") { db in
+            try db.create(table: "papergroup") { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("paperId", .integer).notNull()
+                t.column("groupId", .integer)
+            }
+        }
+        
         return migrator
     }
     

@@ -1,0 +1,48 @@
+//
+//  ContextMenuAddGroup.swift
+//  Paperoad
+//
+//  Created by Tieming on 2/10/23.
+//
+
+import SwiftUI
+import GRDBQuery
+
+/// This context menu only shows in unfiled and each grop, not in "All papers" and "Trashed Papers".
+/// Since the selected paper in "All papers" and "Trashed papers" may be from different group.
+/// This cause inconsistent check in this context menu.
+/// Right now, only show when selectedPapers.size == 1, and one paper should have only one group.
+struct PapersContextMenuAddGroup: View {
+    @Environment(\.appDatabase) private var appDatabase
+    
+    @Query(GroupRequest(), in: \.appDatabase) private var groups: [Group]
+    @Query(PaperGroupRequest(), in: \.appDatabase) private var paperGroups: [PaperGroup]
+    
+    let paperId: Int64
+    
+    var body: some View {
+        Menu("Move to Group") {
+            ForEach(groups) { group in
+                Button(action: {}, label: {
+                    if getGroupId(paperId: paperId) == group.id {
+                        Label("", systemImage: "checkmark")
+                    }
+                    Text(group.name)
+                })
+            }
+        }
+    }
+    
+    // return the groupId of given paperIds, all these papers should be in same group.
+    private func getGroupId(paperId: Int64) -> Int64? {
+        var groupId: Int64?
+        for pair in paperGroups {
+            if pair.paperId == paperId {
+                groupId = pair.groupId
+                break
+            }
+        }
+        
+        return groupId
+    }
+}
