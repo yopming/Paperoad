@@ -11,7 +11,7 @@ struct PaperAddByIdView: View {
     @Binding var presented: Bool
     
     // publication id types
-    let idTypes: [String] = PaperConfig.IdTypes.allCases.map { $0.rawValue }
+    let idTypes: [String] = PaperIdTypes.allCases.map { $0.rawValue }
     
     @State private var identifier = ""
     @State private var selectedIdType = 0

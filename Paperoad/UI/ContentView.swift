@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             SidebarView()
-            PapersWrapperView(group: "initial")
+            PapersWrapperView(group: ".group")
                 .toolbar {
                     ToolbarMiddle()
                 }

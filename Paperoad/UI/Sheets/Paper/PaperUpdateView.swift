@@ -19,8 +19,8 @@ struct PaperUpdateView: View {
     
     @State var paper: Paper
     
-    // fetch paper id types
-    let paperIdTypes: [String] = PaperConfig.IdTypes.allCases.map { $0.rawValue }
+    // fetch paper types
+    let paperTypes: [String] = PaperTypes.allCases.map { $0.rawValue }
     
     var body: some View {
         let titleBinding = Binding(get: {self.paper.title}, set: {self.paper.title = $0})
@@ -39,10 +39,6 @@ struct PaperUpdateView: View {
         let urlBinding = Binding(get: {self.paper.url ?? ""}, set: {self.paper.url = $0})
         
         let typeBinding = Binding(get: {Int(self.paper.type ?? 0)}, set: {self.paper.type = Int16($0)})
-        let groupBinding = Binding(
-            get: {Int(self.paper.group ?? 0)},
-            set: {self.paper.group = Int64($0)}
-        )
         
         VStack(spacing: 20) {
             Text("Update Paper")
@@ -74,11 +70,10 @@ struct PaperUpdateView: View {
                     TextField("Publication Year", text: yearBinding)
 
                     Picker("Publication Type", selection: typeBinding) {
-                        ForEach(0..<paperIdTypes.count, id: \.self) {
-                            Text(paperIdTypes[$0]).tag(Optional($0))
+                        ForEach(0..<paperTypes.count, id: \.self) {
+                            Text(paperTypes[$0]).tag(Optional($0))
                         }
                     }
-                    .fixedSize()
                     .pickerStyle(SegmentedPickerStyle())
                 
                     TextField("Volume", text: volumeBinding)

@@ -15,7 +15,7 @@ struct PaperAddView: View {
     @State private var errorAlertMessage = ""
     
     // fetch paper id types
-    let paperIdTypes: [String] = PaperConfig.IdTypes.allCases.map { $0.rawValue }
+    let paperIdTypes: [String] = PaperIdTypes.allCases.map { $0.rawValue }
     
     @Binding var presented: Bool
     
@@ -42,8 +42,7 @@ struct PaperAddView: View {
                 TextField("Publication", text: $publication)
                 TextField("Publication Year", text: $year)
             }
-            Text("New paper will be shown in group 'Unfiled'.")
-            Text("More details can be updated later.")
+            Text("New paper will be shown in group 'Unfiled', more details can be updated later.")
             
             Divider()
             HStack {

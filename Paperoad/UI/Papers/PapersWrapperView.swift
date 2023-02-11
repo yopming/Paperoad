@@ -18,6 +18,17 @@ struct PapersWrapperView: View {
     @Query(PaperTrashedRequest(), in: \.appDatabase) private var unfiledPapers: [Paper]
     
     var body: some View {
-        PapersView(papers: allPapers)
+        switch group {
+        case ".all":
+            PapersView(papers: papers)
+        case ".unfiled":
+            PapersView(papers: unfiledPapers)
+        case ".trash":
+            PapersView(papers: trashedPapers)
+        case ".allwithtrash":
+            PapersView(papers: allPapers)
+        default:
+            PapersView(papers: papers)
+        }
     }
 }

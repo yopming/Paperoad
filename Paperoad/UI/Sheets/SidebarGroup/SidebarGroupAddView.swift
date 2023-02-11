@@ -30,6 +30,10 @@ struct SidebarGroupAddView: View {
             
             Form {
                 TextField("Name:", text: $groupName)
+                    .onSubmit {
+                        showSheet = nil
+                        save(name: groupName)
+                    }
             }
             
             Divider()

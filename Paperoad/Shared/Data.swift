@@ -7,20 +7,18 @@
 
 import Foundation
 
-enum PaperConfig {
-    enum Types: String, CaseIterable {
-        case book = "Book"
-        case conference = "Conference Paper"
-        case journal = "Journal Article"
-        case webpage = "Web Page"
-        case other = "Other"
-    }
+enum PaperTypes: String, CaseIterable {
+    case book = "Book"
+    case conference = "Conference Paper"
+    case journal = "Journal Article"
+    case webpage = "Web Page"
+    case other = "Other"
+}
     
-    enum IdTypes: String, CaseIterable {
-        case doi = "DOI"
-        case arxiv = "arXiv ID"
-        case isbn = "ISBN"
-    }
+enum PaperIdTypes: String, CaseIterable {
+    case doi = "DOI"
+    case arxiv = "arXiv ID"
+    case isbn = "ISBN"
 }
 
 
