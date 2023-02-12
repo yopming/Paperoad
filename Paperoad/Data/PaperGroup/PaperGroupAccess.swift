@@ -10,6 +10,19 @@ import Combine
 import Foundation
 
 extension AppDatabase {
+    func readPaperGroupsByGroup(groupId: Int64) throws -> [PaperGroup] {
+        var pairs: [PaperGroup] = { [] }()
+        try reader.read { db in
+            let groupIdString = "%\(groupId)%"
+            pairs = try PaperGroup.fetchAll(
+                db,
+                sql: "SELECT * FROM papergroup WHERE groupId = ?",
+                arguments: [groupIdString]
+            )
+        }
+        return pairs
+    }
+    
     func readPaperGroupByPaper(paperId: Int64) throws -> PaperGroup? {
         var pair: PaperGroup?
         try reader.read { db in

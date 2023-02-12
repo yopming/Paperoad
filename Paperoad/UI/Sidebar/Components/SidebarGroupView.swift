@@ -20,7 +20,7 @@ struct SidebarGroupView: View {
         List {
             Section(header: Text("Groups")) {
                 ForEach(groups) { group in
-                    NavigationLink(destination: PapersWrapperView(group: group.name)) {
+                    NavigationLink(destination: PapersWrapperView(groupName: group.name, groupId: group.id ?? 0)) {
                         Label(group.name + " , " + String(group.id ?? 0), systemImage: "folder")
                     }
                     .contextMenu {
@@ -36,6 +36,7 @@ struct SidebarGroupView: View {
                 }
             }
             
+            // TODO: Group name cannot be any of the followings
             Divider()
             NavigationLink(destination: PapersWrapperView(group: ".all")) {
                 Label("All Papers", systemImage: "tray.2.fill")
