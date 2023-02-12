@@ -18,17 +18,22 @@ struct PapersContextMenuAddGroup: View {
     @Query(GroupRequest(), in: \.appDatabase) private var groups: [Group]
     @Query(PaperGroupRequest(), in: \.appDatabase) private var paperGroups: [PaperGroup]
     
+    @State private var errorAlertIsPresented = false
+    @State private var errorAlertMessage = ""
+    
     let paperId: Int64
     
     var body: some View {
         Menu("Move to Group") {
             ForEach(groups) { group in
-                Button(action: {}, label: {
-                    if getGroupId(paperId: paperId) == group.id {
-                        Label("", systemImage: "checkmark")
+                if getGroupId(paperId: paperId) == group.id {
+                    Button("\(group.name)") {}
+                        .disabled(true)
+                } else {
+                    Button("\(group.name)") {
+                        save(paperId: paperId, groupId: group.id!)
                     }
-                    Text(group.name)
-                })
+                }
             }
         }
     }
@@ -44,5 +49,15 @@ struct PapersContextMenuAddGroup: View {
         }
         
         return groupId
+    }
+    
+    private func save(paperId: Int64, groupId: Int64) {
+        do {
+            var paperGroup = PaperGroup(paperId: paperId, groupId: groupId)
+            try appDatabase.savePaperGroup(&paperGroup)
+        } catch {
+            errorAlertIsPresented = true
+            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Add to Group Error occurred"
+        }
     }
 }

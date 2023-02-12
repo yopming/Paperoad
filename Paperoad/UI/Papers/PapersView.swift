@@ -32,6 +32,7 @@ struct PapersView: View {
         
         List(papers, id: \.self, selection: $selectedPapers) { paper in
             PaperListItem(
+                id: paper.id!,
                 title: paper.title,
                 authors: paper.authors ?? "",
                 year: paper.year ?? "",

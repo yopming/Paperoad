@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PaperListItem: View {
+    let id: Int64
     let title: String
     let authors: String
     let year: String
@@ -16,7 +17,7 @@ struct PaperListItem: View {
     
     var body: some View {
         VStack (alignment: .leading, spacing: 0) {
-            Text("\(title)")
+            Text("\(title), \(id)")
                 .fontWeight(.bold)
                 .font(.headline)
                 .padding([.bottom], 1)
