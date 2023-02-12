@@ -10,6 +10,14 @@ import Combine
 import Foundation
 
 extension AppDatabase {
+    func readPaperGroupByPaper(paperId: Int64) throws -> PaperGroup? {
+        var pair: PaperGroup?
+        try reader.read { db in
+            pair = try PaperGroup.fetchOne(db, key: ["paperId": paperId])
+        }
+        return pair
+    }
+    
     func savePaperGroup(_ pair: inout PaperGroup) throws {
         try writer.write { db in
             try pair.save(db)

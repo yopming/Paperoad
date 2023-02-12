@@ -32,7 +32,7 @@ struct AppDatabase {
         migrator.registerMigration("createGroup") { db in
             try db.create(table: "group") { t in
                 t.autoIncrementedPrimaryKey("id")
-                t.column("name", .text).notNull()
+                t.column("name", .text).notNull().unique()
                 t.column("createTime", .date).notNull()
                 t.column("updateTime", .date).notNull()
             }
@@ -68,7 +68,7 @@ struct AppDatabase {
         migrator.registerMigration("createPaperGroup") { db in
             try db.create(table: "papergroup") { t in
                 t.autoIncrementedPrimaryKey("id")
-                t.column("paperId", .integer).notNull()
+                t.column("paperId", .integer).notNull().unique()
                 t.column("groupId", .integer)
             }
         }

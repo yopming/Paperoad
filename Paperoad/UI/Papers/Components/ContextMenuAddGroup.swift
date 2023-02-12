@@ -53,8 +53,14 @@ struct PapersContextMenuAddGroup: View {
     
     private func save(paperId: Int64, groupId: Int64) {
         do {
-            var paperGroup = PaperGroup(paperId: paperId, groupId: groupId)
-            try appDatabase.savePaperGroup(&paperGroup)
+            var paperGroup = try appDatabase.readPaperGroupByPaper(paperId: paperId)
+            if paperGroup == nil {
+                paperGroup = PaperGroup(paperId: paperId, groupId: groupId)
+            } else {
+                paperGroup!.groupId = groupId
+            }
+            
+            try appDatabase.savePaperGroup(&paperGroup!)
         } catch {
             errorAlertIsPresented = true
             errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Add to Group Error occurred"
