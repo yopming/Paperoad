@@ -11,6 +11,9 @@
 		1F0CA095298F6DAE005F6F10 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CA094298F6DAE005F6F10 /* StorageView.swift */; };
 		1F0CA09729902204005F6F10 /* PaperUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CA09629902204005F6F10 /* PaperUpdateView.swift */; };
 		1F16587129916A38008E26FF /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 1F16587029916A38008E26FF /* GRDB */; };
+		1F280456299C2CD1006E9AF2 /* GroupCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F280455299C2CD1006E9AF2 /* GroupCount.swift */; };
+		1F280458299C2D51006E9AF2 /* GroupCountAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F280457299C2D50006E9AF2 /* GroupCountAccess.swift */; };
+		1F28045A299C34C6006E9AF2 /* GroupCountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F280459299C34C6006E9AF2 /* GroupCountRequest.swift */; };
 		1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102129830C8500A6D4CD /* SidebarView.swift */; };
 		1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* SettingsView.swift */; };
 		1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102829832AEF00A6D4CD /* GeneralView.swift */; };
@@ -72,6 +75,9 @@
 /* Begin PBXFileReference section */
 		1F0CA094298F6DAE005F6F10 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 		1F0CA09629902204005F6F10 /* PaperUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperUpdateView.swift; sourceTree = "<group>"; };
+		1F280455299C2CD1006E9AF2 /* GroupCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCount.swift; sourceTree = "<group>"; };
+		1F280457299C2D50006E9AF2 /* GroupCountAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCountAccess.swift; sourceTree = "<group>"; };
+		1F280459299C34C6006E9AF2 /* GroupCountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCountRequest.swift; sourceTree = "<group>"; };
 		1F28102129830C8500A6D4CD /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		1F28102529832A6000A6D4CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1F28102829832AEF00A6D4CD /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 			children = (
 				1F2BC32729920D8A00BE74BD /* Paper */,
 				1F2DA31A2988C4F300837D0B /* Group */,
+				1F280454299C2CBB006E9AF2 /* GroupCount */,
 				1F4ED680299098D4005732DE /* AppDatabase.swift */,
 				1F2DA3182988C46800837D0B /* Persistence.swift */,
 				1F2BC32E2992165B00BE74BD /* Validation.swift */,
@@ -171,6 +178,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F280454299C2CBB006E9AF2 /* GroupCount */ = {
+			isa = PBXGroup;
+			children = (
+				1F280455299C2CD1006E9AF2 /* GroupCount.swift */,
+				1F280457299C2D50006E9AF2 /* GroupCountAccess.swift */,
+				1F280459299C34C6006E9AF2 /* GroupCountRequest.swift */,
+			);
+			path = GroupCount;
 			sourceTree = "<group>";
 		};
 		1F2810232983184100A6D4CD /* Sidebar */ = {
@@ -557,9 +574,11 @@
 				1F9862B12991ABF700B17A48 /* SidebarGroupEditView.swift in Sources */,
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
 				1F9862AF299194B900B17A48 /* GroupRequest.swift in Sources */,
+				1F280458299C2D51006E9AF2 /* GroupCountAccess.swift in Sources */,
 				1FB855542991542200DF278B /* GroupViewModel.swift in Sources */,
 				1FB855572991566900DF278B /* GroupAccess.swift in Sources */,
 				1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */,
+				1F28045A299C34C6006E9AF2 /* GroupCountRequest.swift in Sources */,
 				1FD069312993FFBF00F99706 /* ToolbarMiddle.swift in Sources */,
 				1FF1D353298C16E0003B4F2B /* Button.swift in Sources */,
 				1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */,
@@ -569,6 +588,7 @@
 				1FF1D34E298B0C5F003B4F2B /* Data.swift in Sources */,
 				1F2BC32B299214CA00BE74BD /* PaperRequest.swift in Sources */,
 				1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */,
+				1F280456299C2CD1006E9AF2 /* GroupCount.swift in Sources */,
 				1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */,
 				1FF1D35B298C4454003B4F2B /* PaperListItem.swift in Sources */,
 				1F2BC32F2992165B00BE74BD /* Validation.swift in Sources */,

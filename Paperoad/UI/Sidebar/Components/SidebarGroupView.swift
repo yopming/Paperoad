@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import GRDBQuery
 
 struct SidebarGroupView: View {
     @Environment(\.appDatabase) private var appDatabase
+    
+    @Query(GroupCountRequest(), in: \.appDatabase) private var groupCounts: [GroupCount]
     
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
@@ -21,7 +24,7 @@ struct SidebarGroupView: View {
             Section(header: Text("Groups")) {
                 ForEach(groups) { group in
                     NavigationLink(destination: PapersWrapperView(groupName: group.name, groupId: group.id ?? 0)) {
-                        Label(group.name + " , " + String(group.id ?? 0), systemImage: "folder")
+                        groupLabel(group: group)
                     }
                     .contextMenu {
                         Button("Rename Group") {
@@ -54,6 +57,28 @@ struct SidebarGroupView: View {
                 groupName: group.name,
                 group: group
             )
+        }
+        
+    }
+    
+    
+    func groupLabel(group: Group) -> some View {
+        let count = getGroupCountById(group.id!)
+        return HStack(spacing: 0) {
+            Label(group.name, systemImage: "folder")
+            if count > 0 {
+                Spacer()
+                Text("\(count)")
+                    .foregroundColor(.gray.opacity(0.4))
+            }
+        }
+    }
+    
+    private func getGroupCountById(_ groupId: Int64) -> Int {
+        if let item = groupCounts.first(where: {$0.group == groupId}) {
+            return item.count ?? 0
+        } else {
+            return 0
         }
     }
     

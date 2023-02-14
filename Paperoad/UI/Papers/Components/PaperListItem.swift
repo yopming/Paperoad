@@ -47,10 +47,10 @@ struct PaperListItem: View {
                         .background(.gray.opacity(0.4))
                         .clipShape(Capsule())
                 }
-                Text("\(paper.title)")
+                Text("\(paper.id ?? 0). \(paper.title)")
             }
         } else {
-            Text("\(paper.title)")
+            Text("\(paper.id ?? 0). \(paper.title)")
         }
     }
     
