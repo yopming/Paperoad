@@ -47,10 +47,6 @@ struct SidebarGroupView: View {
             NavigationLink(destination: PapersWrapperView(group: ".trash")) {
                 Label("Trash", systemImage: "trash")
             }
-            // for debug, display all papers with those in trash
-            NavigationLink(destination: PapersWrapperView(group: ".allwithtrash")) {
-                Label("All Papers /w Trash", systemImage: "trash")
-            }
         }
             
         .sheet (item: $selectedGroup) { group in

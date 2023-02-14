@@ -21,6 +21,8 @@ struct PapersView: View {
     @State private var selectedPapers = Set<Paper>()
     
     var papers: [Paper]
+    // special string to indicate current destination
+    var category: String
     
     var body: some View {
         // TODO alternative representation style with table instead of list
@@ -32,7 +34,7 @@ struct PapersView: View {
 //        }
         
         List(self.papers, id: \.self, selection: $selectedPapers) { paper in
-            PaperListItem(paper: paper)
+            PaperListItem(paper: paper, category: category)
                 .listRowSeparator(.visible)
                 .listRowSeparatorTint(.gray.opacity(0.25))
                 .padding([.vertical], 3)
@@ -46,6 +48,8 @@ struct PapersView: View {
                     }
                     
                     Button("Delete") { trash() }
+                    
+                    // TODO: put back and delete permanantely in Trash
                     
                     // For debug, print data of one paper in the list
                     #if DEBUG

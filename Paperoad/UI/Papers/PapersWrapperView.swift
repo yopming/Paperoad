@@ -18,7 +18,6 @@ struct PapersWrapperView: View {
     let groupId: Int64?
     
     @Query(PaperRequest(), in: \.appDatabase) private var papers: [Paper]
-    @Query(PaperAllRequest(), in: \.appDatabase) private var allPapers: [Paper]
     @Query(PaperTrashedRequest(), in: \.appDatabase) private var trashedPapers: [Paper]
     @Query(PaperUnfiledRequest(), in: \.appDatabase) private var unfiledPapers: [Paper]
     
@@ -35,19 +34,17 @@ struct PapersWrapperView: View {
     var body: some View {
         switch groupName {
         case ".all":
-            PapersView(papers: papers)
+            PapersView(papers: papers, category: ".all")
         case ".unfiled":
-            PapersView(papers: unfiledPapers)
+            PapersView(papers: unfiledPapers, category: ".unfiled")
         case ".trash":
-            PapersView(papers: trashedPapers)
-        case ".allwithtrash":
-            PapersView(papers: allPapers)
+            PapersView(papers: trashedPapers, category: ".trash")
         default:
-            PapersView(papers: filterPapersWithGroup(papers: papers, groupId: self.groupId!))
+            PapersView(papers: filterByGroup(papers, self.groupId!), category: ".default")
         }
     }
     
-    private func filterPapersWithGroup(papers: [Paper], groupId: Int64) -> [Paper] {
+    private func filterByGroup(_ papers: [Paper], _ groupId: Int64) -> [Paper] {
         let results = papers.filter { paper in
             return paper.group == groupId
         }
