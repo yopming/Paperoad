@@ -27,6 +27,7 @@ struct Paper: Codable, Identifiable, Equatable, Hashable {
     var volume: String?
     var pages: String?
     var url: String?
+    var group: Int64?
     var deleted: Bool
     var createTime: Date
     var updateTime: Date
@@ -79,6 +80,7 @@ extension Paper: TableRecord {
         static let volume = Column(Paper.CodingKeys.volume)
         static let pages = Column(Paper.CodingKeys.pages)
         static let url = Column(Paper.CodingKeys.url)
+        static let group = Column(Paper.CodingKeys.group)
         static let deleted = Column(Paper.CodingKeys.deleted)
         static let createTime = Column(Paper.CodingKeys.createTime)
         static let updateTime = Column(Paper.CodingKeys.updateTime)

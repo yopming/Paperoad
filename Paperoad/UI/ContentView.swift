@@ -14,9 +14,9 @@ struct ContentView: View {
         NavigationView {
             SidebarView()
             PapersWrapperView(group: ".group")
-                .toolbar {
-                    ToolbarMiddle()
-                }
+        }
+        .toolbar {
+            ToolbarMiddle()
         }
         .navigationViewStyle(.columns)
         

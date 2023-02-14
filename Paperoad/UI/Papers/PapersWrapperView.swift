@@ -20,8 +20,7 @@ struct PapersWrapperView: View {
     @Query(PaperRequest(), in: \.appDatabase) private var papers: [Paper]
     @Query(PaperAllRequest(), in: \.appDatabase) private var allPapers: [Paper]
     @Query(PaperTrashedRequest(), in: \.appDatabase) private var trashedPapers: [Paper]
-    @Query(PaperTrashedRequest(), in: \.appDatabase) private var unfiledPapers: [Paper]
-    @State private var papersInGroup = [Paper]()
+    @Query(PaperUnfiledRequest(), in: \.appDatabase) private var unfiledPapers: [Paper]
     
     init(group: String) {
         self.groupName = group
@@ -44,22 +43,15 @@ struct PapersWrapperView: View {
         case ".allwithtrash":
             PapersView(papers: allPapers)
         default:
-            PapersView(papers: papersInGroup)
-                .onAppear() {
-                    loadPapers(groupId: groupId!)
-                    print(papersInGroup)
-                    print("----------------------")
-                }
+            PapersView(papers: filterPapersWithGroup(papers: papers, groupId: self.groupId!))
         }
     }
     
-    func loadPapers(groupId: Int64) {
-        do {
-            self.papersInGroup = try appDatabase.readPapersInGroup(groupId: groupId)
-        } catch {
-            errorAlertIsPresented = true
-            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "loadPapers() error occurred"
+    private func filterPapersWithGroup(papers: [Paper], groupId: Int64) -> [Paper] {
+        let results = papers.filter { paper in
+            return paper.group == groupId
         }
+        return results
     }
 }
 

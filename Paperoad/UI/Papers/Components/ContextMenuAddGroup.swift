@@ -16,51 +16,31 @@ struct PapersContextMenuAddGroup: View {
     @Environment(\.appDatabase) private var appDatabase
     
     @Query(GroupRequest(), in: \.appDatabase) private var groups: [Group]
-    @Query(PaperGroupRequest(), in: \.appDatabase) private var paperGroups: [PaperGroup]
     
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
     
-    let paperId: Int64
+    @State var paper: Paper
     
     var body: some View {
         Menu("Move to Group") {
             ForEach(groups) { group in
-                if getGroupId(paperId: paperId) == group.id {
+                if paper.group == group.id {
                     Button("\(group.name)") {}
                         .disabled(true)
                 } else {
                     Button("\(group.name)") {
-                        save(paperId: paperId, groupId: group.id!)
+                        save(groupId: group.id ?? 0)
                     }
                 }
             }
         }
     }
     
-    // return the groupId of given paperIds, all these papers should be in same group.
-    private func getGroupId(paperId: Int64) -> Int64? {
-        var groupId: Int64?
-        for pair in paperGroups {
-            if pair.paperId == paperId {
-                groupId = pair.groupId
-                break
-            }
-        }
-        
-        return groupId
-    }
-    
-    private func save(paperId: Int64, groupId: Int64) {
+    private func save(groupId: Int64) {
         do {
-            var paperGroup = try appDatabase.readPaperGroupByPaper(paperId: paperId)
-            if paperGroup == nil {
-                paperGroup = PaperGroup(paperId: paperId, groupId: groupId)
-            } else {
-                paperGroup!.groupId = groupId
-            }
-            
-            try appDatabase.savePaperGroup(&paperGroup!)
+            paper.group = groupId
+            try appDatabase.savePaper(&paper)
         } catch {
             errorAlertIsPresented = true
             errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Add to Group Error occurred"

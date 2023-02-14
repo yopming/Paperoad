@@ -20,7 +20,7 @@ struct PapersView: View {
     @State private var selectedPaperToUpdate: Paper?
     @State private var selectedPapers = Set<Paper>()
     
-    @State var papers: [Paper]
+    var papers: [Paper]
     
     var body: some View {
         // TODO alternative representation style with table instead of list
@@ -37,7 +37,7 @@ struct PapersView: View {
                 .listRowSeparatorTint(.gray.opacity(0.25))
                 .padding([.vertical], 3)
                 .contextMenu {
-                    PapersContextMenuAddGroup(paperId: paper.id!)
+                    PapersContextMenuAddGroup(paper: paper)
                     
                     if selectedPapers.count == 1 {
                         Button("Update Paper") {

@@ -47,13 +47,17 @@ struct PaperTrashedRequest: Queryable {
 }
 
 // query for unfiled paper
-//struct PaperUnfiledRequest: Queryable {
-//    static var defaultValue: [Paper] { [] }
-//
-//    func publisher(in appDatabase: AppDatabase) -> AnyPublisher<[Paper], Error> {
-//        ValueObservation
-//            .tracking { db in try Paper.filter(Paper.Columns.group == nil).fetchAll(db)}
-//            .publisher(in: appDatabase.reader, scheduling: .immediate)
-//            .eraseToAnyPublisher()
-//    }
-//}
+struct PaperUnfiledRequest: Queryable {
+    static var defaultValue: [Paper] { [] }
+
+    func publisher(in appDatabase: AppDatabase) -> AnyPublisher<[Paper], Error> {
+        ValueObservation
+            .tracking { db in
+                try Paper
+                    .filter(Paper.Columns.group == nil || Paper.Columns.group == 0)
+                    .fetchAll(db)
+            }
+            .publisher(in: appDatabase.reader, scheduling: .immediate)
+            .eraseToAnyPublisher()
+    }
+}
