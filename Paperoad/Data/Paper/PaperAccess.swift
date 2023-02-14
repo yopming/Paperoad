@@ -10,6 +10,20 @@ import Combine
 import Foundation
 
 extension AppDatabase {
+    func readPapersInGroup(groupId: Int64) throws -> [Paper] {
+        var papers: [Paper] = { [] }()
+        try reader.read { db in
+            let groupIdString = String(groupId)
+            papers = try Paper.fetchAll(
+                db,
+                sql: "SELECT * FROM paper WHERE paper.id in (SELECT paperId FROM papergroup WHERE papergroup.groupId = ?)",
+                arguments: [groupIdString]
+            )
+        }
+        
+        return papers
+    }
+    
     // insert or update
     func savePaper(_ paper: inout Paper) throws {
         if paper.title.isEmpty {

@@ -16,12 +16,12 @@ struct PapersWrapperView: View {
     
     let groupName: String
     let groupId: Int64?
-//    let papersInGroup: [Paper]
     
     @Query(PaperRequest(), in: \.appDatabase) private var papers: [Paper]
     @Query(PaperAllRequest(), in: \.appDatabase) private var allPapers: [Paper]
     @Query(PaperTrashedRequest(), in: \.appDatabase) private var trashedPapers: [Paper]
     @Query(PaperTrashedRequest(), in: \.appDatabase) private var unfiledPapers: [Paper]
+    @State private var papersInGroup = [Paper]()
     
     init(group: String) {
         self.groupName = group
@@ -31,15 +31,6 @@ struct PapersWrapperView: View {
     init(groupName: String, groupId: Int64) {
         self.groupName = groupName
         self.groupId = groupId
-        
-        do {
-            let pairs: [PaperGroup] = try appDatabase.readPaperGroupsByGroup(groupId: groupId)
-            let paperIds = pairs.map { $0.paperId }
-            print(paperIds)
-        } catch {
-            errorAlertIsPresented = true
-            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "readPaperGroupsByGroup() error occurred"
-        }
     }
     
     var body: some View {
@@ -53,7 +44,27 @@ struct PapersWrapperView: View {
         case ".allwithtrash":
             PapersView(papers: allPapers)
         default:
-            PapersView(papers: papers)
+            PapersView(papers: papersInGroup)
+                .onAppear() {
+                    loadPapers(groupId: groupId!)
+                    print(papersInGroup)
+                    print("----------------------")
+                }
         }
     }
+    
+    func loadPapers(groupId: Int64) {
+        do {
+            self.papersInGroup = try appDatabase.readPapersInGroup(groupId: groupId)
+        } catch {
+            errorAlertIsPresented = true
+            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "loadPapers() error occurred"
+        }
+    }
+}
+
+// enum for sheets in PapersView
+enum PapersSheetView: Identifiable {
+    var id: Self { self }
+    case update, delete
 }

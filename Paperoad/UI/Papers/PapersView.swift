@@ -17,9 +17,10 @@ struct PapersView: View {
     // which sheet to show in PapersView
     @State private var showSheet:PapersSheetView? = nil
     
-    var papers: [Paper]
     @State private var selectedPaperToUpdate: Paper?
     @State private var selectedPapers = Set<Paper>()
+    
+    @State var papers: [Paper]
     
     var body: some View {
         // TODO alternative representation style with table instead of list
@@ -30,35 +31,27 @@ struct PapersView: View {
 //            }
 //        }
         
-        List(papers, id: \.self, selection: $selectedPapers) { paper in
-            PaperListItem(
-                id: paper.id!,
-                title: paper.title,
-                authors: paper.authors ?? "",
-                year: paper.year ?? "",
-                publication: paper.publication ?? "",
-                deleted: paper.deleted
-            )
-            .listRowSeparator(.visible)
-            .listRowSeparatorTint(.gray.opacity(0.25))
-            .padding([.vertical], 3)
-            .contextMenu {
-                PapersContextMenuAddGroup(paperId: paper.id!)
-                
-                if selectedPapers.count == 1 {
-                    Button("Update Paper") {
-                        selectedPaperToUpdate = selectedPapers.first
+        List(self.papers, id: \.self, selection: $selectedPapers) { paper in
+            PaperListItem(paper: paper)
+                .listRowSeparator(.visible)
+                .listRowSeparatorTint(.gray.opacity(0.25))
+                .padding([.vertical], 3)
+                .contextMenu {
+                    PapersContextMenuAddGroup(paperId: paper.id!)
+                    
+                    if selectedPapers.count == 1 {
+                        Button("Update Paper") {
+                            selectedPaperToUpdate = selectedPapers.first
+                        }
                     }
+                    
+                    Button("Delete") { trash() }
+                    
+                    // For debug, print data of one paper in the list
+                    #if DEBUG
+                    Button("Console.log") { consoleLog() }
+                    #endif
                 }
-                
-                Button("Delete") {
-                    trash()
-                }
-                
-                
-                // For debug, print data of one paper in the list
-                // Button("Console.log") { consoleLog() }
-            }
         }
         
         .sheet (
@@ -90,15 +83,8 @@ struct PapersView: View {
         }
     }
     
-//    private func consoleLog() {
-//        print(selectedPapers.first)
-//    }
+    private func consoleLog() {
+        print(selectedPapers.first ?? "No paper selected")
+    }
     
-}
-
-
-// enum for sheets in PapersView
-enum PapersSheetView: Identifiable {
-    var id: Self { self }
-    case update, delete
 }

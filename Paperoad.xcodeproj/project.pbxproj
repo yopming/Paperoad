@@ -28,9 +28,6 @@
 		1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31B2988C4FC00837D0B /* Group.swift */; };
 		1F4ED681299098D4005732DE /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ED680299098D4005732DE /* AppDatabase.swift */; };
 		1F66E2B829914189000135C8 /* Develop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66E2B729914189000135C8 /* Develop.swift */; };
-		1F7C345429954ED7004A18A4 /* PaperGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C345329954ED7004A18A4 /* PaperGroup.swift */; };
-		1F7C345629956C11004A18A4 /* PaperGroupAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C345529956C11004A18A4 /* PaperGroupAccess.swift */; };
-		1F7C345829957219004A18A4 /* PaperGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C345729957219004A18A4 /* PaperGroupRequest.swift */; };
 		1F7C345A2997355D004A18A4 /* ContextMenuAddGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C34592997355D004A18A4 /* ContextMenuAddGroup.swift */; };
 		1F9862AD2991947800B17A48 /* GRDBQuery in Frameworks */ = {isa = PBXBuildFile; productRef = 1F9862AC2991947800B17A48 /* GRDBQuery */; };
 		1F9862AF299194B900B17A48 /* GroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9862AE299194B900B17A48 /* GroupRequest.swift */; };
@@ -92,9 +89,6 @@
 		1F2DA31B2988C4FC00837D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		1F4ED680299098D4005732DE /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		1F66E2B729914189000135C8 /* Develop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Develop.swift; sourceTree = "<group>"; };
-		1F7C345329954ED7004A18A4 /* PaperGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperGroup.swift; sourceTree = "<group>"; };
-		1F7C345529956C11004A18A4 /* PaperGroupAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperGroupAccess.swift; sourceTree = "<group>"; };
-		1F7C345729957219004A18A4 /* PaperGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperGroupRequest.swift; sourceTree = "<group>"; };
 		1F7C34592997355D004A18A4 /* ContextMenuAddGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuAddGroup.swift; sourceTree = "<group>"; };
 		1F9862AE299194B900B17A48 /* GroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequest.swift; sourceTree = "<group>"; };
 		1F9862B02991ABF700B17A48 /* SidebarGroupEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarGroupEditView.swift; sourceTree = "<group>"; };
@@ -163,7 +157,6 @@
 		1F26B9452985F41300709752 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1F7C345229954EC7004A18A4 /* PaperGroup */,
 				1F2BC32729920D8A00BE74BD /* Paper */,
 				1F2DA31A2988C4F300837D0B /* Group */,
 				1F4ED680299098D4005732DE /* AppDatabase.swift */,
@@ -260,16 +253,6 @@
 				1F66E2B729914189000135C8 /* Develop.swift */,
 			);
 			path = Menu;
-			sourceTree = "<group>";
-		};
-		1F7C345229954EC7004A18A4 /* PaperGroup */ = {
-			isa = PBXGroup;
-			children = (
-				1F7C345329954ED7004A18A4 /* PaperGroup.swift */,
-				1F7C345529956C11004A18A4 /* PaperGroupAccess.swift */,
-				1F7C345729957219004A18A4 /* PaperGroupRequest.swift */,
-			);
-			path = PaperGroup;
 			sourceTree = "<group>";
 		};
 		1F9862B22991AC1400B17A48 /* SidebarGroup */ = {
@@ -575,7 +558,6 @@
 				1F2810302983361C00A6D4CD /* SidebarTagView.swift in Sources */,
 				1F9862AF299194B900B17A48 /* GroupRequest.swift in Sources */,
 				1FB855542991542200DF278B /* GroupViewModel.swift in Sources */,
-				1F7C345429954ED7004A18A4 /* PaperGroup.swift in Sources */,
 				1FB855572991566900DF278B /* GroupAccess.swift in Sources */,
 				1FF1D34A298B0AD5003B4F2B /* PaperAddByIdView.swift in Sources */,
 				1FD069312993FFBF00F99706 /* ToolbarMiddle.swift in Sources */,
@@ -596,9 +578,7 @@
 				1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */,
 				1F28102E2983361200A6D4CD /* SidebarGroupView.swift in Sources */,
 				1F2BC32D2992154200BE74BD /* PaperAccess.swift in Sources */,
-				1F7C345629956C11004A18A4 /* PaperGroupAccess.swift in Sources */,
 				1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */,
-				1F7C345829957219004A18A4 /* PaperGroupRequest.swift in Sources */,
 				1F2DA3192988C46800837D0B /* Persistence.swift in Sources */,
 				1F0CA09729902204005F6F10 /* PaperUpdateView.swift in Sources */,
 				1F0CA095298F6DAE005F6F10 /* StorageView.swift in Sources */,

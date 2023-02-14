@@ -8,33 +8,23 @@
 import SwiftUI
 
 struct PaperListItem: View {
-    let id: Int64
-    let title: String
-    let authors: String
-    let year: String
-    let publication: String
-    let deleted: Bool
+    let paper: Paper
     
     var body: some View {
         VStack (alignment: .leading, spacing: 0) {
-            Text("\(title), \(id)")
+            Text("\(paper.id ?? 0). \(paper.title)")
                 .fontWeight(.bold)
                 .font(.headline)
                 .padding([.bottom], 1)
                 .padding([.top], -4)
-            Text("\(authors)")
+            Text("\(paper.authors ?? "")")
                 .font(.caption)
                 .foregroundColor(.gray)
-            if deleted {
-                Text("--Deleted")
-            } else {
-                Text("--")
-            }
             HStack {
-                Text("\(year) ")
+                Text("\(paper.year ?? "")")
                     .fontWeight(.semibold)
                     .font(.footnote)
-                Text("\(publication)")
+                Text("\(paper.publication ?? "")")
                     .font(.footnote)
                     .lineLimit(1)
             }
