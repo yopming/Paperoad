@@ -14,6 +14,7 @@
 		1F280456299C2CD1006E9AF2 /* GroupCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F280455299C2CD1006E9AF2 /* GroupCount.swift */; };
 		1F280458299C2D51006E9AF2 /* GroupCountAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F280457299C2D50006E9AF2 /* GroupCountAccess.swift */; };
 		1F28045A299C34C6006E9AF2 /* GroupCountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F280459299C34C6006E9AF2 /* GroupCountRequest.swift */; };
+		1F28045C299C92DE006E9AF2 /* SidebarUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28045B299C92DE006E9AF2 /* SidebarUploadView.swift */; };
 		1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102129830C8500A6D4CD /* SidebarView.swift */; };
 		1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* SettingsView.swift */; };
 		1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102829832AEF00A6D4CD /* GeneralView.swift */; };
@@ -78,6 +79,7 @@
 		1F280455299C2CD1006E9AF2 /* GroupCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCount.swift; sourceTree = "<group>"; };
 		1F280457299C2D50006E9AF2 /* GroupCountAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCountAccess.swift; sourceTree = "<group>"; };
 		1F280459299C34C6006E9AF2 /* GroupCountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCountRequest.swift; sourceTree = "<group>"; };
+		1F28045B299C92DE006E9AF2 /* SidebarUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarUploadView.swift; sourceTree = "<group>"; };
 		1F28102129830C8500A6D4CD /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		1F28102529832A6000A6D4CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1F28102829832AEF00A6D4CD /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				1F28102D2983361200A6D4CD /* SidebarGroupView.swift */,
 				1F28102F2983361C00A6D4CD /* SidebarTagView.swift */,
 				1F28103329834FC500A6D4CD /* SidebarActionView.swift */,
+				1F28045B299C92DE006E9AF2 /* SidebarUploadView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */,
 				1FF1D34E298B0C5F003B4F2B /* Data.swift in Sources */,
 				1F2BC32B299214CA00BE74BD /* PaperRequest.swift in Sources */,
+				1F28045C299C92DE006E9AF2 /* SidebarUploadView.swift in Sources */,
 				1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */,
 				1F280456299C2CD1006E9AF2 /* GroupCount.swift in Sources */,
 				1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */,

@@ -21,6 +21,9 @@ struct SidebarView: View {
             // SidebarTagView()
         }
         .safeAreaInset(edge: .bottom) {
+            SidebarUploadView()
+        }
+        .safeAreaInset(edge: .bottom) {
             // at the bottom
             SidebarActionView()
         }
