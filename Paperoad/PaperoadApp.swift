@@ -12,15 +12,6 @@ struct PaperoadApp: App {
     // global dark mode or light mode
     @AppStorage("prefColorScheme") private var theme = "Follow System"
     
-    static let documentDirectory: URL = {
-        let availableDirectories = FileManager
-            .default
-            .urls(for: .documentDirectory, in: .userDomainMask)
-        
-        return availableDirectories[0]
-            .appendingPathComponent("Paperoad")
-    }()
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
