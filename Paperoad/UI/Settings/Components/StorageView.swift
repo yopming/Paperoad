@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StorageView: View {
-    @AppStorage("prefStorage") private var storageDir = "<none>"
+    @AppStorage("prefStorage") var storageDir: URL?
     
     var body: some View {
         VStack (alignment: .leading, spacing: 0) {
@@ -18,7 +18,7 @@ struct StorageView: View {
                 .padding([.top], 3)
                 .padding([.bottom], 10)
             HStack (alignment: .center) {
-                Text(storageDir)
+                Text(storageDir.path(percentEncoded: true) ?? "")
                     .padding(6)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(.background)
@@ -34,7 +34,7 @@ struct StorageView: View {
                     panel.begin { response in
                         guard response == .OK,
                               let url = panel.url else { return }
-                        self.storageDir = url.path(percentEncoded: true)
+                        self.storageDir = url
                     }
                 }
             }

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct GeneralView: View {
-    @AppStorage("prefColorScheme") private var theme = "Follow System"
-    @AppStorage("prefPdfReader") private var pdfReader = "System"
+//    @AppStorage("prefColorScheme") private var theme = "Follow System"
+//    @AppStorage("prefPdfReader") private var pdfReader = "System"
+    
+    @Default(\.theme) var theme
+    @Default(\.reader) var reader
     
     let themes: [String] = AppConfig.Appearance.allCases.map { $0.rawValue }
     let pdfReaders: [String] = AppConfig.PdfReader.allCases.map { $0.rawValue }
@@ -23,7 +26,7 @@ struct GeneralView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             
-            Picker("PDF Reader", selection: $pdfReader) {
+            Picker("PDF Reader", selection: $reader) {
                 ForEach(pdfReaders, id: \.self) {
                     Text($0)
                 }

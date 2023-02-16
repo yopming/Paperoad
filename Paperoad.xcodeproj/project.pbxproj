@@ -15,6 +15,7 @@
 		1F280458299C2D51006E9AF2 /* GroupCountAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F280457299C2D50006E9AF2 /* GroupCountAccess.swift */; };
 		1F28045A299C34C6006E9AF2 /* GroupCountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F280459299C34C6006E9AF2 /* GroupCountRequest.swift */; };
 		1F28045C299C92DE006E9AF2 /* SidebarUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28045B299C92DE006E9AF2 /* SidebarUploadView.swift */; };
+		1F28045F299EC9C3006E9AF2 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28045E299EC9C3006E9AF2 /* AppStorage.swift */; };
 		1F28102229830C8500A6D4CD /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102129830C8500A6D4CD /* SidebarView.swift */; };
 		1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102529832A6000A6D4CD /* SettingsView.swift */; };
 		1F28102929832AEF00A6D4CD /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28102829832AEF00A6D4CD /* GeneralView.swift */; };
@@ -26,9 +27,9 @@
 		1F2BC32929920E5200BE74BD /* Paper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2BC32829920E5200BE74BD /* Paper.swift */; };
 		1F2BC32B299214CA00BE74BD /* PaperRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2BC32A299214CA00BE74BD /* PaperRequest.swift */; };
 		1F2BC32D2992154200BE74BD /* PaperAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2BC32C2992154200BE74BD /* PaperAccess.swift */; };
-		1F2BC32F2992165B00BE74BD /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2BC32E2992165B00BE74BD /* Validation.swift */; };
+		1F2BC32F2992165B00BE74BD /* AppDatabase+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2BC32E2992165B00BE74BD /* AppDatabase+Validation.swift */; };
 		1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2992988AE1E00837D0B /* TextField.swift */; };
-		1F2DA3192988C46800837D0B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA3182988C46800837D0B /* Persistence.swift */; };
+		1F2DA3192988C46800837D0B /* AppDatabase+Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA3182988C46800837D0B /* AppDatabase+Persistence.swift */; };
 		1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31B2988C4FC00837D0B /* Group.swift */; };
 		1F4ED681299098D4005732DE /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ED680299098D4005732DE /* AppDatabase.swift */; };
 		1F66E2B829914189000135C8 /* Develop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66E2B729914189000135C8 /* Develop.swift */; };
@@ -83,6 +84,7 @@
 		1F280457299C2D50006E9AF2 /* GroupCountAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCountAccess.swift; sourceTree = "<group>"; };
 		1F280459299C34C6006E9AF2 /* GroupCountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCountRequest.swift; sourceTree = "<group>"; };
 		1F28045B299C92DE006E9AF2 /* SidebarUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarUploadView.swift; sourceTree = "<group>"; };
+		1F28045E299EC9C3006E9AF2 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		1F28102129830C8500A6D4CD /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		1F28102529832A6000A6D4CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1F28102829832AEF00A6D4CD /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
@@ -94,9 +96,9 @@
 		1F2BC32829920E5200BE74BD /* Paper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paper.swift; sourceTree = "<group>"; };
 		1F2BC32A299214CA00BE74BD /* PaperRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperRequest.swift; sourceTree = "<group>"; };
 		1F2BC32C2992154200BE74BD /* PaperAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperAccess.swift; sourceTree = "<group>"; };
-		1F2BC32E2992165B00BE74BD /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		1F2BC32E2992165B00BE74BD /* AppDatabase+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDatabase+Validation.swift"; sourceTree = "<group>"; };
 		1F2DA2992988AE1E00837D0B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		1F2DA3182988C46800837D0B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1F2DA3182988C46800837D0B /* AppDatabase+Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDatabase+Persistence.swift"; sourceTree = "<group>"; };
 		1F2DA31B2988C4FC00837D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		1F4ED680299098D4005732DE /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		1F66E2B729914189000135C8 /* Develop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Develop.swift; sourceTree = "<group>"; };
@@ -175,8 +177,9 @@
 				1F2DA31A2988C4F300837D0B /* Group */,
 				1F280454299C2CBB006E9AF2 /* GroupCount */,
 				1F4ED680299098D4005732DE /* AppDatabase.swift */,
-				1F2DA3182988C46800837D0B /* Persistence.swift */,
-				1F2BC32E2992165B00BE74BD /* Validation.swift */,
+				1F2DA3182988C46800837D0B /* AppDatabase+Persistence.swift */,
+				1F2BC32E2992165B00BE74BD /* AppDatabase+Validation.swift */,
+				1F28045E299EC9C3006E9AF2 /* AppStorage.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				1FF1D358298C3F05003B4F2B /* Date.swift in Sources */,
 				1F85ECA7299D92A2006B4644 /* FileStorage.swift in Sources */,
 				1F28102629832A6000A6D4CD /* SettingsView.swift in Sources */,
+				1F28045F299EC9C3006E9AF2 /* AppStorage.swift in Sources */,
 				1FD0693529944D6200F99706 /* PapersWrapperView.swift in Sources */,
 				1FF1D348298ACAF9003B4F2B /* PaperAddView.swift in Sources */,
 				1F2BC32929920E5200BE74BD /* Paper.swift in Sources */,
@@ -621,7 +625,7 @@
 				1F280456299C2CD1006E9AF2 /* GroupCount.swift in Sources */,
 				1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */,
 				1FF1D35B298C4454003B4F2B /* PaperListItem.swift in Sources */,
-				1F2BC32F2992165B00BE74BD /* Validation.swift in Sources */,
+				1F2BC32F2992165B00BE74BD /* AppDatabase+Validation.swift in Sources */,
 				1F66E2B829914189000135C8 /* Develop.swift in Sources */,
 				1F28103429834FC500A6D4CD /* SidebarActionView.swift in Sources */,
 				1F7C345A2997355D004A18A4 /* ContextMenuAddGroup.swift in Sources */,
@@ -630,7 +634,7 @@
 				1F28102E2983361200A6D4CD /* SidebarGroupView.swift in Sources */,
 				1F2BC32D2992154200BE74BD /* PaperAccess.swift in Sources */,
 				1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */,
-				1F2DA3192988C46800837D0B /* Persistence.swift in Sources */,
+				1F2DA3192988C46800837D0B /* AppDatabase+Persistence.swift in Sources */,
 				1F0CA09729902204005F6F10 /* PaperUpdateView.swift in Sources */,
 				1F0CA095298F6DAE005F6F10 /* StorageView.swift in Sources */,
 				1F85ECA9299DB822006B4644 /* FileAccess.swift in Sources */,
