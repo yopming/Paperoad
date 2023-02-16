@@ -12,7 +12,7 @@ class FileStorage {
         let availableDirectories = FileManager
             .default
             .urls(for: .documentDirectory, in: .userDomainMask)
-        
+        print(availableDirectories)
         return availableDirectories[0]
             .appendingPathExtension("/blob")
     }()

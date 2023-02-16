@@ -34,7 +34,7 @@ struct StorageView: View {
                     panel.begin { response in
                         guard response == .OK,
                               let url = panel.url else { return }
-                        self.storageDir = url.absoluteString
+                        self.storageDir = url.path(percentEncoded: true)
                     }
                 }
             }
