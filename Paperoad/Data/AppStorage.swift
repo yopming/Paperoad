@@ -11,8 +11,8 @@ import Foundation
 
 public class Defaults: ObservableObject {
     @AppStorage("theme") public var theme = "Follow System"
-    @AppStorage("storage") public var storage = "url"
     @AppStorage("reader") public var reader = "System"
+    @AppStorage("storageDir") public var storageDir = ""
     
     public static let shared = Defaults()
 }

@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct GeneralView: View {
-//    @AppStorage("prefColorScheme") private var theme = "Follow System"
-//    @AppStorage("prefPdfReader") private var pdfReader = "System"
-    
     @Default(\.theme) var theme
     @Default(\.reader) var reader
     

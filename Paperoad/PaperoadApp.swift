@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct PaperoadApp: App {
     // global dark mode or light mode
-    @AppStorage("prefColorScheme") private var theme = "Follow System"
+    @Default(\.theme) var theme
     
     var body: some Scene {
         WindowGroup {
