@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SidebarUploadView: View {
+    @Default(\.storageDir) var storageDir
+    
     @State var files = [URL]()
     @State var dragOver = false
     
@@ -32,15 +34,39 @@ struct SidebarUploadView: View {
                     
                     guard let url = url else { return }
                     let fileName = "\(Int(Date().timeIntervalSince1970)).\(url.pathExtension)"
-//                    let newUrl = URL(filePath: NSTemporaryDirectory() + fileName)
-                    let newUrl = FileStorage.documentDirectory.appendingPathExtension(fileName)
-                    // copy item to app storage
-                    try? FileManager.default.copyItem(at: url, to: newUrl)
+                    
+                    let storageUrl = getStoredUrl()
+                    _ = storageUrl?.startAccessingSecurityScopedResource()
+                    let newUrl = storageUrl?.appendingPathExtension(fileName)
+                    try? FileManager.default.copyItem(at: url, to: newUrl!)
                     print(newUrl)
+                    storageUrl?.stopAccessingSecurityScopedResource()
                 }
             }
             
             return true
+        }
+    }
+    
+    private func getStoredUrl() -> URL? {
+        let data = storageDir
+        guard data.count > 0 else {
+            return FileStorage.documentDirectory
+        }
+        
+        do {
+            var isStale = false
+            let newUrl = try URL(
+                resolvingBookmarkData: data,
+                options: .withSecurityScope,
+                relativeTo: nil,
+                bookmarkDataIsStale: &isStale
+            )
+            
+            return newUrl
+        } catch {
+            print("Error resolving bookmark: \(error)")
+            return nil
         }
     }
 }

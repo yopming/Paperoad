@@ -9,8 +9,13 @@ import SwiftUI
 
 @main
 struct PaperoadApp: App {
-    // global dark mode or light mode
-    @Default(\.theme) var theme
+    @Default(\.theme) var theme // global dark mode or light mode
+//    @Default(\.storageDir) var storageDir
+    
+//    init() {
+//        let storageUrl = getStoredUrl()
+//        _ = storageUrl?.startAccessingSecurityScopedResource()
+//    }
     
     var body: some Scene {
         WindowGroup {

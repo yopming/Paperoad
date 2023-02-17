@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StorageView: View {
     @Default(\.storageDir) var storageDir
+    @Default(\.storageDirUrl) var storageDirUrl
     
     var body: some View {
         VStack (alignment: .leading, spacing: 0) {
@@ -18,7 +19,7 @@ struct StorageView: View {
                 .padding([.top], 3)
                 .padding([.bottom], 10)
             HStack (alignment: .center) {
-                Text(storageDir)
+                Text(storageDirUrl)
                     .padding(6)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(.background)
@@ -32,9 +33,15 @@ struct StorageView: View {
                     panel.canCreateDirectories = true
                     panel.canChooseFiles = false
                     panel.begin { response in
-                        guard response == .OK,
-                              let url = panel.url else { return }
-                        self.storageDir = url.path(percentEncoded: true)
+                        guard response == .OK, let url = panel.url else { return }
+                        
+                        storageDirUrl = url.path(percentEncoded: true)
+                        
+                        do {
+                            try handleURLReceivedFromOpenPanel(url)
+                        } catch {
+                            print("handleReceivedFromOpenPanel(): \(error)")
+                        }
                     }
                 }
             }
@@ -48,7 +55,9 @@ struct StorageView: View {
             relativeTo: nil
         )
         
-        self.$storageDir = url.path
+        let _ = url.startAccessingSecurityScopedResource()
+        defer { url.stopAccessingSecurityScopedResource() }
+        storageDir = data
     }
 }
 
