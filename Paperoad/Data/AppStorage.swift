@@ -1,7 +1,6 @@
 //
 //  AppStorage.swift
 //  Paperoad
-//  Wrapper for @AppStorage
 //
 //  Created by Tieming on 2/16/23.
 //
@@ -9,6 +8,8 @@
 import SwiftUI
 import Foundation
 
+/// Wrapper for AppStorage.
+/// In other Views, the property can be accessed by @Default(\.attr) var attr
 public class Defaults: ObservableObject {
     @AppStorage("theme") public var theme = "Follow System"
     @AppStorage("reader") public var reader = "System"
