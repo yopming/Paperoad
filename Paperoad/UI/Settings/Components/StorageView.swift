@@ -40,4 +40,15 @@ struct StorageView: View {
             }
         }
     }
+    
+    private func handleURLReceivedFromOpenPanel(_ url: URL) throws -> Void {
+        let data = try url.bookmarkData(
+            options: .withSecurityScope,
+            includingResourceValuesForKeys: nil,
+            relativeTo: nil
+        )
+        
+        self.$storageDir = url.path
+    }
 }
+
