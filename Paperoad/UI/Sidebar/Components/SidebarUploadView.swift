@@ -35,38 +35,21 @@ struct SidebarUploadView: View {
                     guard let url = url else { return }
                     let fileName = "\(Int(Date().timeIntervalSince1970)).\(url.pathExtension)"
                     
-                    let storageUrl = getStoredUrl()
-                    _ = storageUrl?.startAccessingSecurityScopedResource()
-                    let newUrl = storageUrl?.appendingPathExtension(fileName)
-                    try? FileManager.default.copyItem(at: url, to: newUrl!)
+                    guard let storageUrl = restoreFileAccess(with: storageDir) else {
+                        return
+                    }
+                    defer { storageUrl.stopAccessingSecurityScopedResource() }
+                    
+                    if !(storageUrl.startAccessingSecurityScopedResource()) {
+                        print("startAccessingSecurityScopedResource() error.")
+                    }
+                    let newUrl = storageUrl.appendingPathExtension(fileName)
+                    try? FileManager.default.copyItem(at: url, to: newUrl)
                     print(newUrl)
-                    storageUrl?.stopAccessingSecurityScopedResource()
                 }
             }
             
             return true
-        }
-    }
-    
-    private func getStoredUrl() -> URL? {
-        let data = storageDir
-        guard data.count > 0 else {
-            return FileStorage.documentDirectory
-        }
-        
-        do {
-            var isStale = false
-            let newUrl = try URL(
-                resolvingBookmarkData: data,
-                options: .withSecurityScope,
-                relativeTo: nil,
-                bookmarkDataIsStale: &isStale
-            )
-            
-            return newUrl
-        } catch {
-            print("Error resolving bookmark: \(error)")
-            return nil
         }
     }
 }

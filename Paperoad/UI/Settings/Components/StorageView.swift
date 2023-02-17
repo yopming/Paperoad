@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct StorageView: View {
-    @Default(\.storageDir) var storageDir
     @Default(\.storageDirUrl) var storageDirUrl
     
     var body: some View {
@@ -25,39 +24,26 @@ struct StorageView: View {
                     .background(.background)
                     .cornerRadius(4)
                 Button("Change") {
-                    let panel = NSOpenPanel()
-                    panel.showsResizeIndicator = false
-                    panel.showsHiddenFiles = false
-                    panel.allowsMultipleSelection = false
-                    panel.canChooseDirectories = true
-                    panel.canCreateDirectories = true
-                    panel.canChooseFiles = false
-                    panel.begin { response in
-                        guard response == .OK, let url = panel.url else { return }
-                        
+                    if let url = selectFolderPanel() {
                         storageDirUrl = url.path(percentEncoded: true)
-                        
-                        do {
-                            try handleURLReceivedFromOpenPanel(url)
-                        } catch {
-                            print("handleReceivedFromOpenPanel(): \(error)")
-                        }
+                        saveBookmarkData(for: url)
                     }
                 }
             }
         }
     }
     
-    private func handleURLReceivedFromOpenPanel(_ url: URL) throws -> Void {
-        let data = try url.bookmarkData(
-            options: .withSecurityScope,
-            includingResourceValuesForKeys: nil,
-            relativeTo: nil
-        )
-        
-        let _ = url.startAccessingSecurityScopedResource()
-        defer { url.stopAccessingSecurityScopedResource() }
-        storageDir = data
+    fileprivate func selectFolderPanel() -> URL? {
+        let panel = NSOpenPanel()
+        panel.message = "Choose one empty directory."
+        panel.prompt = "Choose"
+        panel.showsResizeIndicator = true
+        panel.showsHiddenFiles = false
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = true
+        panel.canCreateDirectories = true
+        panel.canChooseFiles = false
+        let response = panel.runModal()
+        return response == .OK ? panel.url : nil
     }
 }
-
