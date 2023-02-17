@@ -12,8 +12,13 @@ class FileStorage {
         let availableDirectories = FileManager
             .default
             .urls(for: .documentDirectory, in: .userDomainMask)
-        print(availableDirectories)
+        
+        #if DEBUG
         return availableDirectories[0]
-            .appendingPathExtension("/blob")
+            .appendingPathExtension("Paperoad.Debug")
+        #else
+        return availableDirectories[0]
+            .appendingPathExtension("Paperoad")
+        #endif
     }()
 }
