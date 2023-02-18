@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct SidebarActionView: View {
+    @EnvironmentObject var appState: AppState
+    
     @State private var name: String = ""
 
-    // which sheet to show
-    @State private var showSheet: SidebarSheetView? = nil
-    
     var body: some View {
         HStack(spacing: 10) {
             addNewButton
@@ -26,23 +25,15 @@ struct SidebarActionView: View {
             Divider()
         }
     }
-    
-    @ViewBuilder
-    func content(for mode: SidebarSheetView) -> some View {
-        switch mode {
-        case .group:
-            SidebarGroupAddView(showSheet: $showSheet)
-        case .tag:
-            // TODO change
-            SidebarGroupAddView(showSheet: $showSheet)
-        }
-    }
+
     
     // MARK: - Add Button
     private var addNewButton: some View {
         Menu {
             Button(
-                action: openNewGroupFormView,
+                action: {
+                    appState.showGroupAddSheet = true
+                },
                 label: {
                     Label("New Group", systemImage: "plus")
                 }
@@ -54,9 +45,12 @@ struct SidebarActionView: View {
         .menuIndicator(.hidden)
         .frame(maxWidth: 30)
         
-        .sheet(item: $showSheet) { mode in
-            content(for: mode)
-        }
+        .sheet(
+            isPresented: $appState.showGroupAddSheet,
+            content: {
+                SidebarGroupAddView()
+            }
+        )
     }
     
     // MARK: - Setting Button
@@ -74,12 +68,15 @@ struct SidebarActionView: View {
         .buttonStyle(.borderless)
         .frame(maxWidth: 30)
     }
-}
-
-
-// MARK: - Actions
-extension SidebarActionView {
-    func openNewGroupFormView() {
-        showSheet = .group
-    }
+//
+//    @ViewBuilder
+//    func content(for mode: SidebarSheetView) -> some View {
+//        switch mode {
+//        case .group:
+//            SidebarGroupAddView()
+//        case .tag:
+//            // TODO change
+//            SidebarGroupAddView()
+//        }
+//    }
 }

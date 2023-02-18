@@ -15,6 +15,7 @@ struct FileCommands: Commands {
         CommandGroup(after: .newItem, addition: {
             Button("New Group") {
                 // TODO: open new group button
+                SidebarActionView().openNewGroupFormView()
             }
             .keyboardShortcut(
                 KeyEquivalent("n"),
@@ -24,14 +25,14 @@ struct FileCommands: Commands {
             Divider()
             
             Button("New Paper") {
-                // TODO: open new paper button
+                ToolbarMiddle().openPaperAddView()
             }
             .keyboardShortcut(
                 KeyEquivalent("n"),
                 modifiers: [.command]
             )
             Button("New Paper by Identifier") {
-                // TODO: open new paper by identifier button
+                ToolbarMiddle().openPaperAddByIdView()
             }
             .keyboardShortcut(
                 KeyEquivalent("n"),

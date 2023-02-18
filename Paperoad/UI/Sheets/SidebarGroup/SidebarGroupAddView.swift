@@ -11,11 +11,13 @@ struct SidebarGroupAddView: View {
     @Environment(\.appDatabase) private var appDatabase
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject var appState: AppState
+    
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
     
     // keep track of if the sheet should be shown
-    @Binding var showSheet: SidebarSheetView?
+//    @Binding var showSheet: SidebarSheetView?
     
     @State private var groupName = ""
     
@@ -31,7 +33,7 @@ struct SidebarGroupAddView: View {
             Form {
                 TextField("Name:", text: $groupName)
                     .onSubmit {
-                        showSheet = nil
+                        appState.showGroupAddSheet = false
                         save(name: groupName)
                     }
             }
@@ -40,11 +42,11 @@ struct SidebarGroupAddView: View {
             
             HStack {
                 Button("Close", role: .cancel) {
-                    showSheet = nil
+                    appState.showGroupAddSheet = false
                     dismiss()
                 }
                 Button("Create") {
-                    showSheet = nil
+                    appState.showGroupAddSheet = false
                     save(name: groupName)
                 }
                 .disabled(groupName.isEmpty)

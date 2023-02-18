@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct PaperoadApp: App {
+    @StateObject var appState = AppState()
+    
     @Default(\.theme) var theme // global dark mode or light mode
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.appDatabase, .persistence)
+                .environmentObject(appState)
                 .preferredColorScheme(
                     theme == "Dark" ? .dark : (theme == "Light" ? .light : nil)
                 )

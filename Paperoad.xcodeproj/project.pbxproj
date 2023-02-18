@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F026CC129A142B90012F388 /* FileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F026CC029A142B90012F388 /* FileMenu.swift */; };
+		1F026CC429A15E8C0012F388 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F026CC329A15E8C0012F388 /* AppState.swift */; };
 		1F0CA056298DCAC5005F6F10 /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 1F0CA055298DCAC5005F6F10 /* LoremSwiftum */; };
 		1F0CA095298F6DAE005F6F10 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CA094298F6DAE005F6F10 /* StorageView.swift */; };
 		1F0CA09729902204005F6F10 /* PaperUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CA09629902204005F6F10 /* PaperUpdateView.swift */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		1F026CC029A142B90012F388 /* FileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMenu.swift; sourceTree = "<group>"; };
+		1F026CC329A15E8C0012F388 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1F0CA094298F6DAE005F6F10 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 		1F0CA09629902204005F6F10 /* PaperUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperUpdateView.swift; sourceTree = "<group>"; };
 		1F280455299C2CD1006E9AF2 /* GroupCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCount.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				1FF1D34D298B0C5F003B4F2B /* Data.swift */,
+				1F026CC329A15E8C0012F388 /* AppState.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				1FF1D353298C16E0003B4F2B /* Button.swift in Sources */,
 				1FAF9E642984773B000C7D33 /* PapersView.swift in Sources */,
 				1F4ED681299098D4005732DE /* AppDatabase.swift in Sources */,
+				1F026CC429A15E8C0012F388 /* AppState.swift in Sources */,
 				1FAF9DF82981B9E6000C7D33 /* ContentView.swift in Sources */,
 				1FAF9DF62981B9E6000C7D33 /* PaperoadApp.swift in Sources */,
 				1FF1D34E298B0C5F003B4F2B /* Data.swift in Sources */,

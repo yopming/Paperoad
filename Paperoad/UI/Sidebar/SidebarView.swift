@@ -34,12 +34,12 @@ struct SidebarView: View {
 
 
 // enum for sheets in Sidebar
-enum SidebarSheetView: Identifiable {
-    var id: Self { self }
-    case group, tag
-}
-
-enum SidebarGroupSheetView: Identifiable {
-    var id: Self { self }
-    case groupRename
-}
+//enum SidebarSheetView: Identifiable {
+//    var id: Self { self }
+//    case group, tag
+//}
+//
+//enum SidebarGroupSheetView: Identifiable {
+//    var id: Self { self }
+//    case groupRename
+//}
