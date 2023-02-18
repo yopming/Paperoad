@@ -34,11 +34,7 @@ struct PaperoadApp: App {
             CommandGroup(replacing: .newItem, addition: {})
             
             // open library directory where sqlite file is located
-            CommandMenu("Develop") {
-                Button("Open Application Support") {
-                    openApplicationSupportDir()
-                }
-            }
+            DevelopCommands()
         }
         
         Settings {
