@@ -43,7 +43,7 @@ struct SidebarUploadView: View {
                     if !(storageUrl.startAccessingSecurityScopedResource()) {
                         print("startAccessingSecurityScopedResource() error.")
                     }
-                    let newUrl = storageUrl.appendingPathExtension(fileName)
+                    let newUrl = URL(filePath: fileName, relativeTo: storageUrl)
                     try? FileManager.default.copyItem(at: url, to: newUrl)
                     print(newUrl)
                 }
