@@ -27,6 +27,7 @@ struct Paper: Codable, Identifiable, Equatable, Hashable {
     var volume: String?
     var pages: String?
     var url: String?
+    var attachment: String?
     var group: Int64?
     var deleted: Bool
     var createTime: Date
@@ -34,6 +35,7 @@ struct Paper: Codable, Identifiable, Equatable, Hashable {
 }
 
 extension Paper {
+    /// new paper with at leat "title", possibly "publication", "year", and "authors"
     static func new(title: String, pub: String?, year: String?, authors: String?) -> Paper {
         Paper(
             title: title,
@@ -44,9 +46,20 @@ extension Paper {
             createTime: Date(),
             updateTime: Date()
         )
-        
     }
     
+    /// add a paper by uploading a file, "title" would be the file's filename
+    static func newFile(title: String, attachment: String) -> Paper {
+        Paper(
+            title: title,
+            attachment: attachment,
+            deleted: false,
+            createTime: Date(),
+            updateTime: Date()
+        )
+    }
+    
+    /// add a paper with random data
     static func random() -> Paper {
         Paper(
             title: Lorem.title,
@@ -80,6 +93,7 @@ extension Paper: TableRecord {
         static let volume = Column(Paper.CodingKeys.volume)
         static let pages = Column(Paper.CodingKeys.pages)
         static let url = Column(Paper.CodingKeys.url)
+        static let attachment = Column(Paper.CodingKeys.attachment)
         static let group = Column(Paper.CodingKeys.group)
         static let deleted = Column(Paper.CodingKeys.deleted)
         static let createTime = Column(Paper.CodingKeys.createTime)

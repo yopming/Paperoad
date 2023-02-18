@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct SidebarUploadView: View {
+    @Environment(\.appDatabase) private var appDatabase
+    
+    @State private var errorAlertIsPresented = false
+    @State private var errorAlertMessage = ""
+    
     @Default(\.storageDir) var storageDir
     
-    @State var files = [URL]()
     @State var dragOver = false
     
     var body: some View {
@@ -33,23 +37,40 @@ struct SidebarUploadView: View {
                     }
                     
                     guard let url = url else { return }
-                    let fileName = "\(Int(Date().timeIntervalSince1970)).\(url.pathExtension)"
+                    let oldFileName = url.deletingPathExtension().lastPathComponent
                     
-                    guard let storageUrl = restoreFileAccess(with: storageDir) else {
-                        return
-                    }
+                    // store the uploaded file to storageDir
+                    let newFileName = "\(Int(Date().timeIntervalSince1970)).\(url.pathExtension)"
+                    
+                    guard let storageUrl = restoreFileAccess(with: storageDir) else { return }
                     defer { storageUrl.stopAccessingSecurityScopedResource() }
                     
                     if !(storageUrl.startAccessingSecurityScopedResource()) {
                         print("startAccessingSecurityScopedResource() error.")
                     }
-                    let newUrl = URL(filePath: fileName, relativeTo: storageUrl)
+                    let newUrl = URL(filePath: newFileName, relativeTo: storageUrl)
                     try? FileManager.default.copyItem(at: url, to: newUrl)
-                    print(newUrl)
+                    
+                    #if debug
+                    print(newUrl.absoluteString)
+                    #endif
+                    
+                    // save the paper to storageDir
+                    savePaper(title: oldFileName, url: newUrl.absoluteString)
                 }
             }
             
             return true
+        }
+    }
+    
+    private func savePaper(title: String, url: String) {
+        do {
+            var paper = Paper.newFile(title: title, attachment: url)
+            try appDatabase.savePaper(&paper)
+        } catch {
+            errorAlertIsPresented = true
+            errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Paper add error occured."
         }
     }
 }

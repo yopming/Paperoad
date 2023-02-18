@@ -58,6 +58,7 @@ struct AppDatabase {
                 t.column("volume", .text)
                 t.column("pages", .text)
                 t.column("url", .text)
+                t.column("attachment", .text)
                 t.column("deleted", .boolean).notNull()
                 t.column("createTime", .date).notNull()
                 t.column("updateTime", .date).notNull()

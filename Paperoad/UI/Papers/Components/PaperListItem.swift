@@ -33,6 +33,8 @@ struct PaperListItem: View {
                     .font(.footnote)
                     .lineLimit(1)
             }
+            
+            Text("\(paper.attachment ?? "")")
         }
     }
     
