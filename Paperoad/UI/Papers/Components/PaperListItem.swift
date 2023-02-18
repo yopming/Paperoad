@@ -12,6 +12,7 @@ struct PaperListItem: View {
     @Environment(\.appDatabase) private var appDatabase
     @Query(GroupRequest(), in: \.appDatabase) private var groups: [Group]
     
+    
     let paper: Paper
     let category: String
     
@@ -36,6 +37,14 @@ struct PaperListItem: View {
             
             Text("\(paper.attachment ?? "")")
         }
+//            guard let filePath = paper.attachment else { return }
+//            Task {
+//                do {
+//                    try await openDocument(at: URL(filePath: filePath))
+//                } catch {
+//                    print("error while trying to open the pdf file.")
+//                }
+//            }
     }
     
     @ViewBuilder

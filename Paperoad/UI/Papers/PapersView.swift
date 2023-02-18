@@ -10,7 +10,9 @@ import GRDBQuery
 
 struct PapersView: View {
     @Environment(\.appDatabase) private var appDatabase
-
+    
+    @Environment(\.openDocument) private var openDocument
+    
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
     
@@ -56,6 +58,9 @@ struct PapersView: View {
                     Button("Console.log") { consoleLog() }
                     #endif
                 }
+                .contentShape(Rectangle())
+                .background(Color.gray)
+                .gesture(tapGesture)
         }
         
         .sheet (
