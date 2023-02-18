@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Open library directory where Application Support folder is
 struct DevelopCommands: Commands {
     var body: some Commands {
         CommandMenu("Develop") {

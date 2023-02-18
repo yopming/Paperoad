@@ -10,12 +10,6 @@ import SwiftUI
 @main
 struct PaperoadApp: App {
     @Default(\.theme) var theme // global dark mode or light mode
-//    @Default(\.storageDir) var storageDir
-    
-//    init() {
-//        let storageUrl = getStoredUrl()
-//        _ = storageUrl?.startAccessingSecurityScopedResource()
-//    }
     
     var body: some Scene {
         WindowGroup {
@@ -30,10 +24,7 @@ struct PaperoadApp: App {
         .commands {
             SidebarCommands()
             
-            // remove "New Window" option from menu File
-            CommandGroup(replacing: .newItem, addition: {})
-            
-            // open library directory where sqlite file is located
+            FileCommands()
             DevelopCommands()
         }
         
