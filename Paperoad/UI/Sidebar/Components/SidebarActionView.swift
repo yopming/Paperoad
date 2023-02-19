@@ -57,9 +57,7 @@ struct SidebarActionView: View {
     private var settingButton: some View {
         Button (
             action: {
-                NSApp.sendAction(
-                    Selector(("showSettingsWindow:")), to: nil, from: nil
-                )
+                NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
             },
             label: {
                 Image(systemName: "gear")

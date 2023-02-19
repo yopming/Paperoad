@@ -9,13 +9,15 @@ import SwiftUI
 
 /// Remove "New Window" option from menu file
 struct FileCommands: Commands {
+    @Binding var showGroupAddSheet: Bool
+    
     var body: some Commands {
         CommandGroup(replacing: .newItem, addition: {})
         
         CommandGroup(after: .newItem, addition: {
             Button("New Group") {
                 // TODO: open new group button
-                SidebarActionView().openNewGroupFormView()
+                showGroupAddSheet = true
             }
             .keyboardShortcut(
                 KeyEquivalent("n"),

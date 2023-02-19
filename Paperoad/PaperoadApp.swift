@@ -27,8 +27,14 @@ struct PaperoadApp: App {
         .commands {
             SidebarCommands()
             
-            FileCommands()
+            FileCommands(showGroupAddSheet: $appState.showGroupAddSheet)
             DevelopCommands()
+            
+//            CommandMenu("Test") {
+//                Button("new group") {
+//                    appState.showGroupAddSheet = true
+//                }
+//            }
         }
         
         Settings {
