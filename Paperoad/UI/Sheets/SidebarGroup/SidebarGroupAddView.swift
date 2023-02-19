@@ -16,9 +16,6 @@ struct SidebarGroupAddView: View {
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
     
-    // keep track of if the sheet should be shown
-//    @Binding var showSheet: SidebarSheetView?
-    
     @State private var groupName = ""
     
     var body: some View {

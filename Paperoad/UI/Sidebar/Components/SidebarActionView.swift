@@ -66,15 +66,4 @@ struct SidebarActionView: View {
         .buttonStyle(.borderless)
         .frame(maxWidth: 30)
     }
-//
-//    @ViewBuilder
-//    func content(for mode: SidebarSheetView) -> some View {
-//        switch mode {
-//        case .group:
-//            SidebarGroupAddView()
-//        case .tag:
-//            // TODO change
-//            SidebarGroupAddView()
-//        }
-//    }
 }

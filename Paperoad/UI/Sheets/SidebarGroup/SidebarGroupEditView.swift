@@ -10,6 +10,8 @@ import SwiftUI
 struct SidebarGroupEditView: View {
     @Environment(\.appDatabase) private var appDatabase
     @Environment(\.dismiss) private var dismiss
+    
+    @EnvironmentObject var appState: AppState
 
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
@@ -43,11 +45,12 @@ struct SidebarGroupEditView: View {
 
             HStack {
                 Button("Close", role: .cancel) {
+                    appState.showGroupEditSheet = false
                     dismiss()
                 }
                 Button("Update") {
+                    appState.showGroupEditSheet = false
                     update(name: groupNameBinding.wrappedValue)
-                    dismiss()
                 }
                 .disabled(groupName.isEmpty)
                 .buttonStyle(.borderedProminent)
