@@ -11,13 +11,13 @@ struct PaperAddView: View {
     @Environment(\.appDatabase) private var appDatabase
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject var appState: AppState
+    
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
     
     // fetch paper id types
     let paperIdTypes: [String] = PaperIdTypes.allCases.map { $0.rawValue }
-    
-    @Binding var presented: Bool
     
     @State private var selectedGroup = 0
     
@@ -42,20 +42,28 @@ struct PaperAddView: View {
                 TextField("Publication", text: $publication)
                 TextField("Publication Year", text: $year)
             }
+            .onSubmit {
+                appState.showGroupAddSheet = false
+                save(title: title, pub: publication, year: year, authors: authors)
+            }
+            
             Text("New paper will be shown in group 'Unfiled', more details can be updated later.")
             
             Divider()
             HStack {
                 Button("Random") {
-                    presented = false
+                    appState.showPaperAddSheet = false
                     random()
+                    dismiss()
                 }
                 Button("Close", role: .cancel) {
-                    presented = false
+                    appState.showPaperAddSheet = false
+                    dismiss()
                 }
                 Button("Create") {
-                    presented = false
+                    appState.showPaperAddSheet = false
                     save(title: title, pub: publication, year: year, authors: authors)
+                    dismiss()
                 }
                 .disabled(title.isEmpty)
                 .buttonStyle(.borderedProminent)

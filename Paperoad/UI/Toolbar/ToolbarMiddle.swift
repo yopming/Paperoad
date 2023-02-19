@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ToolbarMiddle: ToolbarContent {
-    @State private var isPaperAddViewPresented: Bool = false
-    @State private var isPaperAddByIdViewPresented: Bool = false
+    @EnvironmentObject var appState: AppState
     
     var body: some ToolbarContent {
         ToolbarItem(placement: .primaryAction) {
@@ -18,9 +17,9 @@ struct ToolbarMiddle: ToolbarContent {
                     .labelStyle(.titleAndIcon)
             })
             .sheet(
-                isPresented: $isPaperAddViewPresented,
+                isPresented: $appState.showPaperAddSheet,
                 content: {
-                    PaperAddView(presented: $isPaperAddViewPresented)
+                    PaperAddView()
                 }
             )
         }
@@ -31,9 +30,9 @@ struct ToolbarMiddle: ToolbarContent {
                     .labelStyle(.titleAndIcon)
             })
             .sheet(
-                isPresented: $isPaperAddByIdViewPresented,
+                isPresented: $appState.showPaperAddByIdentifierSheet,
                 content: {
-                    PaperAddByIdView(presented: $isPaperAddByIdViewPresented)
+                    PaperAddByIdView()
                 }
             )
         }
@@ -42,12 +41,12 @@ struct ToolbarMiddle: ToolbarContent {
 
 extension ToolbarMiddle {
     func openPaperAddView() {
-        isPaperAddViewPresented = true
+        appState.showPaperAddSheet = true
     }
 }
 
 extension ToolbarMiddle {
     func openPaperAddByIdView() {
-        isPaperAddByIdViewPresented = true
+        appState.showPaperAddByIdentifierSheet = true
     }
 }

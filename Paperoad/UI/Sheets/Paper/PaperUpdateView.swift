@@ -12,6 +12,8 @@ struct PaperUpdateView: View {
     @Environment(\.appDatabase) private var appDatabase
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject var appState: AppState
+    
     @Query(GroupRequest(), in: \.appDatabase) private var groups: [Group]
     
     @State private var errorAlertIsPresented = false
@@ -101,14 +103,21 @@ struct PaperUpdateView: View {
                         )
                 }
             }
+            .onSubmit {
+                appState.showPaperEditSheet = false
+                dismiss()
+                update()
+            }
             
             Divider()
             HStack {
                 Button("Close", role: .cancel) {
+                    appState.showPaperEditSheet = false
                     dismiss()
                 }
                 
                 Button("Update") {
+                    appState.showPaperEditSheet = false
                     dismiss()
                     update()
                 }

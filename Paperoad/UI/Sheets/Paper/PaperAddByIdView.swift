@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PaperAddByIdView: View {
-    @Binding var presented: Bool
+    @EnvironmentObject var appState: AppState
     
     // publication id types
     let idTypes: [String] = PaperIdTypes.allCases.map { $0.rawValue }
@@ -42,11 +42,17 @@ struct PaperAddByIdView: View {
             Divider()
             
             HStack {
-                Button("Close", role: .cancel) { presented = false }
-                Button("Create") { presented = false }
-                    .disabled(identifier.isEmpty)
-                    .buttonStyle(.borderedProminent)
-                    .tint(identifier.isEmpty ? .gray : .accentColor)
+                Button("Close", role: .cancel) {
+                    appState.showPaperAddByIdentifierSheet = false
+                }
+                
+                Button("Create") {
+                    // TODO: add by identifier
+                    appState.showPaperAddByIdentifierSheet = false
+                }
+                .disabled(identifier.isEmpty)
+                .buttonStyle(.borderedProminent)
+                .tint(identifier.isEmpty ? .gray : .accentColor)
             }
             .frame(maxWidth: .infinity, alignment: .bottomTrailing)
         }

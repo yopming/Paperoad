@@ -44,6 +44,7 @@ struct SidebarGroupAddView: View {
                 }
                 Button("Create") {
                     appState.showGroupAddSheet = false
+                    dismiss()
                     save(name: groupName)
                 }
                 .disabled(groupName.isEmpty)

@@ -10,13 +10,14 @@ import SwiftUI
 /// Remove "New Window" option from menu file
 struct FileCommands: Commands {
     @Binding var showGroupAddSheet: Bool
+    @Binding var showPaperAddSheet: Bool
+    @Binding var showPaperAddByIdentifierSheet: Bool
     
     var body: some Commands {
         CommandGroup(replacing: .newItem, addition: {})
         
         CommandGroup(after: .newItem, addition: {
             Button("New Group") {
-                // TODO: open new group button
                 showGroupAddSheet = true
             }
             .keyboardShortcut(
@@ -27,14 +28,15 @@ struct FileCommands: Commands {
             Divider()
             
             Button("New Paper") {
-                ToolbarMiddle().openPaperAddView()
+                showPaperAddSheet = true
             }
             .keyboardShortcut(
                 KeyEquivalent("n"),
                 modifiers: [.command]
             )
+            
             Button("New Paper by Identifier") {
-                ToolbarMiddle().openPaperAddByIdView()
+                showPaperAddByIdentifierSheet = true
             }
             .keyboardShortcut(
                 KeyEquivalent("n"),

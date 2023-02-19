@@ -30,14 +30,9 @@ struct SidebarActionView: View {
     // MARK: - Add Button
     private var addNewButton: some View {
         Menu {
-            Button(
-                action: {
-                    appState.showGroupAddSheet = true
-                },
-                label: {
-                    Label("New Group", systemImage: "plus")
-                }
-            )
+            Button(action: openGroupAddView, label: {
+                Label("New Group", systemImage: "plus")
+            })
         } label: {
             Image(systemName: "plus")
         }
@@ -65,5 +60,11 @@ struct SidebarActionView: View {
         )
         .buttonStyle(.borderless)
         .frame(maxWidth: 30)
+    }
+}
+
+extension SidebarActionView {
+    func openGroupAddView() {
+        appState.showGroupAddSheet = true
     }
 }

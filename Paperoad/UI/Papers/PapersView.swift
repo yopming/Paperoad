@@ -58,9 +58,9 @@ struct PapersView: View {
                     Button("Console.log") { consoleLog() }
                     #endif
                 }
-                .contentShape(Rectangle())
-                .background(Color.gray)
-                .gesture(tapGesture)
+//                .contentShape(Rectangle())
+//                .background(Color.gray)
+//                .gesture(tapGesture)
         }
         
         .sheet (
