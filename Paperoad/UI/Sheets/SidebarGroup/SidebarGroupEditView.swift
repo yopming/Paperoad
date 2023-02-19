@@ -33,6 +33,10 @@ struct SidebarGroupEditView: View {
 
             Form {
                 TextField("Name:", text: groupNameBinding)
+                    .onSubmit {
+                        update(name: groupNameBinding.wrappedValue)
+                        dismiss()
+                    }
             }
 
             Divider()
