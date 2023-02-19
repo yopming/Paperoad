@@ -39,7 +39,6 @@ struct PaperUpdateView: View {
         let volumeBinding = Binding(get: {self.paper.volume ?? ""}, set: {self.paper.volume = $0})
         let pagesBinding = Binding(get: {self.paper.pages ?? ""}, set: {self.paper.pages = $0})
         let urlBinding = Binding(get: {self.paper.url ?? ""}, set: {self.paper.url = $0})
-        
         let typeBinding = Binding(get: {Int(self.paper.type ?? 0)}, set: {self.paper.type = Int16($0)})
         
         VStack(spacing: 20) {
@@ -110,6 +109,7 @@ struct PaperUpdateView: View {
             }
             
             Divider()
+            
             HStack {
                 Button("Close", role: .cancel) {
                     appState.showPaperEditSheet = false
