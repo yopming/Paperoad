@@ -51,11 +51,11 @@ struct PapersView: View {
             if let selectedPaper = selectedPaper {
                 PaperTableItemDetail(paper: selectedPaper)
                     .padding()
-                    .frame(width: 250)
+                    .frame(width: 350)
             } else {
                 Text("Select one paper for more details.")
                     .padding()
-                    .frame(width: 250)
+                    .frame(width: 350)
             }
         }
         
