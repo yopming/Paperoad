@@ -33,6 +33,7 @@
 		1F2DA29A2988AE1E00837D0B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA2992988AE1E00837D0B /* TextField.swift */; };
 		1F2DA3192988C46800837D0B /* AppDatabase+Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA3182988C46800837D0B /* AppDatabase+Persistence.swift */; };
 		1F2DA31C2988C4FC00837D0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DA31B2988C4FC00837D0B /* Group.swift */; };
+		1F4357EB29A2FE53006C830B /* PaperTableItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4357EA29A2FE53006C830B /* PaperTableItemDetail.swift */; };
 		1F4ED681299098D4005732DE /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ED680299098D4005732DE /* AppDatabase.swift */; };
 		1F66E2B829914189000135C8 /* DevelopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66E2B729914189000135C8 /* DevelopMenu.swift */; };
 		1F7C345A2997355D004A18A4 /* ContextMenuAddGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C34592997355D004A18A4 /* ContextMenuAddGroup.swift */; };
@@ -105,6 +106,7 @@
 		1F2DA2992988AE1E00837D0B /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		1F2DA3182988C46800837D0B /* AppDatabase+Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDatabase+Persistence.swift"; sourceTree = "<group>"; };
 		1F2DA31B2988C4FC00837D0B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		1F4357EA29A2FE53006C830B /* PaperTableItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperTableItemDetail.swift; sourceTree = "<group>"; };
 		1F4ED680299098D4005732DE /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		1F66E2B729914189000135C8 /* DevelopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopMenu.swift; sourceTree = "<group>"; };
 		1F7C34592997355D004A18A4 /* ContextMenuAddGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuAddGroup.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				1FF1D35A298C4454003B4F2B /* PaperListItem.swift */,
+				1F4357EA29A2FE53006C830B /* PaperTableItemDetail.swift */,
 				1F7C34592997355D004A18A4 /* ContextMenuAddGroup.swift */,
 			);
 			path = Components;
@@ -647,6 +650,7 @@
 				1F28103E2985B8BB00A6D4CD /* SidebarGroupAddView.swift in Sources */,
 				1F2DA3192988C46800837D0B /* AppDatabase+Persistence.swift in Sources */,
 				1F0CA09729902204005F6F10 /* PaperUpdateView.swift in Sources */,
+				1F4357EB29A2FE53006C830B /* PaperTableItemDetail.swift in Sources */,
 				1F0CA095298F6DAE005F6F10 /* StorageView.swift in Sources */,
 				1FD328EB29A080C600EA6FFC /* Gesture.swift in Sources */,
 				1F85ECA9299DB822006B4644 /* FileAccess.swift in Sources */,

@@ -20,8 +20,12 @@ struct PapersView: View {
     
 //    @State private var selectedPaperToUpdate: Paper?
 //    @State private var selectedPapers = Set<Paper>()
-    @State private var selectedPapers = Set<Paper.ID>()
-    @State private var sortOrderByTitle = [KeyPathComparator(\Paper.title)]
+    @State private var selectedPaperIds = Set<Paper.ID>()
+    
+    @State private var sortByTitle = [KeyPathComparator(\Paper.title)]
+    @State private var sortByYear = [KeyPathComparator(\Paper.year)]
+    
+    // for single selection:
     
     var papers: [Paper]
     // special string to indicate current destination
@@ -30,14 +34,29 @@ struct PapersView: View {
     var body: some View {
         // TODO alternative representation style with table instead of list
         
-        Table(papers, selection: $selectedPapers, sortOrder: $sortOrderByTitle) {
-            TableColumn("Title", value: \.title)
-            TableColumn("Authors") { paper in Text(paper.authors ?? "" ) }
-                .width(min: 100, ideal: 50)
-            TableColumn("Year") { paper in Text(paper.year ?? "") }
-                .width(35)
-            TableColumn("Publication") { paper in Text(paper.publication ?? "") }
-                .width(min: 150, ideal: 100)
+        HStack {
+            Table(sortedPapers, selection: $selectedPaperIds, sortOrder: $sortByTitle) {
+                TableColumn("Title", value: \.title)
+                    .width(min: 300)
+                TableColumn("Authors") { paper in Text(paper.authors ?? "" ) }
+                    .width(min: 100, ideal: 50)
+                TableColumn("Year") { paper in Text(paper.year ?? "") }
+                    .width(35)
+                TableColumn("Publication") { paper in Text(paper.publication ?? "") }
+                    .width(min: 150, ideal: 100)
+            }
+            
+            // if seletedPaperIds.count == 1 will make PaperTableItemDetail
+            // shows only when one paper is selected
+            if let selectedPaper = selectedPaper {
+                PaperTableItemDetail(paper: selectedPaper)
+                    .frame(width: 250)
+            } else {
+                Text("Select one paper for more details.")
+                    .font(.title)
+                    .padding()
+                    .frame(width: 250)
+            }
         }
         
 //        List(self.papers, id: \.self, selection: $selectedPapers) { paper in
@@ -79,8 +98,20 @@ struct PapersView: View {
 //            }
 //        )
         
-        Text("\(selectedPapers.count) papers selected.")
+        Text("\(selectedPaperIds.count) papers selected.")
             .padding()
+    }
+    
+    var sortedPapers: [Paper] {
+        return papers.sorted(using: sortByTitle)
+    }
+    
+    var selectedPaper: Paper? {
+        guard let selectedPaperId = selectedPaperIds.first else { return nil }
+        let selectedPaper = papers.first {
+            $0.id == selectedPaperId
+        }
+        return selectedPaper
     }
      
 //    private func trash() {
@@ -96,10 +127,10 @@ struct PapersView: View {
 //            }
 //        }
 //    }
-    
-    private func consoleLog() {
-        print(selectedPapers.first ?? "No paper selected")
-    }
+//
+//    private func consoleLog() {
+//        print(selectedPapers.first ?? "No paper selected")
+//    }
     
 }
 
