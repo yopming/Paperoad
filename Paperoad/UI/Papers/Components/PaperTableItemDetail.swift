@@ -13,8 +13,11 @@ struct PaperTableItemDetail: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 20) {
-                Text(paper.title)
-                    .font(.title)
+                Section {
+                    Text(paper.title)
+                } header: {
+                    Text("Title")
+                }
                 Text(paper.publication ?? "")
                 Text(paper.year ?? "")
                 Text(paper.authors ?? "")

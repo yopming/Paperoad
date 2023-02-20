@@ -50,10 +50,10 @@ struct PapersView: View {
             // shows only when one paper is selected
             if let selectedPaper = selectedPaper {
                 PaperTableItemDetail(paper: selectedPaper)
+                    .padding()
                     .frame(width: 250)
             } else {
                 Text("Select one paper for more details.")
-                    .font(.title)
                     .padding()
                     .frame(width: 250)
             }
