@@ -44,6 +44,8 @@ struct PaperTableItemDetail: View {
                         item(title: "Update Time", content: paper.updateTime.description)
                     }
                 }
+                .padding([.horizontal], 10)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .tabItem { Text("Info") }
             

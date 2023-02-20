@@ -20,10 +20,12 @@ struct PapersView: View {
     
 //    @State private var selectedPaperToUpdate: Paper?
 //    @State private var selectedPapers = Set<Paper>()
+//    @State private var selectedPaperIdToUpdate: Int64?
     @State private var selectedPaperIds = Set<Paper.ID>()
     
-    @State private var sortByTitle = [KeyPathComparator(\Paper.title)]
-    @State private var sortByYear = [KeyPathComparator(\Paper.year)]
+    @State var sortOrder: [KeyPathComparator<Paper>] = [
+        .init(\.title, order: SortOrder.forward)
+    ]
     
     // for single selection:
     
@@ -35,15 +37,45 @@ struct PapersView: View {
         // TODO alternative representation style with table instead of list
         
         HStack {
-            Table(sortedPapers, selection: $selectedPaperIds, sortOrder: $sortByTitle) {
+            Table(selection: $selectedPaperIds, sortOrder: $sortOrder) {
                 TableColumn("Title", value: \.title)
                     .width(min: 300)
-                TableColumn("Authors") { paper in Text(paper.authors ?? "" ) }
-                    .width(min: 100, ideal: 50)
-                TableColumn("Year") { paper in Text(paper.year ?? "") }
-                    .width(35)
-                TableColumn("Publication") { paper in Text(paper.publication ?? "") }
-                    .width(min: 150, ideal: 100)
+                
+                TableColumn("Authors") { paper in
+                    Text(paper.authors ?? "" )
+                }
+                .width(min: 100, ideal: 50)
+                
+                TableColumn("Year") { paper in
+                    Text(paper.year ?? "")
+                }
+                .width(35)
+                
+                TableColumn("Publication") { paper in
+                    Text(paper.publication ?? "")
+                }
+                .width(min: 150, ideal: 100)
+            } rows: {
+                ForEach(sortedPapers) { paper in
+                    TableRow(paper)
+                        .contextMenu {
+                            PapersContextMenuAddGroup(paper: paper)
+
+//                            if selectedPaperIds.count == 1 {
+//                                Button("Update Paper") {
+//                                    selectedPaperIdToUpdate = selectedPaperIds.first
+//                                }
+//                            }
+//
+                            Button("Delete") { trash() }
+                            
+                            // TODO: put back and delete permanantely in Trash
+                            // For debug, print data of one paper in the list
+                            #if DEBUG
+                            Button("Console.log") { consoleLog() }
+                            #endif
+                        }
+                }
             }
             
             // if seletedPaperIds.count == 1 will make PaperTableItemDetail
@@ -59,34 +91,6 @@ struct PapersView: View {
             }
         }
         
-//        List(self.papers, id: \.self, selection: $selectedPapers) { paper in
-//            PaperListItem(paper: paper, category: category)
-//                .listRowSeparator(.visible)
-//                .listRowSeparatorTint(.gray.opacity(0.25))
-//                .padding([.vertical], 3)
-//                .contextMenu {
-//                    PapersContextMenuAddGroup(paper: paper)
-//
-//                    if selectedPapers.count == 1 {
-//                        Button("Update Paper") {
-//                            selectedPaperToUpdate = selectedPapers.first
-//                        }
-//
-//
-//                    Button("Delete") { trash() }
-//
-//                    // TODO: put back and delete permanantely in Trash
-//
-//                    // For debug, print data of one paper in the list
-//                    #if DEBUG
-//                    Button("Console.log") { consoleLog() }
-//                    #endif
-//                }
-////                .contentShape(Rectangle())
-////                .background(Color.gray)
-////                .gesture(tapGesture)
-//        }
-//
 //        .sheet (
 //            item: $selectedPaperToUpdate,
 //            onDismiss: {
@@ -102,10 +106,12 @@ struct PapersView: View {
             .padding()
     }
     
+    // papers after sorting to be renderred in table
     var sortedPapers: [Paper] {
-        return papers.sorted(using: sortByTitle)
+        return papers.sorted(using: sortOrder)
     }
     
+    // get selected one when multiple selections occur
     var selectedPaper: Paper? {
         guard let selectedPaperId = selectedPaperIds.first else { return nil }
         let selectedPaper = papers.first {
@@ -114,24 +120,27 @@ struct PapersView: View {
         return selectedPaper
     }
      
-//    private func trash() {
-//        while !selectedPapers.isEmpty {
-//            guard var currentPaper = selectedPapers.popFirst() else { return }
-//            currentPaper.deleted = true
-//            currentPaper.updateTime = Date()
-//            do {
-//                try appDatabase.savePaper(&currentPaper)
-//            } catch {
-//                errorAlertIsPresented = true
-//                errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Trash Paper error occurred"
-//            }
-//        }
-//    }
-//
-//    private func consoleLog() {
-//        print(selectedPapers.first ?? "No paper selected")
-//    }
-    
+    private func trash() {
+        while !selectedPaperIds.isEmpty {
+            // get first paper in selected papers
+            guard let paperId = selectedPaperIds.popFirst() else { return }
+            guard var paper = papers.first(where: { $0.id == paperId }) else { return }
+            
+            // update the paper's 'deleted' and 'updateTime'
+            paper.deleted = true
+            paper.updateTime = Date()
+            do {
+                try appDatabase.savePaper(&paper)
+            } catch {
+                errorAlertIsPresented = true
+                errorAlertMessage = (error as? LocalizedError)?.errorDescription ?? "Trash Paper error occurred"
+            }
+        }
+    }
+
+    private func consoleLog() {
+        print(selectedPaper ?? "No paper selected")
+    }
 }
 
 struct MyPreviewProvider_Previews: PreviewProvider {
