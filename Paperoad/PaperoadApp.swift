@@ -23,7 +23,7 @@ struct PaperoadApp: App {
                 )
         }
         .windowStyle(.automatic)
-        .windowToolbarStyle(.unifiedCompact(showsTitle: false))
+        .windowToolbarStyle(.unified(showsTitle: false))
         .commands {
             SidebarCommands()
             

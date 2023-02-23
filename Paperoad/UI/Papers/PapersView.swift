@@ -36,58 +36,63 @@ struct PapersView: View {
     var body: some View {
         // TODO alternative representation style with table instead of list
         
-        HStack {
-            Table(selection: $selectedPaperIds, sortOrder: $sortOrder) {
-                TableColumn("Title", value: \.title)
-                    .width(min: 300)
-                
-                TableColumn("Authors") { paper in
-                    Text(paper.authors ?? "" )
-                }
-                .width(min: 100, ideal: 50)
-                
-                TableColumn("Year") { paper in
-                    Text(paper.year ?? "")
-                }
-                .width(35)
-                
-                TableColumn("Publication") { paper in
-                    Text(paper.publication ?? "")
-                }
-                .width(min: 150, ideal: 100)
-            } rows: {
-                ForEach(sortedPapers) { paper in
-                    TableRow(paper)
-                        .contextMenu {
-                            PapersContextMenuAddGroup(paper: paper)
-
-//                            if selectedPaperIds.count == 1 {
-//                                Button("Update Paper") {
-//                                    selectedPaperIdToUpdate = selectedPaperIds.first
+        HStack(spacing: 0) {
+//            ScrollView(.horizontal) {
+                Table(selection: $selectedPaperIds, sortOrder: $sortOrder) {
+                    TableColumn("Title", value: \.title)
+                        .width(min: 300)
+                    
+                    TableColumn("Authors") { paper in
+                        Text(paper.authors ?? "" )
+                    }
+                    .width(min: 100, ideal: 50)
+                    
+                    TableColumn("Year") { paper in
+                        Text(paper.year ?? "")
+                    }
+                    .width(35)
+                    
+                    TableColumn("Publication") { paper in
+                        Text(paper.publication ?? "")
+                    }
+                    .width(min: 150, ideal: 100)
+                } rows: {
+                    ForEach(sortedPapers) { paper in
+                        TableRow(paper)
+                            .contextMenu {
+                                PapersContextMenuAddGroup(paper: paper)
+                                
+//                                if selectedPaperIds.count == 1 {
+//                                    Button("Update Paper") {
+//                                        selectedPaperIdToUpdate = selectedPaperIds.first
+//                                    }
 //                                }
-//                            }
-//
-                            Button("Delete") { trash() }
-                            
-                            // TODO: put back and delete permanantely in Trash
-                            // For debug, print data of one paper in the list
-                            #if DEBUG
-                            Button("Console.log") { consoleLog() }
-                            #endif
-                        }
+                                
+                                Button("Delete") { trash() }
+                                
+                                // TODO: put back and delete permanantely in Trash
+                                
+                                // For debug, print data of one paper in the list
+                                Button("Console.log") { consoleLog() }
+                            }
+                    }
                 }
-            }
+//            }
             
             // if seletedPaperIds.count == 1 will make PaperTableItemDetail
             // shows only when one paper is selected
+            Divider()
+                .overlay(.black)
+            
             if let selectedPaper = selectedPaper {
                 PaperTableItemDetail(paper: selectedPaper)
-                    .padding()
-                    .frame(width: 350)
+                    .padding([.vertical], 10)
+                    .padding([.horizontal], 10)
+                    .frame(width: 300)
             } else {
                 Text("Select one paper for more details.")
                     .padding()
-                    .frame(width: 350)
+                    .frame(width: 300)
             }
         }
         
