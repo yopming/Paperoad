@@ -12,15 +12,15 @@ struct PapersView: View {
     @Environment(\.appDatabase) private var appDatabase
     @Environment(\.openDocument) private var openDocument
     
+    @EnvironmentObject var appState: AppState
+    
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
     
     // which sheet to show in PapersView
     @State private var showSheet:PapersSheetView? = nil
     
-//    @State private var selectedPaperToUpdate: Paper?
-//    @State private var selectedPapers = Set<Paper>()
-//    @State private var selectedPaperIdToUpdate: Int64?
+    @State private var selectedPaperToUpdate: Paper?
     @State private var selectedPaperIds = Set<Paper.ID>()
     
     @State var sortOrder: [KeyPathComparator<Paper>] = [
@@ -62,11 +62,11 @@ struct PapersView: View {
                             .contextMenu {
                                 PapersContextMenuAddGroup(paper: paper)
                                 
-//                                if selectedPaperIds.count == 1 {
-//                                    Button("Update Paper") {
-//                                        selectedPaperIdToUpdate = selectedPaperIds.first
-//                                    }
-//                                }
+                                if selectedPaperIds.count == 1 {
+                                    Button("Update Paper") {
+                                        selectedPaperToUpdate = selectedPaper
+                                    }
+                                }
                                 
                                 Button("Delete") { trash() }
                                 
@@ -96,16 +96,16 @@ struct PapersView: View {
             }
         }
         
-//        .sheet (
-//            item: $selectedPaperToUpdate,
-//            onDismiss: {
-//                // when update done, clear "selectedPapers"
-//                selectedPapers.removeAll()
-//            },
-//            content: { paper in
-//                PaperUpdateView(paper: paper)
-//            }
-//        )
+        .sheet (
+            item: $selectedPaperToUpdate,
+            onDismiss: {
+                // when update done, clear "selectedPaperIds"
+                selectedPaperIds.removeAll()
+            },
+            content: { paper in
+                PaperUpdateView(paper: paper)
+            }
+        )
         
         Text("\(selectedPaperIds.count) papers selected.")
             .padding()
