@@ -18,7 +18,7 @@ struct SidebarActionView: View {
             Spacer()
             settingButton
         }
-        .frame(height: 28, alignment: .leading)
+        .frame(height: 29, alignment: .leading)
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 4)
         .overlay(alignment: .top) {

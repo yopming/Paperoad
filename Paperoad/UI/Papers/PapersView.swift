@@ -109,8 +109,13 @@ struct PapersView: View {
             
             Divider()
             
-            Text("\(selectedPaperIds.count) papers selected.")
-                .padding()
+            if selectedPaperIds.count < 2 {
+                Text("\(selectedPaperIds.count) paper selected")
+                    .padding(6)
+            } else {
+                Text("\(selectedPaperIds.count) papers selected")
+                    .padding(6)
+            }
         }
     }
     
