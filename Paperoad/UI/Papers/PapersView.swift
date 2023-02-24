@@ -36,8 +36,9 @@ struct PapersView: View {
     var body: some View {
         // TODO alternative representation style with table instead of list
         
-        HStack(spacing: 0) {
-//            ScrollView(.horizontal) {
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                //            ScrollView(.horizontal) {
                 Table(selection: $selectedPaperIds, sortOrder: $sortOrder) {
                     TableColumn("Title", value: \.title)
                         .width(min: 300)
@@ -77,38 +78,40 @@ struct PapersView: View {
                             }
                     }
                 }
-//            }
+                //            }
+                
+                // if seletedPaperIds.count == 1 will make PaperTableItemDetail
+                // shows only when one paper is selected
+                Divider()
+                
+                if let selectedPaper = selectedPaper {
+                    PaperTableItemDetail(paper: selectedPaper)
+                        .padding([.vertical], 10)
+                        .padding([.horizontal], 10)
+                        .frame(width: 300)
+                } else {
+                    Text("Select one paper for more details.")
+                        .padding()
+                        .frame(width: 300)
+                }
+            }
             
-            // if seletedPaperIds.count == 1 will make PaperTableItemDetail
-            // shows only when one paper is selected
+            .sheet (
+                item: $selectedPaperToUpdate,
+                onDismiss: {
+                    // when update done, clear "selectedPaperIds"
+                    selectedPaperIds.removeAll()
+                },
+                content: { paper in
+                    PaperUpdateView(paper: paper)
+                }
+            )
+            
             Divider()
-                .overlay(.black)
             
-            if let selectedPaper = selectedPaper {
-                PaperTableItemDetail(paper: selectedPaper)
-                    .padding([.vertical], 10)
-                    .padding([.horizontal], 10)
-                    .frame(width: 300)
-            } else {
-                Text("Select one paper for more details.")
-                    .padding()
-                    .frame(width: 300)
-            }
+            Text("\(selectedPaperIds.count) papers selected.")
+                .padding()
         }
-        
-        .sheet (
-            item: $selectedPaperToUpdate,
-            onDismiss: {
-                // when update done, clear "selectedPaperIds"
-                selectedPaperIds.removeAll()
-            },
-            content: { paper in
-                PaperUpdateView(paper: paper)
-            }
-        )
-        
-        Text("\(selectedPaperIds.count) papers selected.")
-            .padding()
     }
     
     // papers after sorting to be renderred in table

@@ -14,10 +14,12 @@ struct PaperTableItemDetail: View {
         TabView {
             // Tab
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 15) {
                     SwiftUI.Group {
+                        Text(paper.title)
+                            .padding([.top], 15)
+                            .font(.headline)
                         item(title: "Type", content: String(paper.type ?? Int16()))
-                        item(title: "Title", content: paper.title)
                         item(title: "Abstract", content: paper.abstract)
                         item(title: "Publication", content: paper.publication)
                         item(title: "Year", content: paper.year)
@@ -36,7 +38,6 @@ struct PaperTableItemDetail: View {
                         item(title: "DOI", content: paper.doi)
                         item(title: "ISBN", content: paper.isbn)
                         item(title: "arXiv", content: paper.arxiv)
-                        item(title: "Group", content: String(paper.group ?? 0))
                     }
                     
                     SwiftUI.Group {
