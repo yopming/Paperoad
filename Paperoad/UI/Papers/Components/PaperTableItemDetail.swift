@@ -14,10 +14,11 @@ struct PaperTableItemDetail: View {
         TabView {
             // Tab
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 15) {
+                VStack(alignment: .leading, spacing: 0) {
                     SwiftUI.Group {
                         Text(paper.title)
                             .padding([.top], 15)
+                            .padding([.bottom], 25)
                             .font(.headline)
                         item(title: "Type", content: String(paper.type ?? Int16()))
                         item(title: "Abstract", content: paper.abstract)
@@ -41,8 +42,8 @@ struct PaperTableItemDetail: View {
                     }
                     
                     SwiftUI.Group {
-                        item(title: "Create Time", content: paper.createTime.description)
-                        item(title: "Update Time", content: paper.updateTime.description)
+                        item(title: "Create Time", content: paper.createTime.formatted())
+                        item(title: "Update Time", content: paper.updateTime.formatted())
                     }
                 }
                 .padding([.horizontal], 10)
@@ -69,11 +70,16 @@ struct PaperTableItemDetail: View {
     
     @ViewBuilder
     func item(title: String, content: String?) -> some View {
-        VStack(alignment: .leading, spacing: 0) {
+        HStack(spacing: 0) {
             Text(title)
                 .font(.caption)
                 .opacity(0.5)
+            Spacer()
             Text(content ?? "")
+                .multilineTextAlignment(.trailing)
         }
+        Divider()
+            .padding([.horizontal], 0)
+            .padding([.vertical], 5)
     }
 }

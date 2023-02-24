@@ -38,7 +38,6 @@ struct PapersView: View {
         
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                //            ScrollView(.horizontal) {
                 Table(selection: $selectedPaperIds, sortOrder: $sortOrder) {
                     TableColumn("Title", value: \.title)
                         .width(min: 300)
@@ -57,6 +56,13 @@ struct PapersView: View {
                         Text(paper.publication ?? "")
                     }
                     .width(min: 150, ideal: 100)
+                    
+                    TableColumn("") { paper in
+                        if paper.attachment != nil {
+                            Label("PDF", systemImage: "paperclip")
+                        }
+                    }
+                    .width(20)
                 } rows: {
                     ForEach(sortedPapers) { paper in
                         TableRow(paper)
@@ -78,7 +84,6 @@ struct PapersView: View {
                             }
                     }
                 }
-                //            }
                 
                 // if seletedPaperIds.count == 1 will make PaperTableItemDetail
                 // shows only when one paper is selected
