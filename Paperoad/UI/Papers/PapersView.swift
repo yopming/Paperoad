@@ -84,6 +84,10 @@ struct PapersView: View {
                             }
                     }
                 }
+                .contextMenu(forSelectionType: Paper.ID.self, menu: { _ in }) { items in
+                    print("\(items)")
+                    print("\(selectedPaperIds)")
+                }
                 
                 // if seletedPaperIds.count == 1 will make PaperTableItemDetail
                 // shows only when one paper is selected
@@ -158,19 +162,5 @@ struct PapersView: View {
 
     private func consoleLog() {
         print(selectedPaper ?? "No paper selected")
-    }
-}
-
-struct MyPreviewProvider_Previews: PreviewProvider {
-    static let papers = [
-        Paper(title: "SecureRC: A System for Privacy-Preserving Relation Classification using Secure Multi-Party Computation", publication: "Computers & Security", year: "2019", authors: "C Gao, J Yu", deleted: false, createTime: Date(), updateTime: Date()),
-        Paper(title: "Wolverine: A Scalable and Transaction-Consistent Redactable Permissionless Blockchain", publication: "IEEE Transactions on Information Forensics and Security", year: "2018", authors: "J Li, H Ma, J Wang, Z Song, W Xu, R Zhang", deleted: false, createTime: Date(), updateTime: Date()),
-        Paper(title: "MWPoW+: a strong consensus protocol for intra-shard consensus in blockchain sharding", publication: "ACM Transactions on Internet Technology", year: "2021", authors: "Y Xu, J Shao, T Slaats, B Düdder", deleted: false, createTime: Date(), updateTime: Date()),
-        Paper(title: "Smart Contracts in Blockchain Technology: A Critical Review", publication: "Information", year: "2022", authors: "H Taherdoost", deleted: false, createTime: Date(), updateTime: Date()),
-        Paper(title: "Security and Privacy in Connected Vehicle Cyber Physical System Using Zero Knowledge Succinct Non Interactive Argument of Knowledge over Blockchain", publication: "Applied Sciences", year: "2022", authors: "R Khan, A Mehmood, Z Iqbal, C Maple, G Epiphaniou", deleted: false, createTime: Date(), updateTime: Date())
-    ]
-    
-    static var previews: some View {
-        PapersView(papers: papers, category: "Preview")
     }
 }

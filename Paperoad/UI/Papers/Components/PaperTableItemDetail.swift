@@ -55,7 +55,7 @@ struct PaperTableItemDetail: View {
             ScrollView {
                 Text(paper.abstract ?? "")
                     .multilineTextAlignment(.leading)
-                    .padding(5)
+                    .padding(7)
             }
             .tabItem{ Text("Abstract") }
             
@@ -63,7 +63,7 @@ struct PaperTableItemDetail: View {
             ScrollView {
                 Text(paper.note ?? "")
                     .multilineTextAlignment(.leading)
-                    .padding(5)
+                    .padding(7)
             }
             .tabItem { Text("Notes") }
         }
