@@ -14,6 +14,8 @@ struct PapersView: View {
     
     @EnvironmentObject var appState: AppState
     
+    @Default(\.storageDir) var storageDir
+    
     @State private var errorAlertIsPresented = false
     @State private var errorAlertMessage = ""
     
@@ -85,8 +87,13 @@ struct PapersView: View {
                     }
                 }
                 .contextMenu(forSelectionType: Paper.ID.self, menu: { _ in }) { items in
-                    print("\(items)")
-                    print("\(selectedPaperIds)")
+                    guard let storageUrl = restoreFileAccess(with: storageDir) else { return }
+                    
+                    _ = storageUrl.startAccessingSecurityScopedResource()
+                    for url in selectedPaperUrls {
+                        NSWorkspace.shared.open(URL(fileURLWithPath: url))
+                    }
+                    storageUrl.stopAccessingSecurityScopedResource()
                 }
                 
                 // if seletedPaperIds.count == 1 will make PaperTableItemDetail
@@ -131,6 +138,19 @@ struct PapersView: View {
     // papers after sorting to be renderred in table
     var sortedPapers: [Paper] {
         return papers.sorted(using: sortOrder)
+    }
+    
+    // get all selected when multiple selection occur
+    var selectedPaperUrls: [String] {
+        var urls = [String]()
+        for i in selectedPaperIds {
+            if let paper = papers.first(where: { $0.id == i }) {
+                if paper.attachment != "" && paper.attachment != nil {
+                    urls.append(paper.attachment!)
+                }
+            }
+        }
+        return urls
     }
     
     // get selected one when multiple selections occur
