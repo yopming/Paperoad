@@ -21,7 +21,7 @@ struct PaperTableItemDetail: View {
                             .padding([.bottom], 25)
                             .font(.headline)
                         item(title: "Type", content: String(paper.type ?? Int16()))
-                        item(title: "Abstract", content: paper.abstract)
+                        
                         item(title: "Publication", content: paper.publication)
                         item(title: "Year", content: paper.year)
                     }
@@ -53,18 +53,19 @@ struct PaperTableItemDetail: View {
             
             // Tab
             ScrollView {
-                Text(paper.note ?? "")
+                Text(paper.abstract ?? "")
                     .multilineTextAlignment(.leading)
-                    .lineLimit(10)
-                    .padding()
+                    .padding(5)
             }
-            .tabItem { Text("Notes") }
+            .tabItem{ Text("Abstract") }
             
             // Tab
             ScrollView {
-                item(title: "Attachment", content: paper.attachment)
+                Text(paper.note ?? "")
+                    .multilineTextAlignment(.leading)
+                    .padding(5)
             }
-            .tabItem { Text("Attachments") }
+            .tabItem { Text("Notes") }
         }
     }
     
