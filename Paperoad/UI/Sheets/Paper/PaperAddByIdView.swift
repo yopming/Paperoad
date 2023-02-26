@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct PaperAddByIdView: View {
+    @Environment(\.appDatabase) private var appDatabase
+    
     @EnvironmentObject var appState: AppState
+    
+    @Default(\.storageDir) var storageDir
+    
+    @State var dragOver = false
     
     // publication id types
     let idTypes: [String] = PaperIdTypes.allCases.map { $0.rawValue }
@@ -22,6 +28,11 @@ struct PaperAddByIdView: View {
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
+            Text("New paper will be shown in group 'Unfiled'.")
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .opacity(0.75)
+                .padding([.top], -15)
             
             Divider()
             
@@ -35,9 +46,10 @@ struct PaperAddByIdView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 
                 TextField("Identifier", text: $identifier)
+                
+                uploadBox()
             }
             
-            Text("New paper will be shown in group 'Unfiled'.")
             
             Divider()
             
@@ -59,5 +71,47 @@ struct PaperAddByIdView: View {
         .padding()
         .textFieldStyle(.roundedBorder)
         .frame(width: 450, alignment: .leading)
+    }
+    
+    @ViewBuilder
+    func uploadBox() -> some View {
+        GroupBox() {
+            Text("Drag PDF file here.")
+                .font(.footnote)
+                .frame(maxWidth: .infinity)
+                .frame(height: 65, alignment: .center)
+        }
+        .blur(radius: dragOver ? 0.2 : 0)
+        .opacity(dragOver ? 1 : 0.5)
+        .padding([.top], 15)
+        
+        .onDrop(of: [kUTTypePDF], isTargeted: $dragOver) { providers, location in
+            for provider in providers {
+                provider.loadFileRepresentation(forTypeIdentifier: kUTTypePDF) { url, error in
+                    guard error == nil else {
+                        print(error ?? "error in uploading")
+                        return
+                    }
+                    
+                    guard let url = url else { return }
+                    let oldFile = url.deletingPathExtension().lastPathComponent
+                    let newFile = "\(Int(Date().timeIntervalSince1970)).\(url.pathExtension)"
+                    
+                    guard let storageUrl = restoreFileAccess(with: storageDir) else { return }
+                    defer { storageUrl.stopAccessingSecurityScopedResource()}
+                    
+                    if !(storageUrl.startAccessingSecurityScopedResource()) {
+                        print("startAccessingSecurityScopedResource() error.")
+                    }
+                    
+                    let newUrl = URL(filePath: newFile, relativeTo: storageUrl)
+                    try? FileManager.default.copyItem(at: url, to: newUrl)
+                    
+                    // TODO: save paper to database
+                }
+            }
+            
+            return true
+        }
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GRDBQuery
+import DOI
 
 struct PapersView: View {
     @Environment(\.appDatabase) private var appDatabase
@@ -179,8 +180,18 @@ struct PapersView: View {
             }
         }
     }
-
+    
+    // for debug only
     private func consoleLog() {
         print(selectedPaper ?? "No paper selected")
+        
+        if (selectedPaper != nil) && selectedPaper!.doi != nil {
+            do {
+                let doi = try DOI("https://doi.org/10.1109/JIOT.2023.3247487")
+                print(doi)
+            } catch {
+                print(error)
+            }
+        }
     }
 }

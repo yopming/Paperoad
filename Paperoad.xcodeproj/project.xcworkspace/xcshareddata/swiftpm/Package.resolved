@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "doi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iansampson/DOI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2845ff5fc93741630fc99045161ad9aa180b5df2"
+      }
+    },
+    {
       "identity" : "grdb.swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/groue/GRDB.swift.git",

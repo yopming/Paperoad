@@ -87,9 +87,4 @@ struct PaperTableItemDetail: View {
             .padding([.horizontal], 0)
             .padding([.vertical], 5)
     }
-    
-    @ViewBuilder
-    func thumbnail(url: URL) -> some View {
-        
-    }
 }
