@@ -20,6 +20,8 @@ struct PaperTableItemDetail: View {
                             .padding([.top], 15)
                             .padding([.bottom], 25)
                             .font(.headline)
+                            .multilineTextAlignment(.leading)
+                        
                         item(title: "Type", content: String(paper.type ?? Int16()))
                         
                         item(title: "Publication", content: paper.publication)
@@ -45,6 +47,8 @@ struct PaperTableItemDetail: View {
                         item(title: "Create Time", content: paper.createTime.formatted())
                         item(title: "Update Time", content: paper.updateTime.formatted())
                     }
+                    
+                    // TODO: thumbnail of pdf
                 }
                 .padding([.horizontal], 10)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -82,5 +86,10 @@ struct PaperTableItemDetail: View {
         Divider()
             .padding([.horizontal], 0)
             .padding([.vertical], 5)
+    }
+    
+    @ViewBuilder
+    func thumbnail(url: URL) -> some View {
+        
     }
 }
