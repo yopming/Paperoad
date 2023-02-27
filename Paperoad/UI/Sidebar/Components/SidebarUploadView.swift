@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PDFKit
 
 struct SidebarUploadView: View {
     @Environment(\.appDatabase) private var appDatabase
