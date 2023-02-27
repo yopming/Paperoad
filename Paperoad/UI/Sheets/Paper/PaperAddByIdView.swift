@@ -107,6 +107,10 @@ struct PaperAddByIdView: View {
                     let newUrl = URL(filePath: newFile, relativeTo: storageUrl)
                     try? FileManager.default.copyItem(at: url, to: newUrl)
                     
+                    #if debug
+                    print(newUrl.absoluteString)
+                    #endif
+                    
                     // TODO: save paper to database
                 }
             }
