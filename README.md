@@ -1,6 +1,12 @@
 # Paperoad
 
-Paperoad, a reference and publication management application in macOS.
+Paperoad, a reference and publication management application in macOS. The application is written in Xcode 14.2 under macOS 13.0.
+
+The application utilizes the following:
+
+- Swift
+- SwiftUI
+- GRDB and GRDBQuery
 
 ![Paperoad](./Doc/snapshot.png)
 
